@@ -15,12 +15,12 @@ const routes: Routes = [{
   component: LoginComponent
 },
 {
-  path: 'admindash',
-  component: AdminComponent
-},
-{
-  path: 'tournament',
-  component: TournamentComponent
+  path: 'admin',
+  component: AdminComponent,
+  children : [
+                { path: 'dashboard', component: AdmindashComponent },
+                { path: 'tournament', component: TournamentComponent } 
+                   ]
 },
 {
   path: 'home',

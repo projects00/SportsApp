@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { APP_BASE_HREF } from '@angular/common';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   }
 
    onClick(): void {
-  // this.router.navigateByUrl('/admindash');
+  this.router.navigateByUrl('admin');
    
 }
 }

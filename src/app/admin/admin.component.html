@@ -26,8 +26,8 @@
         <nav class="nav" id="sidebar-wrapper" role="navigation">
             <div class="sideMenuBg">
                 <ul class="nav nav-staked nav-sidemenu">
-                    <li class="active"><a href="Dashboard.html" title="Dashboard"><img class="nav-icon" src="./assets/images/icon-dashboard.svg"><span class="txtmenu">Dashboard</span></a></li>
-                    <li><a href="Cricket.html" title="Cricket"><img class="nav-icon" src="./assets/images/icon-cricket.svg"><span class="txtmenu">Cricket</span></a></li>
+                    <li class="active"><a [routerLink]="['dashboard']" title="Dashboard"><img class="nav-icon" src="./assets/images/icon-dashboard.svg"><span class="txtmenu">Dashboard</span></a></li>
+                    <li><a  title="Cricket" [routerLink]="['tournament']"><img class="nav-icon" src="./assets/images/icon-cricket.svg"><span class="txtmenu">Cricket</span></a></li>
                     <li><a href="#" title="User Management"><img class="nav-icon" src="./assets/images/icon-user-info.svg"><span class="txtmenu">Teams</span></a></li>
                     <li><a href="#" title="Settings"><img class="nav-icon" src="./assets/images/icon-settings.svg"><span class="txtmenu">Settings</span></a></li>
                 </ul>
@@ -39,7 +39,7 @@
                     <div class="col-md-12">
                         <div class="navbar" role="navigation">
                             <div class="navbar-header">
-                                <a class="navbar-brand" href="Dashboard.html"><img src="../images/logo.svg" alt="logo"></a>
+                                <a class="navbar-brand" [routerLink]="['dashboard']"><img src="./assets/images/logo.svg" alt="logo"></a>
                                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
                                     aria-expanded="false">
                                     <span class="sr-only">Toggle navigation</span>
@@ -154,7 +154,7 @@
     </div>
     <script src="./assets/js/jquery.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
-    <script src="./assets/js/scripts.js"></script>
+    <script src="./assets/js/scripts1.js"></script>
 </body>
 
 </html>
