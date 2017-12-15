@@ -12,7 +12,7 @@ body { font-family: 'Quicksand', sans-serif; color: #111; background: #f2f2f2; }
 .bgfooter p, .bgfooter h1, .bgfooter h2, .bgfooter h3, .bgfooter h4,.bgfooter a { color: #eee !important; }
 ::selection { background: #55b8da; color: #FFFFFF; }
 ::-moz-selection { background: #55b8da; color: #FFFFFF; }
-.sectiontitle { margin: 15px 0 35px 0; background: url(../assets/images/title.png); padding: 10px; color: #55b8da; }
+.sectiontitle { margin: 15px 0 35px 0; background: url(assets/images/title.png); padding: 10px; color: #55b8da; }
 .text-primary { color: #55b8da; }
 .dropdown-menu > li > a { padding: 10px 15px; }
 .sectionpad { padding: 40px 0; }
@@ -82,8 +82,8 @@ h3 { font-size: 1.6em; }
 .location h3{ margin: 0; color: #2a86a5;}
 .LiveScore h3{ margin: 0 0 10px; color: #55b8da;}
 .ba{background: #d8f1f9}
-.quotes{ padding: 10px 10px 10px 100px; background: url(../asset/images/quotes.png) no-repeat left top; margin: 0 120px;}
-.carousel-main { height: 100%; width: 100%; background: url(../assets/images/loading.gif) center center no-repeat; }
+.quotes{ padding: 10px 10px 10px 100px; background: url(./images/quotes.png) no-repeat left top; margin: 0 120px;}
+.carousel-main { height: 100%; width: 100%; background: url(./images/loading.gif) center center no-repeat; }
 .owl-carousel .item { width: 100%; height: 100%; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; -o-background-size: cover; }
     .owl-carousel .item h1, .owl-carousel .item h2 { margin: 0; color: #55b8da; line-height: 1.4; text-align: left }
     .owl-carousel .item h1 { font-size: 2.6em; font-weight: bolder; text-transform: uppercase; }
