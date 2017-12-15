@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/favicon.ico" />
+    <title>Cricket | Home</title>
+    <meta name="description" content="TEMPLATE ONE" />
+    <meta name="keywords" content="TEMPLATE ONE" />
+    <meta name="distribution" content="Global" />
+    <meta name="ROBOTS" content="INDEX, FOLLOW" />
+    <meta name="msnbot" content="INDEX, FOLLOW" />
+    <meta name="googlebot" content="INDEX, FOLLOW" />
+    <meta name="allow-search" content="yes" />
+    <meta name="author" content="TEMPLATE ONE" />
+    <meta name="copyright" content="TEMPLATE ONE" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <!--//-->
+    <!--[if lt IE 9]><script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+         <![endif]-->
+    <!--//-->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/owl.carousel.css" rel="stylesheet">
+</head>
+<body>
+<app-root></app-root>
+    <footer class="bgfooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 iconouter">
+                    <img src="assets/images/Icon-Phone.svg" class="center-block" title="Phone Icon" alt="Phone">
+                    <p class="pad15">+91 98765 43210</p>
+                </div>
+                <div class="col-md-4 iconouter">
+                    <img src="assets/images/Icon-Social.svg" class="center-block" title="Social Icon" alt="Social">
+                    <p class="pad15"><a href="https://www.facebook.com/" title="Facebook Link" target="_blank">Facebook</a> | <a href="https://www.instagram.com/" target="_blank" title="Instagram Link">Instagram </a> | <a href="https://plus.google.com/" target="_blank" title="Google+ Link">Google+</a></p>
+                </div>
+                <div class="col-md-4 iconouter">
+                    <img src="assets/images/Icon-Email.svg" class="center-block" title="Email Icon" alt="Email">
+                    <p class="pad15"><a href="mailto:info@cricket.com">info@cricket.com</a>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 text-center">
+                    <hr>
+                    <p>Cricket &middot; All Rights Reserved &middot; &copy; 2017</p>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $('.carousel-main').owlCarousel({
+                animateOut: 'fadeOut',
+                autoplay: true,
+                autoplayTimeout: 6000,
+                animateIn: 'slideOutDown',
+                navigation: true,
+                items: 1,
+                loop: true,
+                smartSpeed: 450
+            });
+            $('.carousel-explore').owlCarousel({
+                autoplay: true,
+                autoplayTimeout: 4000,
+                loop: true,
+                nav: false,
+                responsiveClass:true,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    768:{
+                        items:2
+                    },
+                    1024:{
+                        items:3
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
