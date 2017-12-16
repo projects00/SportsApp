@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { AdminService } from '../admin.service';
+import { AdminService } from '../service/admin.service';
 @Component({
   selector: 'app-tournament',
   templateUrl: './tournament.component.html',

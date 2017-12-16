@@ -10,7 +10,7 @@ import { AdmindashComponent } from './admindash/admindash.component';
 import { TournamentComponent } from './tournament/tournament.component';
 import { APP_BASE_HREF, Location } from '@angular/common';
 import { HomeComponent } from './home/home.component';
-import {AdminService } from './admin.service';
+import {AdminService } from './service/admin.service';
 
 const routes: Routes = [{
   path: 'login',
