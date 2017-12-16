@@ -1,5 +1,5 @@
 import { Component,  OnInit,Input,Output ,EventEmitter} from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-tournament',
   templateUrl: './tournament.component.html',
@@ -7,14 +7,12 @@ import { Component,  OnInit,Input,Output ,EventEmitter} from '@angular/core';
 })
 export class TournamentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
   adminSave() {
-    debugger;
-  alert("admin save");
-   }
+    }
 
 }
