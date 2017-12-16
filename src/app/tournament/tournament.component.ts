@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  OnInit,Input,Output ,EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-tournament',
@@ -11,5 +11,10 @@ export class TournamentComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  adminSave() {
+    debugger;
+  alert("admin save");
+   }
 
 }

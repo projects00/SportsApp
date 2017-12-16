@@ -13,8 +13,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-   onClick(): void {
+onClick(): void {
   this.router.navigateByUrl('admin');
-   
-}
+   }
 }

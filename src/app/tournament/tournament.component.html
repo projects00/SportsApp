@@ -17,7 +17,7 @@
                                         </div>
                                     </li>
                                     <li data-toggle="tooltip" title="Add Tournament">
-                                        <a href="#" data-toggle="modal" data-target="#AddTournament"><i class="lnr lnr-plus-circle"></i></a>
+                                        <a href="#" data-toggle="modal" data-target="#AddTournament"><i class="lnr lnr-plus-circle"></i>Add</a>
                                     </li>
                                 </ul>
                                 <div class="clearfix"></div>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                     <!-- Modal -->
-    <div class="modal fade" id="AddTournament" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+    <div class="modal fade" id="AddTournament" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <form>
@@ -88,7 +88,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <a class="btn btn-primary" href="#">Save</a>
+                        
+                        <a type="button"  class="btn btn-primary" (click)="adminSave()" >Save</a>
                         <a class="btn btn-default" href="#" data-dismiss="modal" >Cancel</a>
                     </div>
                 </form>
