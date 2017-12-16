@@ -46,10 +46,10 @@ const routes: Routes = [{
          LoadingModule.forRoot({
         animationType: ANIMATION_TYPES.threeBounce,
         backdropBackgroundColour: 'rgba(0,0,0,0.1)', 
-        backdropBorderRadius: '1px',
-        primaryColour: '#54acca', 
-        secondaryColour: '#a1e0f5', 
-        tertiaryColour: '#d8f1f9'
+        backdropBorderRadius: '6px',
+        primaryColour: '#2a86a5', 
+        secondaryColour: '#2a86a5', 
+        tertiaryColour: '#2a86a5'
     })
    
   ],
