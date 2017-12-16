@@ -10,6 +10,8 @@ import { AdmindashComponent } from './admindash/admindash.component';
 import { TournamentComponent } from './tournament/tournament.component';
 import { APP_BASE_HREF, Location } from '@angular/common';
 import { HomeComponent } from './home/home.component';
+import {AdminService } from './admin.service';
+
 const routes: Routes = [{
   path: 'login',
   component: LoginComponent
@@ -43,7 +45,7 @@ const routes: Routes = [{
    
   ],
   providers: [
-    
+    AdminService,
     { provide: APP_BASE_HREF, useValue: window['_app_base'] || '/' },
   ],
   bootstrap: [AppComponent]

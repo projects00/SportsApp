@@ -1,154 +1,159 @@
-              <div class="col-md-12">
-                    <div class="pannelDiv" id="pannel1">
-                        <div class="x_panel">
-                            <div class="x_title">
-                                <h2>Tournament Management</h2>
-                                <ul class="nav navbar-right panel_toolbox">
-                                    <li>
-                                        <div class="dropdown">
-                                            <a href="#" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="lnr lnr-cog"></i></a>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                <li><a href="#">Sub Menu</a></li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="#"><span class="txtmenu">Edit</span></a></li>
-                                                <li><a href="#"><span class="txtmenu">Alerts</span></a></li>
-                                                <li><a href="#"><span class="txtmenu">Profile</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li data-toggle="tooltip" title="Add Tournament">
-                                        <a href="#" data-toggle="modal" data-target="#AddTournament"><i class="lnr lnr-plus-circle"></i>Add</a>
-                                    </li>
-                                </ul>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="x_content">
-                                <table class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Name</th>
-                                            <th>Type</th>
-                                            <th>City</th>
-                                            <th>Format</th>
-                                            <th>Catogory</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Abc</td>
-                                            <td>Tennis ball</td>
-                                            <td>Bangalore</td>
-                                            <td>50 Overs</td>
-                                            <td>City Wise</td>
-                                            <td><a href="#" data-toggle="modal" data-target="#EditTournament"><i class="lnr lnr-pencil"></i>Add</a></td>
-                                            <td><a href="#" data-toggle="modal" data-target="#DeleteTournament"><i class="lnr lnr-trash"></i>Delete</a></td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
+<div class="col-md-12">
+    <div class="pannelDiv" id="pannel1">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Tournament Management</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <div class="dropdown">
+                            <a href="#" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="lnr lnr-cog"></i></a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <li><a href="#">Sub Menu</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#"><span class="txtmenu">Edit</span></a></li>
+                                <li><a href="#"><span class="txtmenu">Alerts</span></a></li>
+                                <li><a href="#"><span class="txtmenu">Profile</span></a></li>
+                            </ul>
                         </div>
-                    </div>
-                </div>
-                    <!-- Modal -->
-    <div class="modal fade" id="AddTournament" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <form>
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Add Tournament</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Tournament Name</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Tournament Type</label>
-                            <select class="form-control">
-                                <option>1</option><option>2</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Format</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">City</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="form-group">
-                            <label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> General</label>
-                            <label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> City Wise</label>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        
-                        <a type="button"  class="btn btn-primary" (click)="adminSave()" >Save</a>
-                        <a class="btn btn-default" href="#" data-dismiss="modal" >Cancel</a>
-                    </div>
-                </form>
+                    </li>
+                    <li data-toggle="tooltip" title="Add Tournament">
+                        <a href="#" data-toggle="modal" data-target="#AddTournament"><i class="lnr lnr-plus-circle"></i>Add</a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>City</th>
+                            <th>Format</th>
+                            <th>Catogory</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Abc</td>
+                            <td>Tennis ball</td>
+                            <td>Bangalore</td>
+                            <td>50 Overs</td>
+                            <td>City Wise</td>
+                            <td><a href="#" data-toggle="modal" data-target="#EditTournament"><i class="lnr lnr-pencil"></i>Add</a></td>
+                            <td><a href="#" data-toggle="modal" data-target="#DeleteTournament"><i class="lnr lnr-trash"></i>Delete</a></td>
+                        </tr>
+
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="EditTournament" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <form>
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Edit Tournament</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Tournament Name</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" value="Tournament Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Tournament Type</label>
-                                <select class="form-control">
-                                    <option>1</option><option>2</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Format</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">City</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="form-group">
-                                <label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> General</label>
-                                <label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> City Wise</label>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <a class="btn btn-primary" >Save</a>
-                            <a class="btn btn-default" href="#" data-dismiss="modal" >Cancel</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    <div class="modal fade" id="DeleteTournament" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
-        <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
+</div>
+<!-- Modal -->
+<div class="modal fade" id="AddTournament" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+    data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form>
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Delete Tournament?</h4>
+                    <h4 class="modal-title" id="myModalLabel">Add Tournament</h4>
                 </div>
                 <div class="modal-body">
-                    <p class="lead text-center">Are you sure you need to delete this Tournament? </p>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Tournament Name</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Tournament Type</label>
+                        <select class="form-control">
+                                <option>1</option><option>2</option>
+                            </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">City</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> General</label>
+                        <label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> City Wise</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Custom Field1</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Custom Field2</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1">
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" data-dismiss="modal" class="btn btn-primary">Yes</button>
+
+                    <a type="button" class="btn btn-primary" (click)="adminSave()">Save</a>
+                    <a class="btn btn-default" href="#" data-dismiss="modal">Cancel</a>
                 </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="EditTournament" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit Tournament</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Tournament Name</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" value="Tournament Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Tournament Type</label>
+                        <select class="form-control">
+                                    <option>1</option><option>2</option>
+                                </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Format</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">City</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> General</label>
+                        <label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> City Wise</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary">Save</a>
+                    <a class="btn btn-default" href="#" data-dismiss="modal">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="DeleteTournament" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Delete Tournament?</h4>
+            </div>
+            <div class="modal-body">
+                <p class="lead text-center">Are you sure you need to delete this Tournament? </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-primary">Yes</button>
             </div>
         </div>
     </div>
+</div>
