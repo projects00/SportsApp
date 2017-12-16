@@ -12,6 +12,7 @@ import 'rxjs/Rx';
 })
 export class TournamentComponent implements OnInit {
   trounnament:any=[];
+  public loading = false;
   constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit() {
@@ -20,6 +21,7 @@ export class TournamentComponent implements OnInit {
 
 
   getTournament() {
+   this.loading = true;
     this.adminService.getTournament().subscribe(
       (respose) => {
         respose.forEach(element => {
@@ -33,6 +35,7 @@ export class TournamentComponent implements OnInit {
         tour.city=element.city;
         this.trounnament.push(tour);
         });
+      this.loading = false;
       },
       (error) => {
         console.log(error.json());

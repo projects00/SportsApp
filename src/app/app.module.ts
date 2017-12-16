@@ -11,6 +11,7 @@ import { TournamentComponent } from './tournament/tournament.component';
 import { APP_BASE_HREF, Location } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import {AdminService } from './service/admin.service';
+import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
 
 const routes: Routes = [{
   path: 'login',
@@ -41,7 +42,15 @@ const routes: Routes = [{
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+         LoadingModule.forRoot({
+        animationType: ANIMATION_TYPES.threeBounce,
+        backdropBackgroundColour: 'rgba(0,0,0,0.1)', 
+        backdropBorderRadius: '1px',
+        primaryColour: '#54acca', 
+        secondaryColour: '#a1e0f5', 
+        tertiaryColour: '#d8f1f9'
+    })
    
   ],
   providers: [
