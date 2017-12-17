@@ -4,6 +4,6 @@ export class Tournament {
     category:string;
     city:string;
     type:string;
-    customField1:string;
-    customField2:string
+    customvalue1:string;
+    customvalue2:string
 }
