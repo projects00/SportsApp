@@ -26,6 +26,7 @@ export class TournamentComponent implements OnInit {
  
   getTournament() {
     this.loading = true;
+    this.trounnament=[];
     this.adminService.getTournament().subscribe(
       (respose) => {
         respose.forEach(element => {

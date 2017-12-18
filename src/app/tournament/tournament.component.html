@@ -39,9 +39,9 @@
                         </tr>
                     </thead>
  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '8px' }"></ngx-loading>
-                    <tbody *ngFor="let sb of trounnament">
+                    <tbody *ngFor="let sb of trounnament;let i =index">
                         <tr>
-                            <td>{{sb.id}}</td>
+                            <td>{{i+1}}</td>
                             <td>{{sb.name}}</td>
                             <td>{{sb.type}}</td>
                             <td>{{sb.city}}</td>
