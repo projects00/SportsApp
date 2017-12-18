@@ -62,8 +62,9 @@ export class TournamentComponent implements OnInit {
         console.log(respose);
           $("#AddTournament").modal("toggle");
            this.getTournament();
-         // form.controls['tornamentName'].setValue('',{onlySelf:true,emitEvent: false});
-       form.setValue({"tornamentName":" ","tornamentCity":" ","tornamentType":1,"inlineRadioOptions":" ","customField1":" ","customField2":" "});
+           form.resetForm();
+         form.controls['tornamentType'].setValue(1);
+    //   form.setValue({"tornamentName":" ","tornamentCity":" ","tornamentType":1,"inlineRadioOptions":" ","customField1":" ","customField2":" "});
       });
     
   }
