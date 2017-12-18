@@ -3,8 +3,14 @@
         <nav class="nav" id="sidebar-wrapper" role="navigation">
             <div class="sideMenuBg">
                 <ul class="nav nav-staked nav-sidemenu">
-                    <li class="active"><a [routerLink]="['dashboard']" title="Dashboard"><img class="nav-icon" src="./assets/images/icon-dashboard.svg"><span class="txtmenu">Dashboard</span></a></li>
-                    <li><a  title="Cricket" [routerLink]="['tournament']"><img class="nav-icon" src="./assets/images/icon-cricket.svg"><span class="txtmenu">Cricket</span></a></li>
+                    <li><a [routerLink]="['dashboard']" title="Dashboard"><img class="nav-icon" src="./assets/images/icon-dashboard.svg"><span class="txtmenu">Dashboard</span></a></li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  title="Cricket"><img class="nav-icon" src="./assets/images/icon-cricket.svg"><span class="txtmenu">Cricket <span class="caret"></span></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" [routerLink]="['tournament']">Cricket</a></li>
+                            <li><a href="#" [routerLink]="['tournament']">Tournament</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#" title="User Management"><img class="nav-icon" src="./assets/images/icon-user-info.svg"><span class="txtmenu">Teams</span></a></li>
                     <li><a href="#" title="Settings"><img class="nav-icon" src="./assets/images/icon-settings.svg"><span class="txtmenu">Settings</span></a></li>
                 </ul>
@@ -69,8 +75,105 @@
             </div>
         </div>
     </div>
-  
-    <script src="./assets/js/jquery.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
-    <script src="./assets/js/scripts1.js"></script>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="AddTournament" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form #form="ngForm" (ngSubmit)="adminSave(form)">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Add Tournament</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Tournament Name</label>
+                        <input type="text" name="tornamentName" required ngModel class="form-control" id="exampleInputEmail1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Tournament Type</label>
+                        <select class="form-control" name="tornamentType"required [ngModel]="defaultType" >
+                                <option>1</option><option>2</option>
+                            </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">City</label>
+                        <input type="text" name="tornamentCity" required ngModel class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio1" required  ngModel value="General"> General</label>
+                        <label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio2"  required  ngModel value="City Wise"> City Wise</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Custom Field1</label>
+                        <input type="text" class="form-control" ngModel name="customField1" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Custom Field2</label>
+                        <input type="text" class="form-control" ngModel name="customField2" id="exampleInputPassword1">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" [disabled]="!form.valid" class="btn btn-primary" >Save</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-primary" >Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="EditTournament" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form >
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit Tournament</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Tournament Name</label>
+                        <input type="text" required class="form-control" id="exampleInputEmail1" value="Tournament Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Tournament Type</label>
+                        <select class="form-control">
+                            <option>1</option><option>2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Format</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">City</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio1" required  value="option1"> General</label>
+                        <label class="radio-inline"><input type="radio" name="inlineRadioOptions" id="inlineRadio2" required  value="option2"> City Wise</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary">Save</a>
+                    <a class="btn btn-default" href="#" data-dismiss="modal">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="DeleteTournament" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Delete Tournament?</h4>
+            </div>
+            <div class="modal-body">
+                <p class="lead text-center">Are you sure you need to delete this Tournament? </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-primary">Yes</button>
+            </div>
+        </div>
+    </div>
 </div>
