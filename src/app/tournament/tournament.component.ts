@@ -19,6 +19,7 @@ export class TournamentComponent implements OnInit {
   constructor(private adminService: AdminService, private router: Router) { }
   defaultType = 1;
   defaultCategory = "General";
+  defaultCity="";
   ngOnInit() {
     this.getTournament();
   }
@@ -65,6 +66,9 @@ export class TournamentComponent implements OnInit {
            this.getTournament();
            form.resetForm();
          form.controls['tornamentType'].setValue(1);
+                  form.controls['tornamentCity'].setValue("");
+
+
     //   form.setValue({"tornamentName":" ","tornamentCity":" ","tornamentType":1,"inlineRadioOptions":" ","customField1":" ","customField2":" "});
       });
     
