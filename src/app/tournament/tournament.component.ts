@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AdminService } from '../service/admin.service';
 import { Tournament } from '../model/tournament';
 import { NgForm } from '@angular/forms';
+declare var $ :any;
 
 
 import 'rxjs/Rx';
@@ -48,6 +49,7 @@ export class TournamentComponent implements OnInit {
   }
   adminSave(form: NgForm) {
     console.log(form.value.tor);
+    debugger;
     const tour = new Tournament();
     tour.name = form.value.tornamentName;
     tour.category = form.value.inlineRadioOptions;
@@ -58,7 +60,8 @@ export class TournamentComponent implements OnInit {
     this.adminService.saveTournament(tour).subscribe(
       (respose) => {
         console.log(respose);
-          this.getTournament();
+          $("#AddTournament").modal("toggle");
+           this.getTournament();
       });
     
   }
