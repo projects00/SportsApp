@@ -2,8 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from '../service/admin.service';
 import { Tournament } from '../model/tournament';
-import { NgForm } from '@angular/forms';
-declare var $ :any;
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+declare var $: any;
 
 
 import 'rxjs/Rx';
@@ -15,19 +15,50 @@ import 'rxjs/Rx';
 })
 export class TournamentComponent implements OnInit {
   trounnament: any = [];
+  rForm: FormGroup;
+  eForm:FormGroup;
   public loading = false;
-  constructor(private adminService: AdminService, private router: Router) { }
-  defaultType = 1;
-  defaultCategory = "General";
-  defaultCity="";
-  ngOnInit() {
+  fb1: FormBuilder;
+  constructor(private adminService: AdminService, private router: Router, fb: FormBuilder) {
+    this.fb1 = fb;
+    this.initilizeFrom();
+  }
+   ngOnInit() {
     this.getTournament();
   }
 
- 
+  initilizeFrom() {
+    this.rForm = this.fb1.group({
+      'tornamentName': [null, Validators.required],
+      'tornamentType': [null, Validators.required],
+      'tornamentCity': [null, Validators.required],
+      'inlineRadioOptions': ["General", Validators.required],
+      'customField1': [],
+      'customField2': []
+
+    });
+       this.eForm = this.fb1.group({
+      'etornamentName': ["", Validators.required],
+      'etornamentType': [null, Validators.required],
+      'etornamentCity': [null, Validators.required],
+      'einlineRadioOptions': ["General", Validators.required],
+      'ecustomField1': [],
+      'ecustomField2': []
+
+    });
+  }
+  editForm(tour){
+ this.eForm.controls['etornamentName'].setValue(tour.name);
+ this.eForm.controls['etornamentType'].setValue(tour.type);
+this.eForm.controls['etornamentCity'].setValue(tour.city);
+this.eForm.controls['einlineRadioOptions'].setValue(tour.category);
+
+
+
+  }
   getTournament() {
     this.loading = true;
-    this.trounnament=[];
+    this.trounnament = [];
     this.adminService.getTournament().subscribe(
       (respose) => {
         respose.forEach(element => {
@@ -49,29 +80,24 @@ export class TournamentComponent implements OnInit {
 
     );
   }
-  adminSave(form: NgForm) {
-    console.log(form.value.tor);
+  adminSave() {
     debugger;
     const tour = new Tournament();
-    tour.name = form.value.tornamentName;
-    tour.category = form.value.inlineRadioOptions;
-    tour.customvalue2 = form.value.customField2;
-    tour.customvalue1 = form.value.customField1;
-    tour.type = form.value.tornamentType;
-    tour.city = form.value.tornamentCity;
+    tour.name = this.rForm.value.tornamentName;
+    tour.category = this.rForm.value.inlineRadioOptions;
+    tour.customvalue2 = this.rForm.value.customField2;
+    tour.customvalue1 = this.rForm.value.customField1;
+    tour.type = this.rForm.value.tornamentType;
+    tour.city = this.rForm.value.tornamentCity;
+
     this.adminService.saveTournament(tour).subscribe(
       (respose) => {
         console.log(respose);
-          $("#AddTournament").modal("toggle");
-           this.getTournament();
-           form.resetForm();
-         form.controls['tornamentType'].setValue(1);
-                  form.controls['tornamentCity'].setValue("");
-
-
-    //   form.setValue({"tornamentName":" ","tornamentCity":" ","tornamentType":1,"inlineRadioOptions":" ","customField1":" ","customField2":" "});
+        this.initilizeFrom();
+        $("#AddTournament").modal("toggle");
+        this.getTournament();
       });
-    
+
   }
 
 }
