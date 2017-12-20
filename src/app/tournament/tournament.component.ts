@@ -70,10 +70,12 @@ export class TournamentComponent implements OnInit {
        this.dId = tour.id;
 
     this.eForm.controls['etornamentName'].setValue(tour.name);
-    this.eForm.controls['etornamentType'].setValue(2);
-    this.eForm.controls['etornamentCity'].setValue(2);
+    this.eForm.controls['etornamentType'].setValue(tour.typeid);
+    this.eForm.controls['etornamentCity'].setValue(tour.cityid);
     this.eForm.controls['einlineRadioOptions'].setValue(tour.category);
-
+ this.eForm.controls['ecustomField1'].setValue(tour.customvalue1);
+this.eForm.controls['ecustomField2'].setValue(tour.customvalue2);
+ 
 
 
   }
@@ -89,8 +91,10 @@ export class TournamentComponent implements OnInit {
           tour.category = element.category;
           tour.customvalue2 = element.customvalue2;
           tour.customvalue1 = element.customvalue1;
-          tour.type = element.type;
-          tour.city = element.city;
+          tour.typeid = element.typeid;
+           tour.typename = element.typename;
+          tour.cityid = element.cityid;
+          tour.cityname = element.cityname;
           this.trounnament.push(tour);
         });
         this.loading = false;
@@ -108,8 +112,8 @@ export class TournamentComponent implements OnInit {
     tour.category = this.rForm.value.inlineRadioOptions;
     tour.customvalue2 = this.rForm.value.customField2;
     tour.customvalue1 = this.rForm.value.customField1;
-    tour.type = this.rForm.value.tornamentType;
-    tour.city = this.rForm.value.tornamentCity;
+    tour.typeid = this.rForm.value.tornamentType;
+    tour.cityid = this.rForm.value.tornamentCity;
 
     this.adminService.saveTournament(tour).subscribe(
       (respose) => {
@@ -122,11 +126,15 @@ export class TournamentComponent implements OnInit {
   }
 
   adminUpdate(){
+    debugger;
      const tour = new Tournament();
     tour.name = this.eForm.value.etornamentName;
     tour.category = this.eForm.value.einlineRadioOptions;
-    tour.type = this.eForm.value.etornamentType;
-    tour.city = this.eForm.value.etornamentCity;
+    tour.typeid = this.eForm.value.etornamentType;
+    tour.cityid = this.eForm.value.etornamentCity;
+      tour.customvalue2 = this.eForm.value.ecustomField2;
+          tour.customvalue1 = this.eForm.value.ecustomField1;
+     
     tour.id=this.dId;
     this.adminService.updateTournament(tour).subscribe(
       (respose) => {

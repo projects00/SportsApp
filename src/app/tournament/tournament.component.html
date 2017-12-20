@@ -43,14 +43,14 @@
                         <tr>
                             <td>{{i+1}}</td>
                             <td>{{sb.name}}</td>
-                            <td>{{sb.type}}</td>
-                            <td>{{sb.city}}</td>
+                            <td>{{sb.typename}}</td>
+                            <td>{{sb.cityname}}</td>
                             <td>{{sb.category}}</td>
                             <td>{{sb.customvalue1}}</td>
                             <td>{{sb.customvalue2}}</td>
                             <td><a href="#" data-toggle="modal"><i class="lnr lnr-pencil"></i>Add Detail </a></td>
-                            <td><a href="#" data-toggle="modal" (click)="editForm(sb)" data-target="#EditTournament"><i class="lnr lnr-pencil"></i>Add</a></td>
-                            <td><a href="#" (click)="deleteForm(sb.id)"data-toggle="modal" data-target="#DeleteTournament"><i class="lnr lnr-trash"></i>Delete</a></td>
+                            <td><a href="#" data-toggle="modal" (click)="editForm(sb)" data-target="#EditTournament"><i class="lnr lnr-pencil"></i></a></td>
+                            <td><a href="#" (click)="deleteForm(sb.id)"data-toggle="modal" data-target="#DeleteTournament"><i class="lnr lnr-trash"></i></a></td>
                         </tr>
 
                     </tbody>
@@ -143,6 +143,14 @@
                     <div class="form-group">
                         <label class="radio-inline"><input type="radio"  formControlName="einlineRadioOptions" id="inlineRadio1"   value="General"> General</label>
                         <label class="radio-inline"><input type="radio"  formControlName="einlineRadioOptions" id="inlineRadio2"   value="City Wise"> City Wise</label>
+                    </div>
+                             <div class="form-group">
+                        <label for="exampleInputPassword1">Custom Field1</label>
+                        <input type="text" class="form-control" formControlName="ecustomField1" id="exampleInputPassword3">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Custom Field2</label>
+                        <input type="text" class="form-control" formControlName="ecustomField2" id="exampleInputPassword3">
                     </div>
                 </div>
                 <div class="modal-footer">
