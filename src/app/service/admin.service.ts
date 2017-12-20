@@ -22,8 +22,13 @@ export class AdminService {
 
   saveTournament(tournament: any) {
     return this.http.post("https://floating-basin-98189.herokuapp.com/insert", tournament).map(response => response.json()  );
-                  
-      
 
+  }
+  deleteTournament(id){
+    debugger;
+    return this.http.put("https://floating-basin-98189.herokuapp.com/delete/"+id,{"isActive":1}).map(response => response.json()  );
+  }
+  updateTournament(tournament){
+    return this.http.put("https://floating-basin-98189.herokuapp.com/update/"+tournament.id,tournament).map(response => response.json()  );
   }
 }

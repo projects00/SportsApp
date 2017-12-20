@@ -38,7 +38,7 @@
                             <th>Delete</th>
                         </tr>
                     </thead>
- <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '8px' }"></ngx-loading>
+                    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '8px' }"></ngx-loading>
                     <tbody *ngFor="let sb of trounnament;let i =index">
                         <tr>
                             <td>{{i+1}}</td>
@@ -50,7 +50,7 @@
                             <td>{{sb.customvalue2}}</td>
                             <td><a href="#" data-toggle="modal"><i class="lnr lnr-pencil"></i>Add Detail </a></td>
                             <td><a href="#" data-toggle="modal" (click)="editForm(sb)" data-target="#EditTournament"><i class="lnr lnr-pencil"></i>Add</a></td>
-                            <td><a href="#" data-toggle="modal" data-target="#DeleteTournament"><i class="lnr lnr-trash"></i>Delete</a></td>
+                            <td><a href="#" (click)="deleteForm(sb.id)"data-toggle="modal" data-target="#DeleteTournament"><i class="lnr lnr-trash"></i>Delete</a></td>
                         </tr>
 
                     </tbody>
@@ -60,10 +60,11 @@
     </div>
 </div>
 
-<div class="modal fade" id="AddTournament" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+<div class="modal fade" id="AddTournament" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+    data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form [formGroup]="rForm" (ngSubmit)="adminSave()" >
+            <form [formGroup]="rForm" (ngSubmit)="adminSave()">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Add Tournament</h4>
@@ -71,19 +72,23 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Tournament Name</label>
-                        <input type="text" formControlName="tornamentName"   class="form-control" id="exampleInputEmail1">
+                        <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Tournament Type</label>
-                        <select class="form-control" formControlName="tornamentType"  >
-                                <option>1</option><option>2</option>
+                        <select class="form-control" formControlName="tornamentType">
+                         <option *ngFor="let type of types" value= {{type.id}}>
+                              {{type.name}}
+                         </option>
                             </select>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">City</label>
-                                <select class="form-control" formControlName="tornamentCity" >
-                                <option>Bangalore</option><option>Coimbatore</option>
-                            </select>
+                        <select class="form-control" formControlName="tornamentCity">
+                         <option *ngFor="let city of cities" value= {{city.id}}>
+                              {{city.name}}
+                         </option>
+                                                     </select>
                     </div>
                     <div class="form-group">
                         <label class="radio-inline"><input type="radio" formControlName="inlineRadioOptions" id="inlineRadio1"  value="General"> General</label>
@@ -91,16 +96,16 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Custom Field1</label>
-                        <input type="text" class="form-control"  formControlName="customField1" id="exampleInputPassword1">
+                        <input type="text" class="form-control" formControlName="customField1" id="exampleInputPassword1">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Custom Field2</label>
-                        <input type="text" class="form-control"  formControlName="customField2" id="exampleInputPassword1">
+                        <input type="text" class="form-control" formControlName="customField2" id="exampleInputPassword1">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit"  [disabled]="!rForm.valid"  class="btn btn-primary" >Save</button>
-                    <button type="button" data-dismiss="modal" class="btn btn-primary" >Cancel</button>
+                    <button type="submit" [disabled]="!rForm.valid" class="btn btn-primary">Save</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
                 </div>
             </form>
         </div>
@@ -109,7 +114,7 @@
 <div class="modal fade" id="EditTournament" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form [formGroup]="eForm" (ngSubmit)="adminUpdate()" >
+            <form [formGroup]="eForm" (ngSubmit)="adminUpdate()">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Edit Tournament</h4>
@@ -117,18 +122,22 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Tournament Name</label>
-                        <input type="text"  formControlName="etornamentName" class="form-control" id="exampleInputEmail1" >
+                        <input type="text" formControlName="etornamentName" class="form-control" id="exampleInputEmail1">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Tournament Type</label>
-                        <select class="form-control" formControlName="etornamentType" >
-                            <option>1</option><option>2</option>
+                        <select class="form-control" formControlName="etornamentType">
+                         <option *ngFor="let type of types" value= {{type.id}}>
+                              {{type.name}}
+                         </option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">City</label>
-                            <select class="form-control" formControlName="etornamentCity" >
-                                <option>Bangalore</option><option>Coimbatore</option>
+                        <select class="form-control" formControlName="etornamentCity">
+                         <option *ngFor="let city of cities" value= {{city.id}}>
+                              {{city.name}}
+                         </option>
                             </select>
                     </div>
                     <div class="form-group">
@@ -137,7 +146,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" [disabled]="!eForm.valid"   class="btn btn-primary" >Update</button>
+                    <button type="submit" [disabled]="!eForm.valid" class="btn btn-primary">Update</button>
                     <a class="btn btn-default" href="#" data-dismiss="modal">Cancel</a>
                 </div>
             </form>
@@ -155,7 +164,9 @@
                 <p class="lead text-center">Are you sure you need to delete this Tournament? </p>
             </div>
             <div class="modal-footer">
-                <button type="button" data-dismiss="modal" class="btn btn-primary">Yes</button>
+                <button type="button" (click)="delete()"  class="btn btn-primary">Yes</button>
+                <button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+
             </div>
         </div>
     </div>

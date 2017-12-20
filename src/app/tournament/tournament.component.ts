@@ -2,6 +2,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from '../service/admin.service';
 import { Tournament } from '../model/tournament';
+import { City } from '../model/city';
+import { Type } from '../model/type';
+
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare var $: any;
 
@@ -15,8 +19,12 @@ import 'rxjs/Rx';
 })
 export class TournamentComponent implements OnInit {
   trounnament: any = [];
+  cities:any=[];
+  types:any=[];
   rForm: FormGroup;
   eForm: FormGroup;
+  cityMaster:any=[];
+  dId:number;
   public loading = false;
   fb1: FormBuilder;
   constructor(private adminService: AdminService, private router: Router, fb: FormBuilder) {
@@ -24,6 +32,17 @@ export class TournamentComponent implements OnInit {
     this.initilizeFrom();
   }
   ngOnInit() {
+  this.cities = [
+     new City(1, 'Bangalore' ),
+     new City(2, 'Coimbatore' ),
+     new City(3, 'Erode' ),
+     new City(4, 'Madurai')
+  ];
+      this.types = [
+     new Type(1, 'Tennis Ball' ),
+     new Type(2, 'Leather Ball' )
+  ];
+
     this.getTournament();
   }
 
@@ -48,10 +67,11 @@ export class TournamentComponent implements OnInit {
     });
   }
   editForm(tour) {
+       this.dId = tour.id;
 
     this.eForm.controls['etornamentName'].setValue(tour.name);
-    this.eForm.controls['etornamentType'].setValue(tour.type);
-    this.eForm.controls['etornamentCity'].setValue(tour.city);
+    this.eForm.controls['etornamentType'].setValue(2);
+    this.eForm.controls['etornamentCity'].setValue(2);
     this.eForm.controls['einlineRadioOptions'].setValue(tour.category);
 
 
@@ -101,4 +121,33 @@ export class TournamentComponent implements OnInit {
 
   }
 
+  adminUpdate(){
+     const tour = new Tournament();
+    tour.name = this.eForm.value.etornamentName;
+    tour.category = this.eForm.value.einlineRadioOptions;
+    tour.type = this.eForm.value.etornamentType;
+    tour.city = this.eForm.value.etornamentCity;
+    tour.id=this.dId;
+    this.adminService.updateTournament(tour).subscribe(
+      (respose) => {
+        console.log(respose);
+        $("#EditTournament").modal("toggle");
+        this.getTournament();
+      });
+
+
+  }
+
+ deleteForm(id){
+   this.dId = id
+ } 
+
+
+ delete(){
+   this.adminService.deleteTournament(this.dId).subscribe(res=>{
+    $("#DeleteTournament").modal("toggle");
+
+     this.getTournament();
+   })
+ }
 }
