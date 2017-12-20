@@ -126,16 +126,14 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Format</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="form-group">
                         <label for="exampleInputPassword1">City</label>
-                        <input type="text" class="form-control" formControlName="etornamentCity" id="exampleInputPassword1">
+                            <select class="form-control" formControlName="etornamentCity" >
+                                <option>Bangalore</option><option>Coimbatore</option>
+                            </select>
                     </div>
                     <div class="form-group">
-                        <label class="radio-inline"><input type="radio"  formControlName="einlineRadioOptions" id="inlineRadio1"   value="option1"> General</label>
-                        <label class="radio-inline"><input type="radio"  formControlName="einlineRadioOptions" id="inlineRadio2"   value="option2"> City Wise</label>
+                        <label class="radio-inline"><input type="radio"  formControlName="einlineRadioOptions" id="inlineRadio1"   value="General"> General</label>
+                        <label class="radio-inline"><input type="radio"  formControlName="einlineRadioOptions" id="inlineRadio2"   value="City Wise"> City Wise</label>
                     </div>
                 </div>
                 <div class="modal-footer">

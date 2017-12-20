@@ -16,14 +16,14 @@ import 'rxjs/Rx';
 export class TournamentComponent implements OnInit {
   trounnament: any = [];
   rForm: FormGroup;
-  eForm:FormGroup;
+  eForm: FormGroup;
   public loading = false;
   fb1: FormBuilder;
   constructor(private adminService: AdminService, private router: Router, fb: FormBuilder) {
     this.fb1 = fb;
     this.initilizeFrom();
   }
-   ngOnInit() {
+  ngOnInit() {
     this.getTournament();
   }
 
@@ -37,7 +37,7 @@ export class TournamentComponent implements OnInit {
       'customField2': []
 
     });
-       this.eForm = this.fb1.group({
+    this.eForm = this.fb1.group({
       'etornamentName': ["", Validators.required],
       'etornamentType': [null, Validators.required],
       'etornamentCity': [null, Validators.required],
@@ -47,11 +47,12 @@ export class TournamentComponent implements OnInit {
 
     });
   }
-  editForm(tour){
- this.eForm.controls['etornamentName'].setValue(tour.name);
- this.eForm.controls['etornamentType'].setValue(tour.type);
-this.eForm.controls['etornamentCity'].setValue(tour.city);
-this.eForm.controls['einlineRadioOptions'].setValue(tour.category);
+  editForm(tour) {
+
+    this.eForm.controls['etornamentName'].setValue(tour.name);
+    this.eForm.controls['etornamentType'].setValue(tour.type);
+    this.eForm.controls['etornamentCity'].setValue(tour.city);
+    this.eForm.controls['einlineRadioOptions'].setValue(tour.category);
 
 
 
