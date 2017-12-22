@@ -1,27 +1,14 @@
 /* GLOBAL STYLES PRADEEP*/
 /* COLOR1=#f01e28 COLOR1=#2a86a5  COLOR1=#5a3f2c  */
 
-    body.login { padding-top: 0; }
+body.login { padding-top: 0; }
 /* CUSTOMIZE */
-
-h2 { font-size: 1.6em; }
-h3 { font-size: 1.4em; }
-a { color: #2a86a5; text-decoration: none; }
-    .nav a, a.btn { text-decoration: none; }
-    a:hover { color: #2a86a5; }
-.navbar { margin: 0; }
-.navbar-toggle { margin: 0; }
+.clickcursor{ cursor: pointer}
 .navbar-brand { height: 50px; padding: 5px 0; }
     .navbar-brand img { height: 40px; }
 .title-main { font-size: 1.6em; margin:0 0 10px 0 }
 .bgtop { background: #2a86a5; padding: 15px 0; box-shadow:0 2px 6px rgba(42, 134, 165, 0.4); position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: .3s ease all; width: 100%; }
-.bgtopshad { padding: 0; }
-.bggray { background: #f6f6f6; }
 .relative { position: relative; }
-.box { border: 1px solid #ccc; padding: 40px; margin-bottom: 20px; background: #fff; }
-.box h2{ margin: 0 0 10px 0 }
-.bggray { background: #f1f1f1; }
-.bgwhite { background: #fff; }
 .bglogin { background: url(../images/bglogin.jpg) no-repeat center center; background-size: cover; border-top: 2px solid #2a86a5; }
 .logintitle{ font-size: 14px; text-align: center; margin: 0}
 /*NAVIGATION STYLE*/
