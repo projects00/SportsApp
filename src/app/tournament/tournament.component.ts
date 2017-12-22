@@ -67,14 +67,13 @@ export class TournamentComponent implements OnInit {
     });
   }
   editForm(tour) {
-       this.dId = tour.id;
-
-    this.eForm.controls['etornamentName'].setValue(tour.name);
+   this.dId = tour.id;
+  this.eForm.controls['etornamentName'].setValue(tour.name);
     this.eForm.controls['etornamentType'].setValue(tour.typeid);
     this.eForm.controls['etornamentCity'].setValue(tour.cityid);
     this.eForm.controls['einlineRadioOptions'].setValue(tour.category);
- this.eForm.controls['ecustomField1'].setValue(tour.customvalue1);
-this.eForm.controls['ecustomField2'].setValue(tour.customvalue2);
+    this.eForm.controls['ecustomField1'].setValue(tour.customvalue1);
+    this.eForm.controls['ecustomField2'].setValue(tour.customvalue2);
  
 
 
