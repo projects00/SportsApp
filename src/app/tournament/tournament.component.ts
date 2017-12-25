@@ -42,12 +42,11 @@ export class TournamentComponent implements OnInit {
       new City(4, 'Madurai')
     ];
     this.types = [
-      new Type(1, 'Tennis Ball'),
-      new Type(2, 'Leather Ball')
-    ];
+      ];
 
     this.getTournament();
     this.getCity();
+     this.getType();
   }
 
   initilizeFrom() {
@@ -221,7 +220,7 @@ export class TournamentComponent implements OnInit {
 
   deleteCity(id) {
     this.adminService.deleteCity(id).subscribe(res => {
-      this.getType();
+      this.getCity();
       if (res.message == 0) {
         alert('Invalid delete');
       }
