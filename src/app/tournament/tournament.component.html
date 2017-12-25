@@ -4,9 +4,9 @@
             <div class="x_title">
                 <h2>Tournament Management</h2>
                 <ul class="nav navbar-right panel_toolbox">
-                    <li><a href="#" data-toggle="modal" data-target="#TypeMaster" title="Type Master"><i class="lnr lnr-pencil"></i> Type</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#CityMaster" title="City Master"><i class="lnr lnr-pencil"></i> City</a></li>
-                    <li data-toggle="tooltip" title="Add Tournament"><a href="#" data-toggle="modal" data-target="#AddTournament" title="Tournament Master"><i class="lnr lnr-pencil"></i> Tournament</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#TypeMaster" title="Type Master"><i class="lnr lnr-plus-circle"></i> Type</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#CityMaster" title="City Master"><i class="lnr lnr-plus-circle"></i> City</a></li>
+                    <li data-toggle="tooltip" title="Add Tournament"><a href="#" data-toggle="modal" data-target="#AddTournament" title="Tournament Master"><i class="lnr lnr-plus-circle"></i> Tournament</a></li>
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -38,7 +38,7 @@
                             <td>{{sb.customvalue2}}</td>
                             <td><a href="#" data-toggle="modal" title="Add Detail"><i class="lnr lnr-plus-circle"></i></a></td>
                             <td><a href="#" data-toggle="modal" title="Edit Tournament" (click)="editForm(sb)" data-target="#EditTournament"><i class="lnr lnr-pencil"></i></a></td>
-                            <td><a href="#" title="Delete Tournament" (click)="deleteForm(sb.id)"data-toggle="modal" data-target="#DeleteTournament"><i class="lnr lnr-trash"></i></a></td>
+                            <td><a href="#" title="Delete Tournament" (click)="deleteForm(sb.id)" data-toggle="modal" data-target="#DeleteTournament"><i class="lnr lnr-trash"></i></a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -131,7 +131,7 @@
                         <label class="radio-inline"><input type="radio"  formControlName="einlineRadioOptions" id="inlineRadio1"   value="General"> General</label>
                         <label class="radio-inline"><input type="radio"  formControlName="einlineRadioOptions" id="inlineRadio2"   value="City Wise"> City Wise</label>
                     </div>
-                             <div class="form-group">
+                    <div class="form-group">
                         <label for="exampleInputPassword1">Custom Field1</label>
                         <input type="text" class="form-control" formControlName="ecustomField1" id="exampleInputPassword3">
                     </div>
@@ -159,7 +159,7 @@
                 <p class="lead text-center">Are you sure you need to delete this Tournament? </p>
             </div>
             <div class="modal-footer">
-                <button type="button" (click)="delete()"  class="btn btn-primary">Yes</button>
+                <button type="button" (click)="delete()" class="btn btn-primary">Yes</button>
                 <button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
 
             </div>
@@ -169,43 +169,55 @@
 <div class="modal fade" id="CityMaster" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">City Master</h4>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="AddCity" placeholder="Enter new city name">
-                        <span class="input-group-addon clickcursor">Add City</span>
-                    </div>
+            <form [formGroup]="cForm" (ngSubmit)="saveCity()">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">City Master</h4>
                 </div>
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <table class="table table-bordered table-striped" width=100px>
+                                <tr>
+                                    <td> <input type="text" formControlName="cityName" class="form-control" id="AddCity" placeholder="Enter new city name">
+                                    </td>
+                                    <td> <button type="submit" [disabled]="!cForm.valid" class="btn btn-primary">Add City</button>
+                                    </td>
+                              
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                     <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '8px' }"></ngx-loading>
-                    <tbody *ngFor="let sb of trounnament;let i =index">
-                        <tr>
-                            <td>{{i+1}}</td>
-                            <td>{{sb.cityname}}</td>
-                            <td><a href="#" title="Edit City"><i class="lnr lnr-pencil"></i></a></td>
-                            <td><a href="#" (click)="deleteForm(sb.id)"><i class="lnr lnr-trash"></i></a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '8px' }"></ngx-loading>
+                        <tbody *ngFor="let sb of cities;let i =index">
+                            <tr>
+                                <td>{{i+1}}</td>
+                                <td>{{sb.name}}</td>
+                                <td><a href="#" (click)="deleteCity(sb.id)"><i class="lnr lnr-trash"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+
         </div>
     </div>
 </div>
 <div class="modal fade" id="TypeMaster" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form [formGroup]="tyForm" (ngSubmit)="saveType()">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Type Master</h4>
@@ -213,8 +225,13 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="AddCity" placeholder="Enter new city name">
-                            <span class="input-group-addon clickcursor">Add Type</span>
+                            <table class="table table-bordered table-striped" width=100px>
+                                <tr>
+                                    <td><input type="text" class="form-control" formControlName="typeName" id="AddCity" placeholder="Enter new Type name"></td>
+                                    <td><button type="submit" [disabled]="!tyForm.valid" class="btn btn-primary">Add Type</button></td>
+                                </tr>
+                            </table>
+
                         </div>
                     </div>
                     <table class="table table-bordered table-striped">
@@ -222,21 +239,20 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
                         <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '8px' }"></ngx-loading>
-                        <tbody *ngFor="let sb of trounnament;let i =index">
+                        <tbody *ngFor="let sb of types;let i =index">
                             <tr>
                                 <td>{{i+1}}</td>
-                                <td>{{sb.typename}}</td>
-                                <td><a href="#" title="Edit City"><i class="lnr lnr-pencil"></i></a></td>
-                                <td><a href="#" (click)="deleteForm(sb.id)"><i class="lnr lnr-trash"></i></a></td>
+                                <td>{{sb.name}}</td>
+                                <td><a href="#" (click)="deleteType(sb.id)"><i class="lnr lnr-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
+</div>

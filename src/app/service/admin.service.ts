@@ -8,7 +8,7 @@ export class AdminService {
 
   constructor(private http: Http) { }
 
-  public baseApi = 'https://floating-basin-98189.herokuapp.com/';
+  public baseApi = 'https://cricketappapi.herokuapp.com/';
 
 
   cars = [
@@ -20,15 +20,61 @@ export class AdminService {
     return this.http.get(this.baseApi).map(response => response.json());
   }
 
+  getCity() {
+    return this.http.get("https://cricketappapi.herokuapp.com/city").map(response => {
+      console.log(response.json());
+      return response.json()
+    }
+
+    );
+  }
+
+   getType() {
+    return this.http.get("https://cricketappapi.herokuapp.com/type").map(response => {
+      console.log(response.json());
+      return response.json()
+    }
+
+    );
+  }
+
   saveTournament(tournament: any) {
-    return this.http.post("https://floating-basin-98189.herokuapp.com/insert", tournament).map(response => response.json()  );
+    return this.http.post("https://cricketappapi.herokuapp.com/insert", tournament).map(response => response.json());
 
   }
-  deleteTournament(id){
-    debugger;
-    return this.http.put("https://floating-basin-98189.herokuapp.com/delete/"+id,{"isActive":1}).map(response => response.json()  );
+  saveCity(city) {
+    return this.http.post("https://cricketappapi.herokuapp.com/insert/city", { "cityname": city }).map(response => response.json());
   }
-  updateTournament(tournament){
-    return this.http.put("https://floating-basin-98189.herokuapp.com/update/"+tournament.id,tournament).map(response => response.json()  );
+
+  deleteCity(id: string) {
+    return this.http.put("https://cricketappapi.herokuapp.com/delete/city/" + id, null).map(response => {
+      console.log(response.json());
+      return response.json()
+    },
+      (error) => {
+        debugger;
+        console.log(error.json());
+      });
+  }
+      saveType(type) {
+    return this.http.post("https://cricketappapi.herokuapp.com/insert/type", { "typename": type }).map(response => response.json());
+  }
+
+  deleteType(id: string) {
+    return this.http.put("https://cricketappapi.herokuapp.com/delete/type/" + id, null).map(response => {
+      console.log(response.json());
+      return response.json()
+    },
+      (error) => {
+        debugger;
+        console.log(error.json());
+      });
+  }
+  deleteTournament(id) {
+    debugger;
+    return this.http.put("https://cricketappapi.herokuapp.com/delete/" + id, { "isActive": 1 }).map(response => response.json());
+  }
+  updateTournament(tournament) {
+    return this.http.put("https://cricketappapi.herokuapp.com/update/" + tournament.id, tournament).map(response => response.json());
   }
 }

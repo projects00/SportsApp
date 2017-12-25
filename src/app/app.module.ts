@@ -12,7 +12,7 @@ import { APP_BASE_HREF, Location } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import {AdminService } from './service/admin.service';
 import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
-
+ 
 const routes: Routes = [{
   path: 'login',
   component: LoginComponent
