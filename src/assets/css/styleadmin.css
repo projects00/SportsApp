@@ -182,7 +182,11 @@ footer { background: #dee4ec; color: #696969; padding: 4px 15px; clear: both; fo
     .nav.nav_box li a .nav-icon{margin: 15px 0;width: 60px; }
     .nav.nav_box li a:hover{    background: #2a86a5;
         transition: .5s ease all;}
-.searchbox, .searchbox:focus{border: 1px solid #fff;background: transparent;color: #fff;}        
+.searchbox, .searchbox:focus{border: 1px solid #fff;background: transparent;color: #fff;}
+.detailbox {padding: 10px;border: 1px solid #eee;margin-bottom: 10px;}  
+.detailbox .labeltext { color: #2a86a5; font-size: 16px}
+.input-group-addon.input-group-btn{ padding: 0;}
+.input-group-addon.input-group-btn button{ border: 0; background: transparent; font-size: 16px;}
 @media (max-width: 1024px) {
     .userimg { width: 60px; height: 60px; }
 }

@@ -36,7 +36,7 @@
                             <td>{{sb.category}}</td>
                             <td>{{sb.customvalue1}}</td>
                             <td>{{sb.customvalue2}}</td>
-                            <td><a   (click)="addDetail()" title="Add Detail"><i class="lnr lnr-plus-circle"></i></a></td>
+                            <td><a (click)="addDetail()" title="Add Detail"><i class="lnr lnr-plus-circle"></i></a></td>
                             <td><a href="#" data-toggle="modal" title="Edit Tournament" (click)="editForm(sb)" data-target="#EditTournament"><i class="lnr lnr-pencil"></i></a></td>
                             <td><a href="#" title="Delete Tournament" (click)="deleteForm(sb.id)" data-toggle="modal" data-target="#DeleteTournament"><i class="lnr lnr-trash"></i></a></td>
                         </tr>
@@ -161,7 +161,6 @@
             <div class="modal-footer">
                 <button type="button" (click)="delete()" class="btn btn-primary">Yes</button>
                 <button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
-
             </div>
         </div>
     </div>
@@ -170,24 +169,14 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <form [formGroup]="cForm" (ngSubmit)="saveCity()">
-
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">City Master</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <table class="table table-bordered table-striped" width=100px>
-                                <tr>
-                                    <td> <input type="text" formControlName="cityName" class="form-control" id="AddCity" placeholder="Enter new city name">
-                                    </td>
-                                    <td> <button type="submit" [disabled]="!cForm.valid" class="btn btn-primary">Add City</button>
-                                    </td>
-                              
-                                </tr>
-                            </table>
-                        </div>
+                    <div class="input-group marbot15">
+                        <input type="text" formControlName="cityName" class="form-control" id="AddCity" placeholder="Enter new city name">
+                        <div class="input-group-addon input-group-btn"><button type="submit" [disabled]="!cForm.valid">Add City</button></div>
                     </div>
                     <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '8px' }"></ngx-loading>
 
@@ -210,7 +199,6 @@
                     </table>
                 </div>
             </form>
-
         </div>
     </div>
 </div>
@@ -223,16 +211,9 @@
                     <h4 class="modal-title" id="myModalLabel">Type Master</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <table class="table table-bordered table-striped" width=100px>
-                                <tr>
-                                    <td><input type="text" class="form-control" formControlName="typeName" id="AddCity" placeholder="Enter new Type name"></td>
-                                    <td><button type="submit" [disabled]="!tyForm.valid" class="btn btn-primary">Add Type</button></td>
-                                </tr>
-                            </table>
-
-                        </div>
+                    <div class="input-group marbot15">
+                            <input type="text" class="form-control" formControlName="typeName" id="AddCity" placeholder="Enter new Type name">
+                        <div class="input-group-addon input-group-btn"><button type="submit" [disabled]="!tyForm.valid">Add Type</button></div>
                     </div>
                     <table class="table table-bordered table-striped">
                         <thead>
