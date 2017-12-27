@@ -23,17 +23,13 @@ const routes: Routes = [{
   component: AdminComponent,
   children : [
                 { path: 'dashboard', component: AdmindashComponent },
-                { path: 'tournament', component: TournamentComponent } 
-                
+                { path: 'tournament', component: TournamentComponent} ,
+                  { path: 'tournamentdetail', component: TournamentDetailComponent }
                    ]
 },
 {
   path: 'home',
   component: HomeComponent
-},
-{
-  path: 'trounamentdetail',
-  component: TournamentDetailComponent
 }];
 @NgModule({
   declarations: [
