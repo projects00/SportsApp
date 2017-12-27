@@ -12,6 +12,7 @@ import { APP_BASE_HREF, Location } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import {AdminService } from './service/admin.service';
 import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
+import { TournamentDetailComponent } from './tournament-detail/tournament-detail.component';
  
 const routes: Routes = [{
   path: 'login',
@@ -23,11 +24,16 @@ const routes: Routes = [{
   children : [
                 { path: 'dashboard', component: AdmindashComponent },
                 { path: 'tournament', component: TournamentComponent } 
+                
                    ]
 },
 {
   path: 'home',
   component: HomeComponent
+},
+{
+  path: 'trounamentdetail',
+  component: TournamentDetailComponent
 }];
 @NgModule({
   declarations: [
@@ -36,7 +42,8 @@ const routes: Routes = [{
     AdminComponent,
     AdmindashComponent,
     TournamentComponent,
-    HomeComponent
+    HomeComponent,
+    TournamentDetailComponent
   ],
   imports: [
     BrowserModule,

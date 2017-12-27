@@ -131,6 +131,9 @@ export class TournamentComponent implements OnInit {
 
   }
 
+  test(){
+     this.router.navigateByUrl('/trounamentdetail')
+  }
   saveCity() {
     
     this.adminService.saveCity(this.cForm.value.cityName).subscribe(
