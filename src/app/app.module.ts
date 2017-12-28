@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import {AdminService } from './service/admin.service';
 import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
 import { TournamentDetailComponent } from './tournament-detail/tournament-detail.component';
+import { QuotesComponent } from './quotes/quotes.component';
  
 const routes: Routes = [{
   path: 'login',
@@ -24,7 +25,8 @@ const routes: Routes = [{
   children : [
                 { path: 'dashboard', component: AdmindashComponent },
                 { path: 'tournament', component: TournamentComponent} ,
-                  { path: 'tournamentdetail', component: TournamentDetailComponent }
+                  { path: 'tournamentdetail', component: TournamentDetailComponent },
+                   { path: 'quotes', component: QuotesComponent }
                    ]
 },
 {
@@ -39,7 +41,8 @@ const routes: Routes = [{
     AdmindashComponent,
     TournamentComponent,
     HomeComponent,
-    TournamentDetailComponent
+    TournamentDetailComponent,
+    QuotesComponent
   ],
   imports: [
     BrowserModule,
