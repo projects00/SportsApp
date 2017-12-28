@@ -20,6 +20,9 @@ export class AdminService {
     return this.http.get(this.baseApi).map(response => response.json());
   }
 
+  getQuotes() {
+    return this.http.get(this.baseApi).map(response => response.json());
+  }
   getCity() {
     return this.http.get("https://cricketappapi.herokuapp.com/city").map(response => {
       console.log(response.json());
@@ -29,7 +32,7 @@ export class AdminService {
     );
   }
 
-   getType() {
+  getType() {
     return this.http.get("https://cricketappapi.herokuapp.com/type").map(response => {
       console.log(response.json());
       return response.json()
@@ -46,6 +49,20 @@ export class AdminService {
     return this.http.post("https://cricketappapi.herokuapp.com/insert/city", { "cityname": city }).map(response => response.json());
   }
 
+  saveQuotes(city) {
+    return this.http.post("https://cricketappapi.herokuapp.com/insert/city", { "cityname": city }).map(response => response.json());
+  }
+
+  deleteQuote(id: string) {
+    return this.http.put("https://cricketappapi.herokuapp.com/delete/city/" + id, null).map(response => {
+      console.log(response.json());
+      return response.json()
+    },
+      (error) => {
+        debugger;
+        console.log(error.json());
+      });
+  }
   deleteCity(id: string) {
     return this.http.put("https://cricketappapi.herokuapp.com/delete/city/" + id, null).map(response => {
       console.log(response.json());
@@ -56,7 +73,7 @@ export class AdminService {
         console.log(error.json());
       });
   }
-      saveType(type) {
+  saveType(type) {
     return this.http.post("https://cricketappapi.herokuapp.com/insert/type", { "typename": type }).map(response => response.json());
   }
 

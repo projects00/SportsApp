@@ -6,12 +6,12 @@ import { City } from '../model/city';
 import { Type } from '../model/type';
 
 
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare var $: any;
 
 
 import 'rxjs/Rx';
-
 @Component({
   selector: 'app-tournament',
   templateUrl: './tournament.component.html',
