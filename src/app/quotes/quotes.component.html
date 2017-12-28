@@ -1,33 +1,117 @@
- <form [formGroup]="cForm" (ngSubmit)="saveQuote()">
+<div class="col-md-12">
+    <div class="pannelDiv" id="pannel1">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Quotes Master</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li data-toggle="tooltip" title="Add Tournament"><a href="#" data-toggle="modal" data-target="#AddQuotes" title="Add Quote"><i class="lnr lnr-plus-circle"></i> Add Quote</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Quotes</th>
+                            <th>Auther</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '8px' }"></ngx-loading>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>There's a great joy in my giving. It's thrilling. It's exhilarating. It's important to be a part of sharing.</td>
+                            <td>W. Clement Stone</td>
+                            <td><a href="#" data-toggle="modal" title="Edit Quotes" (click)="editForm(sb)" data-target="#EditQuotes"><i class="lnr lnr-pencil"></i></a></td>
+                            <td><a href="#" title="Delete Tournament" (click)="deleteForm(sb.id)" data-toggle="modal" data-target="#DeleteQuote"><i class="lnr lnr-trash"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="AddQuotes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form [formGroup]="cForm" (ngSubmit)="saveQuote()">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Quotes Master</h4>
+                    <h4 class="modal-title" id="myModalLabel">Add Quote</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="input-group marbot15">
-                        <input type="text" formControlName="quoteName" class="form-control" id="AddCity" placeholder="Enter new city name">
-                        <div class="input-group-addon input-group-btn"><button type="submit" [disabled]="!cForm.valid">Add City</button></div>
+                    <div class="form-group">
+                        <textarea formControlName="quoteName" class="form-control" id="AddCity" placeholder="Enter new Quote"></textarea></div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Enter Auther">
                     </div>
-                    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '8px' }"></ngx-loading>
-
+                    <!--<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '8px' }"></ngx-loading>
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>isActive
-                              
-                                </th>
+                                <th>isActive</th>
                             </tr>
                         </thead>
                         <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '8px' }"></ngx-loading>
                         <tbody *ngFor="let sb of quotes;let i =index">
                             <tr>
                                 <td>{{i+1}}</td>
-                                <td>{{sb.name}}</td>
+                                <td>{{sb.name}}</td> 
                                 <td><a href="#" (click)="deleteQuote(sb.id)"><i class="lnr lnr-trash"></i></a></td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table>-->
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" [disabled]="!cForm.valid" class="btn btn-primary">Add Quote</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="EditQuotes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form [formGroup]="cForm" (ngSubmit)="saveQuote()">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit Quote</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <textarea formControlName="quoteName" class="form-control" id="AddCity" placeholder="Enter new Quote"></textarea></div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Enter Auther">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" [disabled]="!cForm.valid" class="btn btn-primary">Save Quote</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="DeleteQuote" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Delete Quote?</h4>
+            </div>
+            <div class="modal-body">
+                <p class="lead text-center">Are you sure you need to delete this Quote? </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="delete()" class="btn btn-primary">Yes</button>
+                <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
