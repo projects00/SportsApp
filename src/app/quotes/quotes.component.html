@@ -21,12 +21,12 @@
                     </thead>
                     <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '8px' }"></ngx-loading>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>There's a great joy in my giving. It's thrilling. It's exhilarating. It's important to be a part of sharing.</td>
-                            <td>W. Clement Stone</td>
-                            <td><a href="#" data-toggle="modal" title="Edit Quotes" (click)="editForm(sb)" data-target="#EditQuotes"><i class="lnr lnr-pencil"></i></a></td>
-                            <td><a href="#" title="Delete Tournament" (click)="deleteForm(sb.id)" data-toggle="modal" data-target="#DeleteQuote"><i class="lnr lnr-trash"></i></a></td>
+                        <tr  *ngFor="let sb of _quotes;let i =index">
+                            <td>{{i+1}}</td>
+                            <td>{{sb.QUOTE}}</td>
+                            <td>{{sb.author}}</td>
+                            <td><a href="#" data-toggle="modal" title="Edit Quotes" (click)="editQuoteForm(sb)" data-target="#EditQuotes"><i class="lnr lnr-pencil"></i></a></td>
+                            <td><a href="#" title="Delete Tournament" (click)="deleteForm(sb.id)" data-toggle="modal" data-target="#DeleteQuotes"><i class="lnr lnr-trash"></i></a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -37,7 +37,7 @@
 <div class="modal fade" id="AddQuotes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form [formGroup]="cForm" (ngSubmit)="saveQuote()">
+            <form [formGroup]="qForm" (ngSubmit)="quoteSave()">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Add Quote</h4>
@@ -46,29 +46,11 @@
                     <div class="form-group">
                         <textarea formControlName="quoteName" class="form-control" id="AddCity" placeholder="Enter new Quote"></textarea></div>
                     <div class="form-group">
-                        <input class="form-control" placeholder="Enter Auther">
+                        <input formControlName="quoteAuthor"  class="form-control" placeholder="Enter Auther">
                     </div>
-                    <!--<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '8px' }"></ngx-loading>
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>isActive</th>
-                            </tr>
-                        </thead>
-                        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '8px' }"></ngx-loading>
-                        <tbody *ngFor="let sb of quotes;let i =index">
-                            <tr>
-                                <td>{{i+1}}</td>
-                                <td>{{sb.name}}</td> 
-                                <td><a href="#" (click)="deleteQuote(sb.id)"><i class="lnr lnr-trash"></i></a></td>
-                            </tr>
-                        </tbody>
-                    </table>-->
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" [disabled]="!cForm.valid" class="btn btn-primary">Add Quote</button>
+                    <button type="submit" [disabled]="!qForm.valid" class="btn btn-primary">Add Quote</button>
                     <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
                 </div>
             </form>
@@ -78,27 +60,27 @@
 <div class="modal fade" id="EditQuotes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form [formGroup]="cForm" (ngSubmit)="saveQuote()">
+            <form [formGroup]="equotesForm" (ngSubmit)="quoteUpdate()">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Edit Quote</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <textarea formControlName="quoteName" class="form-control" id="AddCity" placeholder="Enter new Quote"></textarea></div>
+                        <textarea formControlName="equoteName" class="form-control" id="AddCity" placeholder="Enter new Quote"></textarea></div>
                     <div class="form-group">
-                        <input class="form-control" placeholder="Enter Auther">
+                        <input formControlName="equoteAuthor" class="form-control" placeholder="Enter Auther">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" [disabled]="!cForm.valid" class="btn btn-primary">Save Quote</button>
+                    <button type="submit" [disabled]="!equotesForm.valid" class="btn btn-primary">Save Quote</button>
                     <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<div class="modal fade" id="DeleteQuote" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+<div class="modal fade" id="DeleteQuotes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header">

@@ -1,5 +1,5 @@
-export class Quotes {
+export class quotes {
      public id: number;
-     public name: string;
-     public isactive:boolean;
-}
+     public QUOTE: string;
+     public author:string
+ }

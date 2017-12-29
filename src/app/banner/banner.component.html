@@ -1,137 +1,132 @@
 <div class="col-md-12">
-    <div class="pannelDiv" id="pannel3">
-        <div class="x_panel">
-            <div class="x_title">
-                <h2>Banner Master</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li data-toggle="tooltip" title="Add Tournament"><a href="#" data-toggle="modal" data-target="#AddBanner" title="Add Banner"><i class="lnr lnr-plus-circle"></i> Add Banner</a></li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Active</th>
-                            <th>Banner</th>
-                            <th>Banner Title</th>
-                            <th>Banner Text</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '8px' }"></ngx-loading>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                              <div class="checkbox mar0">
-                                  <label>
-                                    <input type="checkbox">Active
-                                  </label>
-                                </div>
-                            </td>
-                            <td><img src="../assets/images/slide2.jpg" height="100px" ></td>
-                            <td>Sports Events</td>
-                            <td>n publishing and graphic design, lorem ipsum is a filler text or greeking commonly used to demonstrate the textual elements.</td>
-                            <td><a href="#" data-toggle="modal" title="Edit Banner" (click)="editForm(sb)" data-target="#EditBanner"><i class="lnr lnr-pencil"></i></a></td>
-                            <td><a href="#" title="Delete Tournament" (click)="deleteForm(sb.id)" data-toggle="modal" data-target="#DeleteBanner"><i class="lnr lnr-trash"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                              <div class="checkbox mar0">
-                                  <label>
-                                    <input type="checkbox">Active
-                                  </label>
-                                </div>
-                            </td>
-                            <td><img src="../assets/images/slide1.jpg" height="100px" ></td>
-                            <td>Cricket Events</td>
-                            <td>lorem ipsum is a filler text or greeking commonly used to demonstrate the textual elements.</td>
-                            <td><a href="#" data-toggle="modal" title="Edit Banner" (click)="editForm(sb)" data-target="#EditBanner"><i class="lnr lnr-pencil"></i></a></td>
-                            <td><a href="#" title="Delete Tournament" (click)="deleteForm(sb.id)" data-toggle="modal" data-target="#DeleteBanner"><i class="lnr lnr-trash"></i></a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+  <div class="pannelDiv" id="pannel3">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Banner Master</h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li data-toggle="tooltip" title="Add Tournament"><a href="#" data-toggle="modal" data-target="#AddBanner" title="Add Banner"><i class="lnr lnr-plus-circle"></i> Add Banner</a></li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Active</th>
+              <th>Banner</th>
+              <th>Banner Title</th>
+              <th>Banner Text</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+           <tbody>
+            <tr  *ngFor="let sb of _banner;let i =index">
+              <td>1</td>
+              <td>
+                <div class="checkbox mar0">
+                  <label>
+                <input type="checkbox">Active
+                </label>
+                </div>
+              </td>
+              <td><img [src]="sb.image" height="100px"></td>
+              <td>{{sb.title}}</td>
+              <td>test stests testset estestsetse tetestset estetwetwe tewtwe twetewt wetwe tewtew tewt wetwet wetwe tewt wetwe tewtwe twet wet wetwe twe</td>
+              <td><a href="#" data-toggle="modal" title="Edit Banner" (click)="editBanner(sb)" data-target="#EditBanner"><i class="lnr lnr-pencil"></i></a></td>
+              <td><a href="#" title="Delete Tournament" (click)="deleteForm(sb.id)" data-toggle="modal" data-target="#DeleteBanner"><i class="lnr lnr-trash"></i></a></td>
+            </tr>
+           </tbody>
+        </table>
+      </div>
     </div>
+  </div>
 </div>
 <div class="modal fade" id="AddBanner" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form [formGroup]="cForm" (ngSubmit)="saveBanner()">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Add Banner</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                      <input class="form-control" type="file">
-                      <small>Image size should be 673px X 300px</small><br>
-                      <small>JPG, PNG ad GIF files ara supported</small>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" placeholder="Enter Banner Title">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" placeholder="Enter Banner Text">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" [disabled]="!cForm.valid" class="btn btn-primary">Add Banner</button>
-                    <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
-                </div>
-            </form>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form [formGroup]="BForm" (ngSubmit)="saveBanner()">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add Banner</h4>
         </div>
+        <div class="modal-body">
+          <img [src]="imagePath"  class="img-responsive">
+          <div class="form-group">
+            <input class="form-control"  id="avatar" #fileInput (change)="onFileChange($event)" type="file">
+            <small>Image size should be 673px X 300px</small><br>
+            <small>JPG, PNG ad GIF files ara supported</small>
+          </div>
+          <div class="form-group">
+            <input formControlName="bannerTitle" class="form-control" placeholder="Enter Banner Title">
+          </div>
+          <div class="form-group">
+            <input formControlName="bannerDescription" class="form-control" placeholder="Enter Banner Text">
+          </div>
+          <div class="form-group">
+            <label>
+            <input formControlName="bannerIsActive" type="checkbox" >Active
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" [disabled]="!BForm.valid" class="btn btn-primary">Add Banner</button>
+          <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
 <div class="modal fade" id="EditBanner" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form [formGroup]="cForm" (ngSubmit)="saveBanner()">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Edit Banner</h4>
-                </div>
-                <div class="modal-body">
-                    <img src="../assets/images/slide1.jpg" class="img-responsive">
-                    <div class="form-group">
-                      <input class="form-control" type="file">
-                      <small>Image size should be 673px X 300px</small><br>
-                      <small>JPG, PNG ad GIF files ara supported</small>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" placeholder="Enter Banner Title">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" placeholder="Enter Banner Text">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" [disabled]="!cForm.valid" class="btn btn-primary">Save Banner</button>
-                    <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
-                </div>
-            </form>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+       <form [formGroup]="EBForm" (ngSubmit)="updateBanner()">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Edit Banner</h4>
         </div>
+        <div class="modal-body">
+           <img [src]="imagePath"  class="img-responsive">
+          <div class="form-group">
+            <input class="form-control"  id="avatar" #fileInput (change)="onFileChange($event)" type="file">
+            <small>Image size should be 673px X 300px</small><br>
+            <small>JPG, PNG ad GIF files ara supported</small>
+          </div>
+          <div class="form-group">
+            <input class="form-control" formControlName="ebannerTitle" placeholder="Enter Banner Title">
+          </div>
+          <div class="form-group">
+            <input class="form-control" formControlName="ebannerDescription"  placeholder="Enter Banner Text">
+          </div>
+             <div class="form-group">
+            <label>
+            <input formControlName="ebannerIsActive" type="checkbox" >Active
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" [disabled]="!EBForm.valid" c  class="btn btn-primary">Save Banner</button>
+          <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
 <div class="modal fade" id="DeleteBanner" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Delete Banner?</h4>
-            </div>
-            <div class="modal-body">
-                <p class="lead text-center">Are you sure you need to delete this Banner? </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" (click)="delete()" class="btn btn-primary">Yes</button>
-                <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
-            </div>
-        </div>
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Delete Banner?</h4>
+      </div>
+      <div class="modal-body">
+        <p class="lead text-center">Are you sure you need to delete this Banner? </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="delete()" class="btn btn-primary">Yes</button>
+        <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+      </div>
     </div>
+  </div>
 </div>

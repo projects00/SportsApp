@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from '../service/admin.service';
 import { Tournament } from '../model/tournament';
-import { City } from '../model/city';
+import { city } from '../model/city';
 import { Type } from '../model/type';
 
 
@@ -36,10 +36,10 @@ export class TournamentComponent implements OnInit {
   }
   ngOnInit() {
     this.cities = [
-      new City(1, 'Bangalore'),
-      new City(2, 'Coimbatore'),
-      new City(3, 'Erode'),
-      new City(4, 'Madurai')
+      new city(1, 'Bangalore'),
+      new city(2, 'Coimbatore'),
+      new city(3, 'Erode'),
+      new city(4, 'Madurai')
     ];
     this.types = [
       ];
@@ -160,8 +160,8 @@ export class TournamentComponent implements OnInit {
       (respose) => {
         console.log(respose)
         respose.forEach(element => {
-          const city = new City(element.id, element.cityname);
-          this.cities.push(city);
+          const _city = new city(element.id, element.cityname);
+          this.cities.push(_city);
         });
       }
       ,

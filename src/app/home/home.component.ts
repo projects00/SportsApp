@@ -1,18 +1,84 @@
-import { Component,  OnInit,Input,Output ,EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { Banner } from '../model/Banner';
+import { city } from '../model/city';
+import { quotes } from '../model/quotes';
+import { AdminService } from '../service/admin.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent  {
+export class HomeComponent {
+slides:any;
+cities:any;
+qutoes:any;
 
-  constructor(private router:Router) { }
-
- onClick(): void {
-   this.router.navigateByUrl('/login')
    
-} 
+  constructor(private adminService: AdminService,private router: Router) {
+ //this.getActiveBanner();
+  this.cities = [
+      new city(1, 'Bangalore'),
+      new city(2, 'Coimbatore'),
+      new city(3, 'Erode'),
+      new city(4, 'Madurai')
+    ];
+ 
+ 
+ 
+     this.getLatestQuotes();
+     
+    
+   }
+
+  onClick(): void {
+    this.router.navigateByUrl('/login')
+
+  }
+    ngOnInit() {
+     
+     
+
+   
+  }
+     getLatestQuotes() {
+    this.qutoes = [];
+    this.adminService.getLatestQuotes().subscribe(
+      (respose) => {
+        debugger;
+        respose.forEach(element => {
+          const slide = new quotes();
+           slide.id = element.id;
+          slide.author = element.author;
+          slide.QUOTE = element.QUOTE;
+          this.qutoes =slide;
+             });
+      },
+      (error) => {
+        console.log(error.json());
+      }
+
+    );
+  }
+
+       getActiveBanner() {
+    this.cities = [];
+    this.adminService.getActiveBanner().subscribe(
+      (respose) => {
+        debugger;
+          respose.forEach(element => {
+          const slide = new Banner();
+           slide.id = element.id;
+          slide.title = element.title;
+          slide.description = element.description;
+          this.cities.push(slide);
+             });
+      },
+      (error) => {
+        console.log(error.json());
+      }
+
+    );
+  }
 
 }
