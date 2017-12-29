@@ -119,6 +119,8 @@ export class BannerComponent implements OnInit {
           (respose) => {
             console.log(respose);
             this.initilizeFrom();
+             this.getBanner();
+               $("#AddBanner").modal("toggle");
           });
 
       });
@@ -144,6 +146,8 @@ export class BannerComponent implements OnInit {
           (respose) => {
             console.log(respose);
             this.initilizeFrom();
+             this.getBanner();
+               $("#EditBanner").modal("toggle");
           });
 
       });
@@ -162,6 +166,8 @@ export class BannerComponent implements OnInit {
           (respose) => {
             console.log(respose);
             this.initilizeFrom();
+             this.getBanner();
+               $("#EditBanner").modal("toggle");
           });
         }
 
