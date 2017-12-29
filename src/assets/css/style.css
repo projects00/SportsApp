@@ -72,9 +72,9 @@ h3 { font-size: 1.6em; }
     .btn.btn-default { background: #eee; color: #444 !important; }
     .btn.btn-primary { background: #54acca; }
 .btn-primary:hover, .btn-primary:focus { background: #2a86a5; color: #fff !important; border: 0; }
-.nav > li { margin-right: 10px; }
+.nav.nav-tabs > li { margin-right: 10px; }
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus { color: #FFF; cursor: default; background-color: #111; border: 1px solid #111; border-bottom-color: transparent; }
-.nav > li > a:hover, .nav > li > a:focus, .nav li.active a { background: #54acca; color: #fff;  }
+.nav-tabs > li > a:hover, .nav-tabs > li > a:focus, .nav-tabs li.active a { background: #54acca; color: #fff;  }
 .nav-tabs { border-bottom: 3px solid #111; }
     .nav-tabs > li > a:hover { border-color: #111; }
 .carousel-caption { z-index: 10; bottom: 100px; text-shadow: none; color: #fff; text-align: center; padding: 0;left: 20px; right: 50%; }
