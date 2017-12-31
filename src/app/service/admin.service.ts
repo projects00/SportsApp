@@ -85,7 +85,7 @@ export class AdminService {
   saveCity(city) {
     return this.http.post("https://cricketappapi.herokuapp.com/insert/city", { "cityname": city }).map(response => response.json());
   }
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                
   saveImage(fileToUpload: File) {
     const _formData = new FormData();
     _formData.append("Name", fileToUpload.name);

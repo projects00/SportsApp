@@ -35,11 +35,11 @@
             <div class="row ba">
             <div class="col-md-9 pad0">
                 <div class="carousel-main owl-carousel owl-theme">
-                    <div class="item" *ngFor="let sb of cities;let i =index">
+                    <div class="item" *ngFor="let sb of slides;let i =index">
                         <img src="./assets/images/slide1.jpg" class="img-responsive">
                         <div class="carousel-caption">
-                            <h1><span>{{sb.name}}</span></h1>
-                            <h2><span>test test test test test test test test test</span></h2>
+                            <h1><span>{{sb.title}}</span></h1>
+                            <h2><span>{{sb.description}}</span></h2>
                         </div>
                     </div>
                  

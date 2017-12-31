@@ -16,14 +16,15 @@ qutoes:any;
 
    
   constructor(private adminService: AdminService,private router: Router) {
- //this.getActiveBanner();
-  this.cities = [
-      new city(1, 'Bangalore'),
-      new city(2, 'Coimbatore'),
-      new city(3, 'Erode'),
-      new city(4, 'Madurai')
-    ];
  
+ this.slides =[];
+ const ban= new Banner();
+ //ban.title="sdf";
+ //ban.description="sdfsdf sdfsdf sdf sdfsdfds ds fdsf ";
+ this.slides.push(ban);
+
+
+ this.getActiveBanner();
  
  
      this.getLatestQuotes();
@@ -71,7 +72,7 @@ qutoes:any;
            slide.id = element.id;
           slide.title = element.title;
           slide.description = element.description;
-          this.cities.push(slide);
+           this.slides.push({"title":slide.title});
              });
       },
       (error) => {
