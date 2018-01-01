@@ -35,7 +35,7 @@
             <div class="row ba">
             <div class="col-md-9 pad0">
 <owl-carousel
-     [options]="{items: 1, dots: true, navigation: false}"
+     [options]="{items: 1, dots: true, autoplay:true,navigation: false,autoplayTimeout:1000, autoplaySpeed:5000 ,loop:true}"
       [items]="slides"
       [carouselClasses]="['owl-theme', 'row', 'sliding']">
      <div class="item" *ngFor="let sb of slides;let i = index">
