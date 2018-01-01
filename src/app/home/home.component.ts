@@ -13,7 +13,7 @@ export class HomeComponent {
 slides:any;
 cities:any;
 qutoes:any;
-
+imagePath:any;
    
   constructor(private adminService: AdminService,private router: Router) {
  
@@ -38,9 +38,30 @@ qutoes:any;
   }
     ngOnInit() {
      
-     
+  }
+      createImageFromBlob(image: Blob, slide: any) {
+    let reader = new FileReader();
+    reader.addEventListener("load", () => {
+      if (slide == null) {
+        this.imagePath = reader.result;
+      }
+      else
+        slide.image = reader.result;
+    }, false);
 
-   
+    if (image) {
+      reader.readAsDataURL(image);
+    }
+  }
+
+    getImage(id: string, slide: any) {
+    this.adminService.getImage(id).subscribe(data => {
+      let reader = new FileReader();
+      this.createImageFromBlob(data, slide);
+    }, error => {
+      return null
+
+    });
   }
      getLatestQuotes() {
     this.qutoes = [];
@@ -72,6 +93,8 @@ qutoes:any;
            slide.id = element.id;
           slide.title = element.title;
           slide.description = element.description;
+          slide.imageid = element.imgageid;
+          this.getImage(element.imgageid, slide);
            this.slides.push(slide);
              });
       },

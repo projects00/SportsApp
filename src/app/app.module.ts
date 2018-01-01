@@ -15,6 +15,7 @@ import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
 import { TournamentDetailComponent } from './tournament-detail/tournament-detail.component';
 import { QuotesComponent } from './quotes/quotes.component';
 import { BannerComponent } from './banner/banner.component';
+import { OwlModule } from 'ng2-owl-carousel';
  
 const routes: Routes = [{
   path: 'login',
@@ -48,6 +49,7 @@ const routes: Routes = [{
     BannerComponent
   ],
   imports: [
+    OwlModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,

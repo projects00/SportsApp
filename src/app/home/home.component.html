@@ -34,17 +34,19 @@
         <div class="container">
             <div class="row ba">
             <div class="col-md-9 pad0">
-                <div class="carousel-main owl-carousel owl-theme" >
-                    <div class="item"  *ngFor="let sb of slides;let i =index" >
-                        <img src="./assets/images/slide1.jpg" class="img-responsive">
-                         
-                        <div class="carousel-caption">
-                           <h1><span>{{sb.title}}</span></h1>
-                            <h2><span>{{sb.description}}</span></h2>
-                        </div>
-                    </div>
-                 
-                </div>
+<owl-carousel
+     [options]="{items: 1, dots: true, navigation: false}"
+      [items]="slides"
+      [carouselClasses]="['owl-theme', 'row', 'sliding']">
+     <div class="item" *ngFor="let sb of slides;let i = index">
+          <img [src]="sb.image" width="673px" height="300px" class="img-responsive">
+        <div class="carousel-caption">
+           
+            <h1><span>{{sb.title}}</span></h1>
+            <h2><span>{{sb.description}}</span></h2>
+        </div>
+     </div>
+ </owl-carousel>
             </div>
                 <div class="col-md-3 pad0">
                     <div class="location">
