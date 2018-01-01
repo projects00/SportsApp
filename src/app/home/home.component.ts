@@ -17,11 +17,11 @@ qutoes:any;
    
   constructor(private adminService: AdminService,private router: Router) {
  
- this.slides =[];
+
  const ban= new Banner();
  //ban.title="sdf";
  //ban.description="sdfsdf sdfsdf sdf sdfsdfds ds fdsf ";
- this.slides.push(ban);
+
 
 
  this.getActiveBanner();
@@ -63,7 +63,7 @@ qutoes:any;
   }
 
        getActiveBanner() {
-    this.cities = [];
+    this.slides = [];
     this.adminService.getActiveBanner().subscribe(
       (respose) => {
         debugger;
@@ -72,7 +72,7 @@ qutoes:any;
            slide.id = element.id;
           slide.title = element.title;
           slide.description = element.description;
-           this.slides.push({"title":slide.title});
+           this.slides.push(slide);
              });
       },
       (error) => {
