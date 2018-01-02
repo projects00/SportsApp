@@ -13,15 +13,20 @@ export class HomeComponent {
 slides:any;
 cities:any;
 qutoes:any;
+explorecities:any;
+exploreSports:any;
+
 imagePath:any;
-   
   constructor(private adminService: AdminService,private router: Router) {
- 
+    this.explorecities=[];
+    this.exploreSports=[];
+
 
  const ban= new Banner();
  //ban.title="sdf";
  //ban.description="sdfsdf sdfsdf sdf sdfsdfds ds fdsf ";
-
+this.explorecities=[{name:"bgl",imgurl:"assets/images/Bgl.jpg"},{name:"cbe",imgurl:"assets/images/psg.jpg"}];
+this.exploreSports=[{name:"cricket",imgurl:"assets/images/cricket.jpg"},{name:"football",imgurl:"assets/images/football.jpg"}];
 
 
  this.getActiveBanner();

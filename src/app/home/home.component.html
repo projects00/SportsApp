@@ -1,203 +1,204 @@
 <div class="navbar-wrapper" id="fixheader">
-        <div class="container">
-            <div class="navbar" role="navigation">
-                <div>
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                        <a class="navbar-brand" href="index.html"><img src="./assets/images/logo.svg" alt="R & R Technology"></a>
-                    </div>
-                    <div class="navbar-collapse collapse">
-                        <div>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li class="visible-xs"><a href="#" id="closeicon" data-toggle="collapse" data-target=".navbar-collapse" class="glyphicon glyphicon-remove"><span class="sr-only">Close Menu</span></a></li>
-                                <li><a href="index.html">Home</a></li>
-                                <li class="dropdown"><a href="index.html">About Us</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Office <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="index.html">Service 1</a></li>
-                                        <li><a href="index.html">Service 2</a></li>
-                                        <li><a href="index.html">Service 3</a></li>
-                                        <li><a href="index.html">Service 4</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="index.html">Contact Us</a></li>
-                                <li><a  (click)="onClick()"class="btn btn-primary">Login / Register</a></li>
-                            </ul>
-                        </div>
+    <div class="container">
+        <div class="navbar" role="navigation">
+            <div>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <a class="navbar-brand" href="index.html"><img src="./assets/images/logo.svg" alt="R & R Technology"></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="visible-xs"><a href="#" id="closeicon" data-toggle="collapse" data-target=".navbar-collapse" class="glyphicon glyphicon-remove"><span class="sr-only">Close Menu</span></a></li>
+                            <li><a href="index.html">Home</a></li>
+                            <li class="dropdown"><a href="index.html">About Us</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Office <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="index.html">Service 1</a></li>
+                                    <li><a href="index.html">Service 2</a></li>
+                                    <li><a href="index.html">Service 3</a></li>
+                                    <li><a href="index.html">Service 4</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="index.html">Contact Us</a></li>
+                            <li><a (click)="onClick()" class="btn btn-primary">Login / Register</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="wrapper bgwhite">
-        <div class="container">
-            <div class="row ba">
+</div>
+<div class="wrapper bgwhite">
+    <div class="container">
+        <div class="row ba">
             <div class="col-md-9 pad0">
-<owl-carousel
-     [options]="{items: 1, dots: true, autoplay:true,navigation: false,autoplayTimeout:1000, autoplaySpeed:5000 ,loop:true}"
-      [items]="slides"
-      [carouselClasses]="['owl-theme', 'row', 'sliding']">
-     <div class="item" *ngFor="let sb of slides;let i = index">
-          <img [src]="sb.image" width="673px" height="300px" class="img-responsive">
-        <div class="carousel-caption">
-           
-            <h1><span>{{sb.title}}</span></h1>
-            <h2><span>{{sb.description}}</span></h2>
-        </div>
-     </div>
- </owl-carousel>
+                <owl-carousel [options]="{items: 1, dots: true, autoplay:true,loop:true,navigation: true}" [items]="slides" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+                    <div class="item" *ngFor="let sb of slides;let i = index">
+                        <img [src]="sb.image" width="673px" height="300px" class="img-responsive">
+                        <div class="carousel-caption">
+
+                            <h1><span>{{sb.title}}</span></h1>
+                            <h2><span>{{sb.description}}</span></h2>
+                        </div>
+                    </div>
+                </owl-carousel>
             </div>
-                <div class="col-md-3 pad0">
-                    <div class="location">
-                        <h3><span class="glyphicon glyphicon-map-marker"></span> Bangalore</h3>
-                    </div>
-                    <div class="LiveScore">
-                        <h3>Live Score:</h3>
-                        <p>IND 180/6 (50)</p>
-                        <p>AUS 120/4 (42.4)</p>
-                    </div>
+            <div class="col-md-3 pad0">
+                <div class="location">
+                    <h3><span class="glyphicon glyphicon-map-marker"></span> Bangalore</h3>
+                </div>
+                <div class="LiveScore">
+                    <h3>Live Score:</h3>
+                    <p>IND 180/6 (50)</p>
+                    <p>AUS 120/4 (42.4)</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="bgorange sectionpad">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="quotes">
-                        <p class="text-white">Thought for the day</p>
-                        <h2 class="">{{qutoes.QUOTE}}</h2>
-                        <p class="text-right">- {{qutoes.author}} </p>
-                    </div>
+</div>
+<div class="bgorange sectionpad">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="quotes">
+                    <p class="text-white">Thought for the day</p>
+                    <h2 class="">{{qutoes.QUOTE}}</h2>
+                    <p class="text-right">- {{qutoes.author}} </p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="bggray sectionpad">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="sectiontitle text-center">Explore</h1>
+</div>
+<div class="bggray sectionpad">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="sectiontitle text-center">Explore</h1>
+            </div>
+            <div class="col-md-3">
+                <div class="explore-items">
+                    <img src="assets/images/Icon-Play.svg">
+                    <h2>Play<br> a<br> Sports</h2>
+                    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#PlaySports">Know More</button>
                 </div>
-                <div class="col-md-3">
-                    <div class="explore-items">
-                        <img src="assets/images/Icon-Play.svg">
-                        <h2>Play<br> a<br> Sports</h2>
-                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#PlaySports">Know More</button>
-                    </div>
+            </div>
+            <div class="col-md-3">
+                <div class="explore-items">
+                    <img src="assets/images/Icon-Fitness.svg">
+                    <h2>&nbsp;<br>Fitness<br>&nbsp;</h2>
+                    <button class="btn btn-primary btn-sm">Know More</button>
                 </div>
-                <div class="col-md-3">
-                    <div class="explore-items">
-                        <img src="assets/images/Icon-Fitness.svg">
-                        <h2>&nbsp;<br>Fitness<br>&nbsp;</h2>
-                        <button class="btn btn-primary btn-sm">Know More</button>
-                    </div>
+            </div>
+            <div class="col-md-3">
+                <div class="explore-items">
+                    <img src="assets/images/Icon-Learn.svg">
+                    <h2>Learn<br>a<br>Sports</h2><button class="btn btn-primary btn-sm">Know More</button>
                 </div>
-                <div class="col-md-3">
-                    <div class="explore-items">
-                        <img src="assets/images/Icon-Learn.svg">
-                        <h2>Learn<br>a<br>Sports</h2><button class="btn btn-primary btn-sm">Know More</button>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="explore-items">
-                        <img src="assets/images/Icon-Adventure.svg">
-                        <h2>Adventure and<br> Revolution of<br> Sports</h2>
-                        <button class="btn btn-primary btn-sm">Know More</button>
-                    </div>
+            </div>
+            <div class="col-md-3">
+                <div class="explore-items">
+                    <img src="assets/images/Icon-Adventure.svg">
+                    <h2>Adventure and<br> Revolution of<br> Sports</h2>
+                    <button class="btn btn-primary btn-sm">Know More</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="bgwhite sectionpad">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7">
-                    <h1 class="sectiontitle">Blog</h1>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic.</p><br>
-                    <button class="btn btn-primary btn-sm">Read</button>
-                    <button class="btn btn-Default btn-sm">Wright</button>
-                </div>
-                <div class="col-md-5">
-                    <img src="./assets/images/Sports.jpg" class="img-responsive">
-                </div>
+</div>
+<div class="bgwhite sectionpad">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <h1 class="sectiontitle">Blog</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+                    it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic.</p><br>
+                <button class="btn btn-primary btn-sm">Read</button>
+                <button class="btn btn-Default btn-sm">Wright</button>
+            </div>
+            <div class="col-md-5">
+                <img src="./assets/images/Sports.jpg" class="img-responsive">
             </div>
         </div>
-    </div>    
-    <div class="bgblue sectionpad">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="sectiontitle text-center">Events</h1>
-                    <div class="carousel-explore owl-carousel owl-theme">
-                        <div class="item">
-                            <div class="events-items">
-                                <h2>Sports Event</h2>
-                                <p>15-01-2018</p>
-                                <button class="btn btn-default btn-sm">Know More</button>
-                            </div>
+    </div>
+</div>
+<div class="bgblue sectionpad">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="sectiontitle text-center">Events</h1>
+                <div class="carousel-explore owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="events-items">
+                            <h2>Sports Event</h2>
+                            <p>15-01-2018</p>
+                            <button class="btn btn-default btn-sm">Know More</button>
                         </div>
-                        <div class="item">
-                            <div class="events-items">
-                                <h2>Fitness Event</h2>
-                                <p>20-01-2018</p>
-                                <button class="btn btn-default btn-sm">Know More</button>
-                            </div>
+                    </div>
+                    <div class="item">
+                        <div class="events-items">
+                            <h2>Fitness Event</h2>
+                            <p>20-01-2018</p>
+                            <button class="btn btn-default btn-sm">Know More</button>
                         </div>
-                        <div class="item">
-                            <div class="events-items">
-                                <h2>Sports Meet</h2>
-                                <p>22-01-2018</p>
-                                <button class="btn btn-default btn-sm">Know More</button>
-                            </div>
+                    </div>
+                    <div class="item">
+                        <div class="events-items">
+                            <h2>Sports Meet</h2>
+                            <p>22-01-2018</p>
+                            <button class="btn btn-default btn-sm">Know More</button>
                         </div>
-                        <div class="item">
-                            <div class="events-items">
-                                <h2>Adventure Event</h2>
-                                <p>02-02-2018</p>
-                                <button class="btn btn-default btn-sm">Know More</button>
-                            </div>
+                    </div>
+                    <div class="item">
+                        <div class="events-items">
+                            <h2>Adventure Event</h2>
+                            <p>02-02-2018</p>
+                            <button class="btn btn-default btn-sm">Know More</button>
                         </div>
-                        <div class="item">
-                            <div class="events-items">
-                                <h2>Cricket Event</h2>
-                                <p>20-02-2018</p>
-                                <button class="btn btn-default btn-sm">Know More</button>
-                            </div>
+                    </div>
+                    <div class="item">
+                        <div class="events-items">
+                            <h2>Cricket Event</h2>
+                            <p>20-02-2018</p>
+                            <button class="btn btn-default btn-sm">Know More</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <footer class="bgfooter">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 iconouter">
-                    <img src="assets/images/Icon-Phone.svg" class="center-block" title="Phone Icon" alt="Phone">
-                    <p class="pad15">+91 98765 43210</p>
-                </div>
-                <div class="col-md-4 iconouter">
-                    <img src="assets/images/Icon-Social.svg" class="center-block" title="Social Icon" alt="Social">
-                    <p class="pad15"><a href="https://www.facebook.com/" title="Facebook Link" target="_blank">Facebook</a> | <a href="https://www.instagram.com/" target="_blank" title="Instagram Link">Instagram </a> | <a href="https://plus.google.com/" target="_blank" title="Google+ Link">Google+</a></p>
-                </div>
-                <div class="col-md-4 iconouter">
-                    <img src="assets/images/Icon-Email.svg" class="center-block" title="Email Icon" alt="Email">
-                    <p class="pad15"><a href="mailto:info@cricket.com">info@cricket.com</a>
-                </div>
-                <div class="clearfix"></div>
-                <div class="col-md-12 text-center">
-                    <hr>
-                    <p>Cricket &middot; All Rights Reserved &middot; &copy; 2017</p>
-                    <hr>
-                </div>
+</div>
+<footer class="bgfooter">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 iconouter">
+                <img src="assets/images/Icon-Phone.svg" class="center-block" title="Phone Icon" alt="Phone">
+                <p class="pad15">+91 98765 43210</p>
+            </div>
+            <div class="col-md-4 iconouter">
+                <img src="assets/images/Icon-Social.svg" class="center-block" title="Social Icon" alt="Social">
+                <p class="pad15"><a href="https://www.facebook.com/" title="Facebook Link" target="_blank">Facebook</a> | <a href="https://www.instagram.com/"
+                        target="_blank" title="Instagram Link">Instagram </a> | <a href="https://plus.google.com/" target="_blank"
+                        title="Google+ Link">Google+</a></p>
+            </div>
+            <div class="col-md-4 iconouter">
+                <img src="assets/images/Icon-Email.svg" class="center-block" title="Email Icon" alt="Email">
+                <p class="pad15"><a href="mailto:info@cricket.com">info@cricket.com</a>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-12 text-center">
+                <hr>
+                <p>Cricket &middot; All Rights Reserved &middot; &copy; 2017</p>
+                <hr>
             </div>
         </div>
-    </footer>
-    <div class="modal fade" id="PlaySports" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
+    </div>
+</footer>
+<div class="modal fade" id="PlaySports" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Play a Sports</h4>
@@ -207,17 +208,39 @@
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="exampleInputEmail1">Choose your city</label>
-                            <select class="form-control" id="">
-                                <option>Bangalore</option>
-                                <option>Coimbatore</option>
-                            </select>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <div class="form-group col-md-6">
+                                <owl-carousel [options]="{items: 2, dots: true,navigation: false,loop:true}" [items]="explorecities" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+                                    <div class="item" *ngFor="let sb of explorecities;let i = index">
+                                        <img src={{sb.imgurl}} title={{sb.name}} width="100px" height="100px" class="img-responsive">
+                                        <div class="carousel-caption">
+
+                                            <h1><span>{{sb.name}}</span></h1>
+                                        </div>
+                                    </div>
+                                </owl-carousel>
+                            </div>
                         </div>
                         <div class="form-group col-md-12">
                             <label for="exampleInputEmail1">Select a Sports</label>
-                            <select class="form-control" id="">
-                                <option>Outdoor: Cricket</option>
-                                <option>Indoor: Foodball</option>
-                            </select>
+                            <div class="form-group">
+                                <label class="radio-inline"><input type="radio" formControlName="inlineRadioOptions" id="inlineRadio1"  value="Outdoor"> OutDoor</label>
+                                <label class="radio-inline"><input type="radio" formControlName="inlineRadioOptions" id="inlineRadio2"   value="Indoor"> InDoor</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <div class="form-group col-md-6">
+                                <owl-carousel [options]="{items: 2, dots: true,navigation: false,loop:true}" [items]="explorecities" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+                                    <div class="item" *ngFor="let sb of exploreSports;let i = index">
+                                        <img src={{sb.imgurl}} title={{sb.name}} width="100px" height="100px" class="img-responsive">
+                                        <div class="carousel-caption">
+
+                                            <h1><span>{{sb.name}}</span></h1>
+                                        </div>
+                                    </div>
+                                </owl-carousel>
+                            </div>
                         </div>
                         <div class="form-group col-md-6">
                             <div class="owl-carousel owl-theme ground-slider">
@@ -238,6 +261,6 @@
                 <button type="button" (click)="delete()" class="btn btn-primary">Choose Opponent</button>
                 <button type="button" data-dismiss="modal" class="btn btn-default">More Details</button>
             </div>
-            </div>
         </div>
     </div>
+</div>
