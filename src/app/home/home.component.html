@@ -84,7 +84,7 @@
                     <div class="explore-items">
                         <img src="assets/images/Icon-Play.svg">
                         <h2>Play<br> a<br> Sports</h2>
-                        <button class="btn btn-primary btn-sm">Know More</button>
+                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#PlaySports">Know More</button>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -195,3 +195,49 @@
             </div>
         </div>
     </footer>
+    <div class="modal fade" id="PlaySports" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Play a Sports</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="exampleInputEmail1">Choose your city</label>
+                            <select class="form-control" id="">
+                                <option>Bangalore</option>
+                                <option>Coimbatore</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="exampleInputEmail1">Select a Sports</label>
+                            <select class="form-control" id="">
+                                <option>Outdoor: Cricket</option>
+                                <option>Indoor: Foodball</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="owl-carousel owl-theme ground-slider">
+                                <div class="item"><img src="assets/images/ground-01.jpg" class="img-responsive" title="ground image" alt="ground"></div>
+                                <div class="item"><img src="assets/images/ground-02.jpg" class="img-responsive" title="ground image" alt="ground"></div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <h4>Name of the Area</h4>
+                            <p>Address: </p>
+                            <p>Timing: </p>
+                            <p>Cost: </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="delete()" class="btn btn-primary">Choose Opponent</button>
+                <button type="button" data-dismiss="modal" class="btn btn-default">More Details</button>
+            </div>
+            </div>
+        </div>
+    </div>
