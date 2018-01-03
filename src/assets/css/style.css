@@ -101,6 +101,7 @@ h3 { font-size: 1.6em; }
 .tournament-logos { height: 100px}
 app-root, app-root app-login, app-root app-login>#top { height: 100%}
 .box { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px}
+.btn .btn-icon { width: 26px; height: 26px; margin-right: 6px;}
 @media (max-width: 992px) {
     h1 { font-size: 1.6em; }
     h2 { font-size: 1.4em; }
