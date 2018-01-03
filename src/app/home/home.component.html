@@ -206,19 +206,20 @@
             <div class="modal-body">
                 <form>
                     <div class="row">
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-12" *ngIf="showCity">
                             <label for="exampleInputEmail1">Choose your city</label>
                             <div class="clearfix"></div>
-                            <button class="btn btn-default" type="submit">Bangalore</button>
+                            <button class="btn btn-default" (click)="cityClick()" type="submit">Bangalore</button>
                             <button class="btn btn-default" type="submit">Chennai</button>
                             <button class="btn btn-default" type="submit">Coimbatore</button>
                             <button class="btn btn-default" type="submit">Mumbai</button>
                             <button class="btn btn-default" type="submit">Delhi</button>
                             <button class="btn btn-default" type="submit">Kolkatta</button>
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-12" *ngIf="!showCity">
                             <div class="box">
                                 <p><label for="exampleInputEmail1">Outdoor</label></p>
+                               
                                 <button  (click)="sportsClick()" class="btn btn-default" data-dismiss="modal" type="submit">Foodball</button>
                                 <button  (click)="sportsClick()" class="btn btn-default" data-dismiss="modal" type="submit">Cricket</button><br><br>
                                 <p><label for="exampleInputEmail1">Indoor</label></p>

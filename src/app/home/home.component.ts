@@ -15,11 +15,13 @@ cities:any;
 qutoes:any;
 explorecities:any;
 exploreSports:any;
+showCity:boolean;
 
 imagePath:any;
   constructor(private adminService: AdminService,private router: Router) {
     this.explorecities=[];
     this.exploreSports=[];
+    this.showCity=true;
 
 
  const ban= new Banner();
@@ -30,13 +32,12 @@ this.exploreSports=[{name:"cricket",imgurl:"assets/images/cricket.jpg"},{name:"f
 
 
  this.getActiveBanner();
- 
- 
      this.getLatestQuotes();
-     
-    
    }
 
+   cityClick():void{
+     this.showCity=false;
+   }
    sportsClick():void{
       this.router.navigateByUrl('/user');
 
