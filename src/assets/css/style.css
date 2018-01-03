@@ -9,7 +9,7 @@ body { font-family: 'Quicksand', sans-serif; color: #111; background: #f2f2f2; }
 .relative { position: relative; }
 .bgfooter { background: #2a86a5; padding: 120px 0 40px 0; }
 .bgdark p, .bgdark h1, .bgdark h2, .bgdark h3, .bgdark h4,.bgblue p, .bgblue h1, .bgblue h2, .bgblue h3, .bgblue ul li { color: #2a86a5; }
-.bgorange p, .bgorange h1, .bgorange h2, .bgorange h3, .bgorange h4 { color: #fff; }
+.bgorange p, .bgorange h1, .bgorange h2, .bgorange h3, .bgorange h4 { color: #fff; margin: 0 }
 .bgblue a, .bgdark a { color: #ddd; text-decoration: underline; } 
 .bgfooter p, .bgfooter h1, .bgfooter h2, .bgfooter h3, .bgfooter h4,.bgfooter a { color: #eee !important; }
 ::selection { background: #2a86a5; color: #FFFFFF; }
@@ -83,7 +83,7 @@ h3 { font-size: 1.6em; }
 .location h3{ margin: 0; color: #fff;}
 .LiveScore h3{ margin: 0 0 10px; color: #2a86a5;}
 .ba{background: #d8f1f9}
-.quotes{ padding: 0 10px 0 100px; background: url(../images/quotes.png) no-repeat left top; margin: 10px 120px;}
+.quotes{ padding: 0 10px 0 70px; background: url(../images/quotes.png) no-repeat left top; margin: 10px 120px;}
 .carousel-main { height: 100%; width: 100%; background: url(../images/loading.gif) center center no-repeat; }
 .owl-carousel .item { width: 100%; height: 100%; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; -o-background-size: cover; }
     .owl-carousel .item h1, .owl-carousel .item h2 { margin: 0; color: #2a86a5; line-height: 1.4; text-align: left }
