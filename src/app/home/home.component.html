@@ -36,7 +36,7 @@
             <div class="col-md-9 pad0">
                 <owl-carousel [options]="{items: 1, dots: true, autoplay:true,loop:true,navigation: true}" [items]="slides" [carouselClasses]="['owl-theme', 'row', 'sliding']">
                     <div class="item" *ngFor="let sb of slides;let i = index">
-                        <img [src]="sb.image" width="673px" height="300px" class="img-responsive">
+                        <img [src]="sb.image"  class="img-responsive">
                         <div class="carousel-caption">
 
                             <h1><span>{{sb.title}}</span></h1>
