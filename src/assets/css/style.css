@@ -83,7 +83,7 @@ h3 { font-size: 1.6em; }
 .location h3{ margin: 0; color: #fff;}
 .LiveScore h3{ margin: 0 0 10px; color: #2a86a5;}
 .ba{background: #d8f1f9}
-.quotes{ padding: 10px 10px 10px 100px; background: url(../images/quotes.png) no-repeat left top; margin: 0 120px;}
+.quotes{ padding: 0 10px 0 100px; background: url(../images/quotes.png) no-repeat left top; margin: 10px 120px;}
 .carousel-main { height: 100%; width: 100%; background: url(../images/loading.gif) center center no-repeat; }
 .owl-carousel .item { width: 100%; height: 100%; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; -o-background-size: cover; }
     .owl-carousel .item h1, .owl-carousel .item h2 { margin: 0; color: #2a86a5; line-height: 1.4; text-align: left }
