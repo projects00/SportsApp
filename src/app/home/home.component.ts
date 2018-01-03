@@ -37,8 +37,13 @@ this.exploreSports=[{name:"cricket",imgurl:"assets/images/cricket.jpg"},{name:"f
     
    }
 
+   sportsClick():void{
+      this.router.navigateByUrl('/user');
+
+   }
+
   onClick(): void {
-    this.router.navigateByUrl('/login')
+    this.router.navigateByUrl('/login');
 
   }
     ngOnInit() {

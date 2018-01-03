@@ -16,6 +16,8 @@ import { TournamentDetailComponent } from './tournament-detail/tournament-detail
 import { QuotesComponent } from './quotes/quotes.component';
 import { BannerComponent } from './banner/banner.component';
 import { OwlModule } from 'ng2-owl-carousel';
+import { SportsarenaComponent } from './sportsarena/sportsarena.component';
+import { UserComponent } from './user/user.component';
  
 const routes: Routes = [{
   path: 'login',
@@ -32,9 +34,21 @@ const routes: Routes = [{
                      { path: 'banner', component: BannerComponent }
                    ]
 },
+                  {
+  path: 'user',
+  component: UserComponent,
+  children : [
+                { path: 'sportsarena', component: SportsarenaComponent }
+                
+                   ]
+},
 {
   path: 'home',
   component: HomeComponent
+},
+{
+  path: 'user',
+  component: UserComponent
 }];
 @NgModule({
   declarations: [
@@ -46,7 +60,9 @@ const routes: Routes = [{
     HomeComponent,
     TournamentDetailComponent,
     QuotesComponent,
-    BannerComponent
+    BannerComponent,
+    SportsarenaComponent,
+    UserComponent
   ],
   imports: [
     OwlModule,
