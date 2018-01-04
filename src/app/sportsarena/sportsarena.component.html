@@ -3,41 +3,36 @@
         <div class="col-md-12">
             <div class="pannelDiv" id="pannel1">
                 <div class="x_panel">
-                    <div class="x_title">
-                        <h2>Select a Sports</h2>
-                        <div class="clearfix"></div>
-                    </div>
                     <div class="x_content">
-                        <div class="form-group col-md-12">
-                            <div class="form-group">
-                                <label class="radio-inline"><input type="radio" formControlName="inlineRadioOptions" id="inlineRadio1"  value="Outdoor"> OutDoor</label>
-                                <label class="radio-inline"><input type="radio" formControlName="inlineRadioOptions" id="inlineRadio2"   value="Indoor"> InDoor</label>
-                            </div>
+                        <div class="form-group col-md-5">
+                            <img src="../assets/images/ground-02.jpg" class="img-responsive" title="ground image" alt="ground">
                         </div>
-                        <div class="form-group col-md-12">
-                            <div class="form-group col-md-6">
-                                <owl-carousel [options]="{items: 2, dots: true,navigation: false,loop:true}" [items]="explorecities" [carouselClasses]="['owl-theme', 'row', 'sliding']">
-                                    <div class="item" *ngFor="let sb of exploreSports;let i = index">
-                                        <img src={{sb.imgurl}} title={{sb.name}} width="100px" height="100px" class="img-responsive">
-                                        <div class="carousel-caption">
-
-                                            <h1><span>{{sb.name}}</span></h1>
-                                        </div>
-                                    </div>
-                                </owl-carousel>
-                            </div>
+                        <div class="form-group col-md-7">
+                            <h1>Hubli Sports Club</h1>
+                            <h4><span class="lnr lnr-map-marker"></span> Name of the Area</h4>
+                            <p><span class="lnr lnr-clock"></span> 09:00 AM to 04:00 PM </p>
+                            <p>Cost: ₹ 3000.00</p>
+                            <a href="#" class="btn btn-primary">Choose an Opponent</a>
+                            <a href="#" class="btn btn-primary">Book Now!</a>
                         </div>
-                        <div class="form-group col-md-6">
-                            <div class="owl-carousel owl-theme ground-slider">
-                                <div class="item"><img src="assets/images/ground-01.jpg" class="img-responsive" title="ground image" alt="ground"></div>
-                                <div class="item"><img src="assets/images/ground-02.jpg" class="img-responsive" title="ground image" alt="ground"></div>
-                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="pannelDiv" id="pannel1">
+                <div class="x_panel">
+                    <div class="x_content">
+                        <div class="form-group col-md-5">
+                            <img src="../assets/images/ground-01.jpg" class="img-responsive" title="ground image" alt="ground">
                         </div>
-                        <div class="form-group col-md-6">
-                            <h4>Name of the Area</h4>
-                            <p>Address: </p>
-                            <p>Timing: </p>
-                            <p>Cost: </p>
+                        <div class="form-group col-md-7">
+                            <h1>Hubli Sports Club</h1>
+                            <h4><span class="lnr lnr-map-marker"></span> Name of the Area</h4>
+                            <p><span class="lnr lnr-clock"></span> 09:00 AM to 04:00 PM </p>
+                            <p>Cost: ₹ 5000.00</p>
+                            <a href="#" class="btn btn-primary">Choose an Opponent</a>
+                            <a href="#" class="btn btn-primary">Book Now!</a>
                         </div>
                     </div>
                 </div>
