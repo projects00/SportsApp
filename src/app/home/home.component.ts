@@ -32,7 +32,7 @@ this.exploreSports=[{name:"cricket",imgurl:"assets/images/cricket.jpg"},{name:"f
  this.getActiveBanner();
  
  
-     this.getLatestQuotes();
+this.getLatestQuotes();
      
     
    }

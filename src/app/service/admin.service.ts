@@ -9,7 +9,7 @@ export class AdminService {
 
   constructor(private http: Http) { }
 
-  public baseApi = 'https://cricketappapi.herokuapp.com/';
+  public baseApi = 'http://ec2-18-221-230-194.us-east-2.compute.amazonaws.com:5000/';
 
 
   cars = [
@@ -21,7 +21,7 @@ export class AdminService {
     return this.http.get(this.baseApi).map(response => response.json());
   }
   getBanner() {
-    return this.http.get("https://cricketappapi.herokuapp.com/get/banner").map(response => {
+    return this.http.get(this.baseApi+"get/banner").map(response => {
       console.log(response.json());
       return response.json()
     }
@@ -29,7 +29,7 @@ export class AdminService {
     );
   }
   getQuotes() {
-    return this.http.get("https://cricketappapi.herokuapp.com/get/quotes").map(response => {
+    return this.http.get(this.baseApi+"get/quotes").map(response => {
       console.log(response.json());
       return response.json()
     }
@@ -37,7 +37,7 @@ export class AdminService {
     );
   }
   getCity() {
-    return this.http.get("https://cricketappapi.herokuapp.com/city").map(response => {
+    return this.http.get(this.baseApi+"city").map(response => {
       console.log(response.json());
       return response.json()
     }
@@ -46,7 +46,8 @@ export class AdminService {
   }
 
   getLatestQuotes() {
-    return this.http.get("https://cricketappapi.herokuapp.com/get/latest/quote").map(response => {
+    debugger;
+    return this.http.get(this.baseApi+"get/latest/quote").map(response => {
       console.log(response.json());
       return response.json()
     }
@@ -55,7 +56,7 @@ export class AdminService {
   }
 
   getActiveBanner() {
-    return this.http.get("https://cricketappapi.herokuapp.com/get/banneractive").map(response => {
+    return this.http.get(this.baseApi+"get/banneractive").map(response => {
       console.log(response.json());
       return response.json()
     }
@@ -63,7 +64,7 @@ export class AdminService {
     );
   }
   getType() {
-    return this.http.get("https://cricketappapi.herokuapp.com/type").map(response => {
+    return this.http.get(this.baseApi+"type").map(response => {
       console.log(response.json());
       return response.json()
     }
@@ -74,16 +75,16 @@ export class AdminService {
 
 
   getImage(id) {
-    return this.http.get("https://cricketappapi.herokuapp.com/get/img/" + id, { responseType: ResponseContentType.Blob })
+    return this.http.get(this.baseApi+"get/img/" + id, { responseType: ResponseContentType.Blob })
       .map((res: Response) => res.blob());
 
   }
   saveTournament(tournament: any) {
-    return this.http.post("https://cricketappapi.herokuapp.com/insert", tournament).map(response => response.json());
+    return this.http.post(this.baseApi+"insert", tournament).map(response => response.json());
 
   }
   saveCity(city) {
-    return this.http.post("https://cricketappapi.herokuapp.com/insert/city", { "cityname": city }).map(response => response.json());
+    return this.http.post(this.baseApi+"insert/city", { "cityname": city }).map(response => response.json());
   }
                                                                                                                                                                                                                                                                                                                                                                                                                                 
   saveImage(fileToUpload: File) {
@@ -95,16 +96,16 @@ export class AdminService {
     let options = new RequestOptions({
       headers: headers
     });
-    return this.http.post("https://cricketappapi.herokuapp.com/post/img", body, options).map(response => response.json());
+    return this.http.post(this.baseApi+"post/img", body, options).map(response => response.json());
   }
 
   saveBanner(banner) {
-    return this.http.post("https://cricketappapi.herokuapp.com/post/banner", banner).map(response => response.json());
+    return this.http.post(this.baseApi+"post/banner", banner).map(response => response.json());
   }
 
   saveQuotes(quote) {
     {debugger}
-    return this.http.post("https://cricketappapi.herokuapp.com/post/quotes", {   "quote":quote.QUOTE,
+    return this.http.post(this.baseApi+"post/quotes", {   "quote":quote.QUOTE,
     "author":quote.author 
 } ).map(response => response.json());
   }
@@ -112,7 +113,7 @@ export class AdminService {
 
   deleteBanner(id) {
     debugger;
-    return this.http.put("https://cricketappapi.herokuapp.com/delete/banner/" + id, null).map(response => {
+    return this.http.put(this.baseApi+"delete/banner/" + id, null).map(response => {
       console.log(response.json());
       return response.json()
     },
@@ -122,7 +123,7 @@ export class AdminService {
       });
   }
   deleteCity(id: string) {
-    return this.http.put("https://cricketappapi.herokuapp.com/delete/city/" + id, null).map(response => {
+    return this.http.put(this.baseApi+"delete/city/" + id, null).map(response => {
       console.log(response.json());
       return response.json()
     },
@@ -132,11 +133,11 @@ export class AdminService {
       });
   }
   saveType(type) {
-    return this.http.post("https://cricketappapi.herokuapp.com/insert/type", { "typename": type }).map(response => response.json());
+    return this.http.post(this.baseApi+"insert/type", { "typename": type }).map(response => response.json());
   }
 
   deleteType(id: string) {
-    return this.http.put("https://cricketappapi.herokuapp.com/delete/type/" + id, null).map(response => {
+    return this.http.put(this.baseApi+"delete/type/" + id, null).map(response => {
       console.log(response.json());
       return response.json()
     },
@@ -147,20 +148,20 @@ export class AdminService {
   }
   deleteQuotes(id) {
     debugger;
-    return this.http.put("https://cricketappapi.herokuapp.com/delete/quote/" + id, { "isActive": 1 }).map(response => response.json());
+    return this.http.put(this.baseApi+"delete/quote/" + id, { "isActive": 1 }).map(response => response.json());
   }
   deleteTournament(id) {
     debugger;
-    return this.http.put("https://cricketappapi.herokuapp.com/delete/" + id, { "isActive": 1 }).map(response => response.json());
+    return this.http.put(this.baseApi+"delete/" + id, { "isActive": 1 }).map(response => response.json());
   }
   updateTournament(tournament) {
-    return this.http.put("https://cricketappapi.herokuapp.com/update/" + tournament.id, tournament).map(response => response.json());
+    return this.http.put(this.baseApi+"update/" + tournament.id, tournament).map(response => response.json());
   }
   updateBanner(banner) {
-    return this.http.put("https://cricketappapi.herokuapp.com/update/banner/" + banner.id, banner).map(response => response.json());
+    return this.http.put(this.baseApi+"update/banner/" + banner.id, banner).map(response => response.json());
   }
   updateQuotes(quote) {
-    return this.http.put("https://cricketappapi.herokuapp.com/update/quote/" + quote.id, {   "quote":quote.QUOTE,
+    return this.http.put(this.baseApi+"update/quote/" + quote.id, {   "quote":quote.QUOTE,
     "author":quote.author 
 }).map(response => response.json());
   }
