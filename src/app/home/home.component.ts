@@ -4,6 +4,8 @@ import { Banner } from '../model/Banner';
 import { city } from '../model/city';
 import { quotes } from '../model/quotes';
 import { AdminService } from '../service/admin.service';
+declare var $: any;
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,11 +17,12 @@ cities:any;
 qutoes:any;
 explorecities:any;
 exploreSports:any;
-
+showCity:boolean;
 imagePath:any;
   constructor(private adminService: AdminService,private router: Router) {
     this.explorecities=[];
     this.exploreSports=[];
+    this.showCity=true;
 
 
  const ban= new Banner();
@@ -37,7 +40,14 @@ this.getLatestQuotes();
     
    }
 
+   cityClick():void{
+        this.showCity=false;
+
+   }
+
    sportsClick():void{
+     //  this.showCity=false;
+        $("#PlaySports").modal("toggle");
       this.router.navigateByUrl('/user');
 
    }

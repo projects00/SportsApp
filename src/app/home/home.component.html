@@ -210,11 +210,11 @@
                             <label for="exampleInputEmail1">Choose your city</label>
                             <div class="clearfix"></div>
                             <button class="btn btn-default" (click)="cityClick()" type="submit">Bangalore</button>
-                            <button class="btn btn-default" type="submit">Chennai</button>
-                            <button class="btn btn-default" type="submit">Coimbatore</button>
-                            <button class="btn btn-default" type="submit">Mumbai</button>
-                            <button class="btn btn-default" type="submit">Delhi</button>
-                            <button class="btn btn-default" type="submit">Kolkatta</button>
+                            <button class="btn btn-default" (click)="cityClick()" type="submit">Chennai</button>
+                            <button class="btn btn-default" (click)="cityClick()"  type="submit">Coimbatore</button>
+                            <button class="btn btn-default"  (click)="cityClick()" type="submit">Mumbai</button>
+                            <button class="btn btn-default"  (click)="cityClick()" type="submit">Delhi</button>
+                            <button class="btn btn-default"  (click)="cityClick()" type="submit">Kolkatta</button>
                         </div>
                         <div class="form-group col-md-12" *ngIf="!showCity">
                             <div class="box">
