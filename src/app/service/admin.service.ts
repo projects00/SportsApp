@@ -9,7 +9,7 @@ export class AdminService {
 
   constructor(private http: Http) { }
 
-  public baseApi = 'http://ec2-18-221-230-194.us-east-2.compute.amazonaws.com:5000/';
+  public baseApi = 'http://ec2-52-91-21-206.compute-1.amazonaws.com:5000/';
 
 
   cars = [
