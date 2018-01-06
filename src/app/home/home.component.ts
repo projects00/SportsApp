@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter,Pipe } from '@angular/core';
 import { Router } from '@angular/router';
 import { Banner } from '../model/Banner';
 import { city } from '../model/city';
 import { quotes } from '../model/quotes';
 import { AdminService } from '../service/admin.service';
+
 declare var $: any;
 
 @Component({
@@ -14,7 +15,11 @@ declare var $: any;
 export class HomeComponent {
 slides:any;
 cities:any;
+sports:any;
+ODsports:any;
+INsports:any;
 qutoes:any;
+
 explorecities:any;
 exploreSports:any;
 showCity:boolean;
@@ -22,6 +27,10 @@ imagePath:any;
   constructor(private adminService: AdminService,private router: Router) {
     this.explorecities=[];
     this.exploreSports=[];
+    this.cities=[];
+    this.sports=[];
+    this.ODsports=[];
+       this.INsports=[];
     this.showCity=true;
 
 
@@ -30,7 +39,9 @@ imagePath:any;
  //ban.description="sdfsdf sdfsdf sdf sdfsdfds ds fdsf ";
 this.explorecities=[{name:"bgl",imgurl:"assets/images/Bgl.jpg"},{name:"cbe",imgurl:"assets/images/psg.jpg"}];
 this.exploreSports=[{name:"cricket",imgurl:"assets/images/cricket.jpg"},{name:"football",imgurl:"assets/images/football.jpg"}];
-
+this.cities=[{id:1,name:"Coimbatore"},{id:2,name:"Bangalore"}];
+this.ODsports=[{id:1,name:"Cricket",typeid:1,imgurl:"assets/images/icon-cricket-1.svg"},{id:2,name:"Football",typeid:1,imgurl:"assets/images/icon-football.svg"}];
+this.INsports=[{id:1,name:"Table Tennis",typeid:1,imgurl:"assets/images/icon-table-tennis.svg"},{id:1,name:"Badminton",typeid:2,imgurl:"assets/images/icon-badmittan.svg"}];
 
  this.getActiveBanner();
  
