@@ -7,6 +7,9 @@ import 'rxjs/Rx';
 @Injectable()
 export class AdminService {
  public SportsArena:any=[];
+ public selectedCityId:Number;
+ public selectedSportsId:Number;
+ public selectedCityName:String;
   constructor(private http: Http) { 
     
   }
