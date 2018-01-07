@@ -3,32 +3,19 @@
         <div class="col-md-12">
             <div class="pannelDiv" id="pannel1">
                 <div class="x_panel">
-                    <div class="x_content">
+                    <div class="x_content" *ngFor="let sa of sportsarena;let i = index">
                         <div class="form-group col-md-5">
-                            <img src="../assets/images/ground-02.jpg" class="img-responsive" title="ground image" alt="ground">
+                            <owl-carousel [options]="{items: 1, dots: true, autoplay:true,loop:true,navigation: true}" [items]="sportsarena.imgurl" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+                                <div class="item" *ngFor="let img of sa.imgurl;let i = index">
+                                    <img src={{img}} class="img-responsive">
+                                    <div class="carousel-caption">
+                                    </div>
+                                </div>
+                            </owl-carousel>
                         </div>
                         <div class="form-group col-md-7">
                             <h1>Hubli Sports Club</h1>
-                            <h4><span class="lnr lnr-map-marker"></span> Name of the Area</h4>
-                            <p><span class="lnr lnr-clock"></span> 09:00 AM to 04:00 PM </p>
-                            <p>Cost: ₹ 3000.00</p>
-                            <a href="#" class="btn btn-primary">Choose an Opponent</a>
-                            <a href="#" class="btn btn-primary">Book Now!</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="pannelDiv" id="pannel1">
-                <div class="x_panel">
-                    <div class="x_content">
-                        <div class="form-group col-md-5">
-                            <img src="../assets/images/ground-01.jpg" class="img-responsive" title="ground image" alt="ground">
-                        </div>
-                        <div class="form-group col-md-7">
-                            <h1>Hubli Sports Club</h1>
-                            <h4><span class="lnr lnr-map-marker"></span> Name of the Area</h4>
+                            <h4><span class="lnr lnr-map-marker"></span> {{sa.name}}</h4>
                             <p><span class="lnr lnr-clock"></span> 09:00 AM to 04:00 PM </p>
                             <p>Cost: ₹ 5000.00</p>
                             <a href="#" class="btn btn-primary">Choose an Opponent</a>

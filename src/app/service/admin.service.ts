@@ -6,11 +6,14 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class AdminService {
-
-  constructor(private http: Http) { }
+ public SportsArena:any=[];
+  constructor(private http: Http) { 
+    
+  }
 
   public baseApi = 'http://ec2-52-91-21-206.compute-1.amazonaws.com:5000/';
-
+ 
+  
 
   cars = [
     'Ford', 'Chevrolet', 'Buick'
@@ -134,6 +137,12 @@ export class AdminService {
   }
   saveType(type) {
     return this.http.post(this.baseApi+"insert/type", { "typename": type }).map(response => response.json());
+  }
+
+  getArena()
+  {
+    this.SportsArena=[{id:1,name:"Table Tennis",imgurl:["../assets/images/ground-01.jpg","../assets/images/ground-02.jpg"]},{id:2,name:"test",imgurl:["../assets/images/ground-02.jpg","../assets/images/ground-01.jpg"]}];
+    return this.SportsArena;
   }
 
   deleteType(id: string) {

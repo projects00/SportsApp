@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../service/admin.service';
 
 @Component({
   selector: 'app-sportsarena',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sportsarena.component.css']
 })
 export class SportsarenaComponent implements OnInit {
-
-  constructor() { }
+sportsarena:any=[];
+  constructor(private adminService: AdminService) { }
 
   ngOnInit() {
+    this.sportsarena=this.adminService.getArena();
   }
 
 }
