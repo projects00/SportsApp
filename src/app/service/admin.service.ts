@@ -8,8 +8,9 @@ import 'rxjs/Rx';
 export class AdminService {
  public SportsArena:any=[];
  public selectedCityId:Number;
- public selectedSportsId:Number;
- public selectedCityName:String;
+  public selectedCityName:String;
+
+public selectedSportsId:Number;
   constructor(private http: Http) { 
     
   }
@@ -144,7 +145,7 @@ export class AdminService {
 
   getArena()
   {
-    this.SportsArena=[{id:1,name:"Table Tennis",imgurl:["../assets/images/ground-01.jpg","../assets/images/ground-02.jpg"]},{id:2,name:"test",imgurl:["../assets/images/ground-02.jpg","../assets/images/ground-01.jpg"]}];
+    this.SportsArena=[{id:1,name:"Table Tennis",imgurl:["../assets/images/ground-01.jpg"]},{id:2,name:"test",imgurl:["../assets/images/ground-02.jpg"]}];
     return this.SportsArena;
   }
 

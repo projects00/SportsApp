@@ -18,6 +18,8 @@ import { BannerComponent } from './banner/banner.component';
 import { OwlModule } from 'ng2-owl-carousel';
 import { SportsarenaComponent } from './sportsarena/sportsarena.component';
 import { UserComponent } from './user/user.component';
+import { BookingComponent } from './booking/booking.component';
+import { CartComponent } from './cart/cart.component';
  
 const routes: Routes = [{
   path: 'login',
@@ -38,8 +40,9 @@ const routes: Routes = [{
   path: 'user',
   component: UserComponent,
   children : [
-                { path: 'sportsarena', component: SportsarenaComponent }
-                
+                { path: 'sportsarena', component: SportsarenaComponent },
+                 { path: 'booking', component: BookingComponent },
+                  { path: 'cart', component: CartComponent }
                    ]
 },
 {
@@ -62,7 +65,9 @@ const routes: Routes = [{
     QuotesComponent,
     BannerComponent,
     SportsarenaComponent,
-    UserComponent
+    UserComponent,
+    BookingComponent,
+    CartComponent
   ],
   imports: [
     OwlModule,
