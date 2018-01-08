@@ -67,6 +67,7 @@ export class HomeComponent {
     $("#PlaySports").modal("toggle");
     this.router.navigateByUrl('/user');
     this.adminService.selectedSportsId = sport.id;
+     this.adminService.selectedSportsName = sport.name;
 
   }
 

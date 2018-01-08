@@ -10,14 +10,19 @@ import { Router } from '@angular/router';
 })
 export class SportsarenaComponent implements OnInit {
 sportsarena:any=[];
-  constructor(private adminService: AdminService, private router: Router) { }
+SelectedCityName:String;
+SelectedSportsName:String;
+  constructor(private adminService: AdminService, private router: Router) {
+    this.SelectedCityName=adminService.selectedCityName;
+    this.SelectedSportsName=adminService.selectedSportsName;
+   }
 
   ngOnInit() {
     this.sportsarena=this.adminService.getArena();
   }
 
   booknow(){
-      this.router.navigateByUrl('/user/booking');
+    this.router.navigateByUrl('/user/booking');
 
   }
 }

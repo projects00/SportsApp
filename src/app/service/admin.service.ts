@@ -9,7 +9,7 @@ export class AdminService {
  public SportsArena:any=[];
  public selectedCityId:Number;
   public selectedCityName:String;
-
+public selectedSportsName:String;
 public selectedSportsId:Number;
   constructor(private http: Http) { 
     
