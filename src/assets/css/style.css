@@ -72,14 +72,12 @@ h3 { font-size: 1.6em; }
     .btn-goto .glyphicon { width: 14px; -webkit-animation: 900ms bounce linear infinite; animation: 900ms bounce linear infinite; }
 .btn { transition: all .5s ease; padding: 10px 15px;}
     .btn.btn-default { background: #eee; color: #444 !important; }
-    .btn.btn-primary { background: #54acca; }
+    .btn.btn-primary { background: #2a86a5; }
 .btn-primary:hover, .btn-primary:focus { background: #2a86a5; color: #fff !important; }
-.btn-default:hover, .btn-default:focus { background: #666; color: #fff !important; }
+.btn-default:hover, .btn-default:focus { background: #2a86a5; color: #fff !important; }
 .nav.nav-tabs > li { margin-right: 10px; }
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus { color: #FFF; cursor: default; background-color: #111; border: 1px solid #111; border-bottom-color: transparent; }
-.nav-tabs > li > a:hover, .nav-tabs > li > a:focus, .nav-tabs li.active a { background: #54acca; color: #fff;  }
-.nav-tabs { border-bottom: 3px solid #111; }
-    .nav-tabs > li > a:hover { border-color: #111; }
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus { color: #FFF; cursor: default; background-color: #2a86a5; border: 1px solid #2a86a5; border-bottom-color: transparent; }
+.nav-tabs > li > a:hover, .nav-tabs > li > a:focus, .nav-tabs li.active a { background: #2a86a5; color: #fff;  }
 .carousel-caption { z-index: 10; bottom: 100px; text-shadow: none; color: #fff; text-align: center; padding: 0;left: 20px; right: 50%; }
 .location { background: #345e2a; padding: 20px;}
 .LiveScore { background: #d8f1f9; padding: 20px;}
