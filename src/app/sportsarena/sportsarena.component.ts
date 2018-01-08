@@ -18,7 +18,26 @@ SelectedSportsName:String;
    }
 
   ngOnInit() {
-    this.sportsarena=this.adminService.getArena();
+        this.adminService.getArena().subscribe(
+      (respose) => {
+        console.log(respose)
+        var i:number=0;
+        respose.forEach(element => {
+          var ele=element;
+          ele.imgurl=[];
+          if(i==0)
+           ele.imgurl.push("../assets/images/ground-01.jpg");
+          else
+              ele.imgurl.push("../assets/images/ground-02.jpg");
+          this.sportsarena.push(element);
+          i=i+1;
+        });
+      }
+      ,
+      (error) => {
+        console.log(error.json());
+      }
+    );
   }
 
   booknow(){

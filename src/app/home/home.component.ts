@@ -40,7 +40,7 @@ export class HomeComponent {
     //ban.description="sdfsdf sdfsdf sdf sdfsdfds ds fdsf ";
     this.explorecities = [{ name: "bgl", imgurl: "assets/images/Bgl.jpg" }, { name: "cbe", imgurl: "assets/images/psg.jpg" }];
     this.exploreSports = [{ name: "cricket", imgurl: "assets/images/cricket.jpg" }, { name: "football", imgurl: "assets/images/football.jpg" }];
-    this.cities = [{ id: 1, name: "Coimbatore" }, { id: 2, name: "Bangalore" }];
+    this.cities = [{ id: 31, name: "Coimbatore" }, { id: 28, name: "Bangalore" }];
     this.ODsports = [{ id: 1, name: "Cricket", typeid: 1, imgurl: "assets/images/icon-cricket-1.svg" }, { id: 2, name: "Football", typeid: 1, imgurl: "assets/images/icon-football.svg" }];
     this.INsports = [{ id: 1, name: "Table Tennis", typeid: 1, imgurl: "assets/images/icon-table-tennis.svg" }, { id: 1, name: "Badminton", typeid: 2, imgurl: "assets/images/icon-badmittan.svg" }];
 

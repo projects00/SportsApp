@@ -145,9 +145,14 @@ public selectedSportsId:Number;
 
   getArena()
   {
-    this.SportsArena=[{id:1,name:"Table Tennis",imgurl:["../assets/images/ground-01.jpg"]},{id:2,name:"test",imgurl:["../assets/images/ground-02.jpg"]}];
-    return this.SportsArena;
-  }
+    debugger;
+ return this.http.get(this.baseApi+"get/arena/"+this.selectedCityId).map(response => {
+      console.log(response.json());
+      return response.json()
+    }
+
+    );
+}
 
   deleteType(id: string) {
     return this.http.put(this.baseApi+"delete/type/" + id, null).map(response => {
