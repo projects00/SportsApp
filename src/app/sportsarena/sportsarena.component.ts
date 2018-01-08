@@ -41,7 +41,7 @@ SelectedSportsName:String;
   }
 
   booknow(){
-    this.router.navigateByUrl('/user/booking');
+  //  this.router.navigateByUrl('/user/booking');
 
   }
 }
