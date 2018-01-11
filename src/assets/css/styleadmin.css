@@ -73,9 +73,7 @@ label, thead th td { font-weight: normal; }
     .md-input .md-form-control:focus ~ label, .md-input .md-form-control:valid ~ label { top: -15px; font-size: 14px; color: #2a86a5; }
     .md-input .bar:before, .md-input .bar:after { content: ''; height: 2px; width: 0; bottom: 0px; position: absolute; background: #2a86a5; transition: 0.2s ease all; -moz-transition: 0.2s ease all; -webkit-transition: 0.2s ease all; }
     .md-input .md-form-control:focus ~ .bar:before, .md-input .md-form-control:focus ~ .bar:after { width: 50%; }
-.badge { background: #2a86a5; border-radius: 50%; border: 1px solid #2a86a5; color: #fff; font-weight: normal; padding: 2px 4px; margin: 0 0 0 5px; }
-    .badge:hover { background: #999; color: #fff; }
-    .badge.onmenu { top: -5px; position: absolute; right: -5px; }
+.badge { margin: 0 0 0 5px; }
 .table.table-theme thead tr { background: #f1f1f1; }
 .table.table-theme td { padding: 10px; color: #000; }
 .table > thead:first-child > tr:first-child > th { border-top: 0; color: #333; }
