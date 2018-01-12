@@ -47,7 +47,17 @@
                                     <tr *ngFor="let sb of booking;let i = index">
                                         <th>{{i}}</th>
                                         <td>{{sb.courtname}}</td>
-                                        <td *ngFor="let slt of sb.slot;let i = index" ><span class="badge">{{slt}}</span></td>
+                                        <td >
+                                            <div *ngFor="let slt of sb.slot;let i = index">
+                                                <div  class="chkbox" >
+                                                    <div class="checkbox-inline">
+                                                        <label>
+                                                            <input type="checkbox"> {{slt}}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
                                         <td>50,000</td>
                                     </tr>
                             
