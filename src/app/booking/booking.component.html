@@ -44,24 +44,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th>1</th>
-                                        <td>Court 1</td>
-                                        <td><span class="badge">8:00 AM to 10:00 AM</span><span class="badge"> 2:00 PM to 05:00 PM</span></td>
+                                    <tr *ngFor="let sb of booking;let i = index">
+                                        <th>{{i}}</th>
+                                        <td>{{sb.courtname}}</td>
+                                        <td *ngFor="let slt of sb.slot;let i = index" ><span class="badge">{{slt}}</span></td>
                                         <td>50,000</td>
                                     </tr>
-                                    <tr>
-                                        <th>2</th>
-                                        <td>Court 2</td>
-                                        <td><span class="badge">8:00 AM to 10:00 AM</span><span class="badge"> 2:00 PM to 05:00 PM</span></td>
-                                        <td>50,000</td>
-                                    </tr>
-                                    <tr>
-                                        <th>3</th>
-                                        <td>Court 3</td>
-                                        <td><span class="badge">8:00 AM to 10:00 AM</span></td>
-                                        <td>50,000</td>
-                                    </tr>
+                            
                                 </tbody>
                                 <tfoot>
                                     <tr>

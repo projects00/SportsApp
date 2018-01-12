@@ -15,8 +15,9 @@ declare var $: any;
 export class BookingComponent implements OnInit {
 
   constructor( private router: Router) { }
-
+  booking:any;
   ngOnInit() {
+     this.booking = [{ id: 1, courtname: "court1",slot:["8-9","9 - 10","11-12"] }, { id: 1, courtname: "court1",slot:["10-11"] }];
   }
 
   showcart(){
