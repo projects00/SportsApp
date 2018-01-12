@@ -17,7 +17,7 @@ export class BookingComponent implements OnInit {
   constructor( private router: Router) { }
   booking:any;
   ngOnInit() {
-     this.booking = [{ id: 1, courtname: "court1",slot:["8-9","9 - 10","11-12"] }, { id: 1, courtname: "court1",slot:["10-11"] }];
+     this.booking = [{ id: 1, courtname: "court1",slot:["8am - 2pm","5pm - 9pm","9pm-12am"] }, { id: 1, courtname: "court2",slot:["10am - 11pm"] }];
   }
 
   showcart(){
