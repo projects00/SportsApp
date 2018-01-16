@@ -12,6 +12,7 @@ export class AdminService {
   public selectedSportsName: String;
   public selectedSportsId: Number;
   public selectedArenaId:Number;
+  public selectedArenaName:String;
   public booking:any;
   constructor(private http: Http) {
 

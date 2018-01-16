@@ -41,8 +41,9 @@ SelectedSportsName:String;
     );
   }
 
-  booknow(arenaid){
+  booknow(arenaid,arenaName){
     this.adminService.selectedArenaId=arenaid;
+     this.adminService.selectedArenaName=arenaName;
     this.router.navigateByUrl('/user/booking');
 
   }

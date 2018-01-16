@@ -19,10 +19,12 @@ export class BookingComponent implements OnInit {
 
   constructor(private router: Router, private adminService: AdminService) { }
   booking: any;
+  arenaname:String;
   court: any;
   total:Number=0;
   ngOnInit() {
     debugger;
+    this.arenaname=this.adminService.selectedArenaName;
     this.court = [{ id: 1, courname: "court1", slot: [] }, { id: 2, courtname: "court2", slot: [] }];
   //  this.booking = [{ id: 1, courtname: "court1", slot: [{ id: 2, timing: "8am - 2pm", selected: false }, { id: 3, timing: "5pm - 9pm", selected: false }, { id: 3, timing: "9pm-12am", selected: false }], amount: 0 }, { id: 1, courtname: "court2", slot: [{ id: 4, timing: "10am - 11pm", selected: false }], amount: 0 }];
     this.getBookingDetails("0","1",this.adminService.selectedArenaId.toString());
