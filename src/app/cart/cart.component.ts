@@ -11,10 +11,16 @@ import { AdminService } from '../service/admin.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
-  constructor() { }
+booking:any=[];
+total:number=0;
+  constructor(private adminService: AdminService) { }
 
   ngOnInit() {
+    this.booking=this.adminService.booking;
+     for(let bk of this.booking){
+           this.total=this.total+bk.amount;
+         
+      }
   }
 
 }

@@ -102,6 +102,7 @@ export class HomeComponent {
 
     });
   }
+
   getLatestQuotes() {
     this.qutoes = [];
     this.adminService.getLatestQuotes().subscribe(

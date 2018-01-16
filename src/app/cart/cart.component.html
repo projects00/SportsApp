@@ -10,29 +10,22 @@
             <div class="box">
                 <table class="table">
                     <thead>
-                        <tr>
+                        <tr >
                             <th>Item</th>
                             <th>Cost</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>Item 1</th>
-                            <td>50,000</td>
+                        <tr *ngFor="let bk of booking;let i = index">
+                            <th>{{bk.courtname}}</th>
+                            <td>{{bk.amount}}</td>
                         </tr>
-                        <tr>
-                            <th>Item 2</th>
-                            <td>50,000</td>
-                        </tr>
-                        <tr>
-                            <th>Item 3</th>
-                            <td>50,000</td>
-                        </tr>
+                        
                     </tbody>
                     <tfoot>
                         <tr>
                             <td class="text-right">Total Cost:</td>
-                            <td>1,50,000</td>
+                            <td>{{total}}</td>
                         </tr>
                         <tr>
                             <td class="text-right">Rewardablr Rank:</td>
@@ -44,7 +37,7 @@
                         </tr>
                         <tr>
                             <td class="text-right">Net Payable:</td>
-                            <td><strong>1,50,000</strong></td>
+                            <td><strong>{{total}}</strong></td>
                         </tr>
                     </tfoot>
                 </table>

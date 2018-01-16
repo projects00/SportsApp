@@ -1,17 +1,17 @@
 <!--BOOK NOW PAGE-->
 <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <!--owl-carousel-->
-                <img src="../assets/images/ground-01.jpg" class="img-responsive">
-                <!--owl-carousel-->
-            </div>
-            <div class="col-md-7">
-                <h1>Hubli Sports Club</h1>
-                <a href="#" class="btn btn-default">More Info</a>
-            </div>
+    <div class="row">
+        <div class="col-md-5">
+            <!--owl-carousel-->
+            <img src="../assets/images/ground-01.jpg" class="img-responsive">
+            <!--owl-carousel-->
         </div>
-        <div class="martop30">
+        <div class="col-md-7">
+            <h1>Hubli Sports Club</h1>
+            <a href="#" class="btn btn-default">More Info</a>
+        </div>
+    </div>
+    <div class="martop30">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#Booking" aria-controls="Booking" role="tab" data-toggle="tab">Booking</a></li>
@@ -24,13 +24,25 @@
                     <div class="col-md-12">
                         <div class="btn-group btn-group-justified mar200" role="group" aria-label="...">
                             <div class="btn-group" role="group">
-                                <a href="#" class="btn btn-default">MON <br>23ed Jan</a>
+                                <a  (click)="getSlot('0')" class="btn btn-default">MON <br>23ed Jan</a>
                             </div>
                             <div class="btn-group" role="group">
-                                <a href="#" class="btn btn-default">TUE <br>24th Jan</a>
+                                <a (click)="getSlot('1')" class="btn btn-default">TUE <br>24th Jan</a>
                             </div>
                             <div class="btn-group" role="group">
-                                <a href="#" class="btn btn-default">WED <br>25th Jan</a>
+                                <a  (click)="getSlot('2')" class="btn btn-default">WED <br>25th Jan</a>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <a (click)="getSlot('3')" class="btn btn-default">THU <br>25th Jan</a>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <a (click)="getSlot('4')" class="btn btn-default">FRI <br>25th Jan</a>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <a (click)="getSlot('5')" class="btn btn-default">SAT <br>25th Jan</a>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <a (click)="getSlot('6')"  class="btn btn-default">SUN <br>25th Jan</a>
                             </div>
                         </div>
                         <div class="box">
@@ -41,30 +53,32 @@
                                         <th>Court</th>
                                         <th>Timing</th>
                                         <th>Cost</th>
+                                        <th>Amount</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let sb of booking;let i = index">
                                         <th>{{i}}</th>
                                         <td>{{sb.courtname}}</td>
-                                        <td >
+                                        <td>
                                             <div *ngFor="let slt of sb.slot;let i = index">
-                                                <div  class="chkbox" >
+                                                <div class="chkbox">
                                                     <div class="checkbox-inline">
                                                         <label>
-                                                            <input type="checkbox"> {{slt}}
+                                                            <input (change)="slotSelection(sb)" [(ngModel)]="slt.selected" type="checkbox"> {{slt.timing}}
                                                         </label>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>50,000</td>
+                                        <td>5000</td>
+                                        <td>{{sb.amount}}</td>
                                     </tr>
-                            
+
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td colspan="2">No. of Matches
+                                        <td colspan="2">No. of Members
                                             <select>
                                             <option>1</option>
                                             <option>2</option>
@@ -72,7 +86,7 @@
                                         </select>
                                         </td>
                                         <td class="text-right">Total Cost:</td>
-                                        <td><strong>1,50,000</strong></td>
+                                        <td><strong>{{total}}</strong></td>
                                     </tr>
                                 </tfoot>
                             </table>

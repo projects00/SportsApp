@@ -6,18 +6,20 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class AdminService {
- public SportsArena:any=[];
- public selectedCityId:Number;
-  public selectedCityName:String;
-public selectedSportsName:String;
-public selectedSportsId:Number;
-  constructor(private http: Http) { 
-    
+  public SportsArena: any = [];
+  public selectedCityId: Number;
+  public selectedCityName: String;
+  public selectedSportsName: String;
+  public selectedSportsId: Number;
+  public selectedArenaId:Number;
+  public booking:any;
+  constructor(private http: Http) {
+
   }
 
   public baseApi = 'http://ec2-52-91-21-206.compute-1.amazonaws.com:5000/';
- 
-  
+
+
 
   cars = [
     'Ford', 'Chevrolet', 'Buick'
@@ -28,7 +30,7 @@ public selectedSportsId:Number;
     return this.http.get(this.baseApi).map(response => response.json());
   }
   getBanner() {
-    return this.http.get(this.baseApi+"get/banner").map(response => {
+    return this.http.get(this.baseApi + "get/banner").map(response => {
       console.log(response.json());
       return response.json()
     }
@@ -36,7 +38,7 @@ public selectedSportsId:Number;
     );
   }
   getQuotes() {
-    return this.http.get(this.baseApi+"get/quotes").map(response => {
+    return this.http.get(this.baseApi + "get/quotes").map(response => {
       console.log(response.json());
       return response.json()
     }
@@ -44,7 +46,7 @@ public selectedSportsId:Number;
     );
   }
   getCity() {
-    return this.http.get(this.baseApi+"city").map(response => {
+    return this.http.get(this.baseApi + "city").map(response => {
       console.log(response.json());
       return response.json()
     }
@@ -54,7 +56,7 @@ public selectedSportsId:Number;
 
   getLatestQuotes() {
     debugger;
-    return this.http.get(this.baseApi+"get/latest/quote").map(response => {
+    return this.http.get(this.baseApi + "get/latest/quote").map(response => {
       console.log(response.json());
       return response.json()
     }
@@ -62,8 +64,27 @@ public selectedSportsId:Number;
     );
   }
 
+   getBookingDetails(wk:String,court:String,arena:String) {
+    debugger;
+    return this.http.get(this.baseApi + "get/"+wk+"/"+court+"/"+arena).map(response => {
+      console.log(response.json());
+      return response.json()
+    }
+
+    );
+  }
+
+    getCourt(arena:String) {
+    debugger;
+    return this.http.get(this.baseApi + "get/court/"+arena).map(response => {
+      console.log(response.json());
+      return response.json()
+    }
+
+    );
+  }
   getActiveBanner() {
-    return this.http.get(this.baseApi+"get/banneractive").map(response => {
+    return this.http.get(this.baseApi + "get/banneractive").map(response => {
       console.log(response.json());
       return response.json()
     }
@@ -71,7 +92,7 @@ public selectedSportsId:Number;
     );
   }
   getType() {
-    return this.http.get(this.baseApi+"type").map(response => {
+    return this.http.get(this.baseApi + "type").map(response => {
       console.log(response.json());
       return response.json()
     }
@@ -82,18 +103,18 @@ public selectedSportsId:Number;
 
 
   getImage(id) {
-    return this.http.get(this.baseApi+"get/img/" + id, { responseType: ResponseContentType.Blob })
+    return this.http.get(this.baseApi + "get/img/" + id, { responseType: ResponseContentType.Blob })
       .map((res: Response) => res.blob());
 
   }
   saveTournament(tournament: any) {
-    return this.http.post(this.baseApi+"insert", tournament).map(response => response.json());
+    return this.http.post(this.baseApi + "insert", tournament).map(response => response.json());
 
   }
   saveCity(city) {
-    return this.http.post(this.baseApi+"insert/city", { "cityname": city }).map(response => response.json());
+    return this.http.post(this.baseApi + "insert/city", { "cityname": city }).map(response => response.json());
   }
-                                                                                                                                                                                                                                                                                                                                                                                                                                
+
   saveImage(fileToUpload: File) {
     const _formData = new FormData();
     _formData.append("Name", fileToUpload.name);
@@ -103,24 +124,25 @@ public selectedSportsId:Number;
     let options = new RequestOptions({
       headers: headers
     });
-    return this.http.post(this.baseApi+"post/img", body, options).map(response => response.json());
+    return this.http.post(this.baseApi + "post/img", body, options).map(response => response.json());
   }
 
   saveBanner(banner) {
-    return this.http.post(this.baseApi+"post/banner", banner).map(response => response.json());
+    return this.http.post(this.baseApi + "post/banner", banner).map(response => response.json());
   }
 
   saveQuotes(quote) {
-    {debugger}
-    return this.http.post(this.baseApi+"post/quotes", {   "quote":quote.QUOTE,
-    "author":quote.author 
-} ).map(response => response.json());
+    { debugger }
+    return this.http.post(this.baseApi + "post/quotes", {
+      "quote": quote.QUOTE,
+      "author": quote.author
+    }).map(response => response.json());
   }
 
 
   deleteBanner(id) {
     debugger;
-    return this.http.put(this.baseApi+"delete/banner/" + id, null).map(response => {
+    return this.http.put(this.baseApi + "delete/banner/" + id, null).map(response => {
       console.log(response.json());
       return response.json()
     },
@@ -130,7 +152,7 @@ public selectedSportsId:Number;
       });
   }
   deleteCity(id: string) {
-    return this.http.put(this.baseApi+"delete/city/" + id, null).map(response => {
+    return this.http.put(this.baseApi + "delete/city/" + id, null).map(response => {
       console.log(response.json());
       return response.json()
     },
@@ -140,22 +162,21 @@ public selectedSportsId:Number;
       });
   }
   saveType(type) {
-    return this.http.post(this.baseApi+"insert/type", { "typename": type }).map(response => response.json());
+    return this.http.post(this.baseApi + "insert/type", { "typename": type }).map(response => response.json());
   }
 
-  getArena()
-  {
+  getArena() {
     debugger;
- return this.http.get(this.baseApi+"get/arena/"+this.selectedCityId).map(response => {
+    return this.http.get(this.baseApi + "get/arena/" + this.selectedCityId).map(response => {
       console.log(response.json());
       return response.json()
     }
 
     );
-}
+  }
 
   deleteType(id: string) {
-    return this.http.put(this.baseApi+"delete/type/" + id, null).map(response => {
+    return this.http.put(this.baseApi + "delete/type/" + id, null).map(response => {
       console.log(response.json());
       return response.json()
     },
@@ -166,21 +187,22 @@ public selectedSportsId:Number;
   }
   deleteQuotes(id) {
     debugger;
-    return this.http.put(this.baseApi+"delete/quote/" + id, { "isActive": 1 }).map(response => response.json());
+    return this.http.put(this.baseApi + "delete/quote/" + id, { "isActive": 1 }).map(response => response.json());
   }
   deleteTournament(id) {
     debugger;
-    return this.http.put(this.baseApi+"delete/" + id, { "isActive": 1 }).map(response => response.json());
+    return this.http.put(this.baseApi + "delete/" + id, { "isActive": 1 }).map(response => response.json());
   }
   updateTournament(tournament) {
-    return this.http.put(this.baseApi+"update/" + tournament.id, tournament).map(response => response.json());
+    return this.http.put(this.baseApi + "update/" + tournament.id, tournament).map(response => response.json());
   }
   updateBanner(banner) {
-    return this.http.put(this.baseApi+"update/banner/" + banner.id, banner).map(response => response.json());
+    return this.http.put(this.baseApi + "update/banner/" + banner.id, banner).map(response => response.json());
   }
   updateQuotes(quote) {
-    return this.http.put(this.baseApi+"update/quote/" + quote.id, {   "quote":quote.QUOTE,
-    "author":quote.author 
-}).map(response => response.json());
+    return this.http.put(this.baseApi + "update/quote/" + quote.id, {
+      "quote": quote.QUOTE,
+      "author": quote.author
+    }).map(response => response.json());
   }
 }

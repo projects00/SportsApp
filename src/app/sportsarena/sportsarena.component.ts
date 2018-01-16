@@ -12,6 +12,7 @@ export class SportsarenaComponent implements OnInit {
 sportsarena:any=[];
 SelectedCityName:String;
 SelectedSportsName:String;
+
   constructor(private adminService: AdminService, private router: Router) {
     this.SelectedCityName=adminService.selectedCityName;
     this.SelectedSportsName=adminService.selectedSportsName;
@@ -40,7 +41,8 @@ SelectedSportsName:String;
     );
   }
 
-  booknow(){
+  booknow(arenaid){
+    this.adminService.selectedArenaId=arenaid;
     this.router.navigateByUrl('/user/booking');
 
   }
