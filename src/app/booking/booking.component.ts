@@ -67,8 +67,13 @@ export class BookingComponent implements OnInit {
 
   }
   showcart() {
+    if(this.total>0)
+      {
     this.adminService.booking=this.booking;
     this.router.navigateByUrl('/user/cart');
+      }
+  else
+    alert("Invalid Selection");
   }
 
   getSlot(wk){
