@@ -63,22 +63,19 @@
                                         <td>
                                             <div *ngFor="let slt of sb.slot;let i = index">
                                                 <div class="chkbox">
-                                                    <div class="checkbox-inline">
-                                                        <label>
-                                                            <input (change)="slotSelection(sb)" [(ngModel)]="slt.selected" type="checkbox"> {{slt.timing}}
-                                                        </label>
-                                                    </div>
+                                                    <label>
+                                                        <input hidden (change)="slotSelection(sb)" [(ngModel)]="slt.selected" type="checkbox"> {{slt.timing}}
+                                                    </label>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>5000</td>
                                         <td>{{sb.amount}}</td>
                                     </tr>
-
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td colspan="2">No. of Members
+                                        <td colspan="3">No. of Members
                                             <select>
                                             <option>1</option>
                                             <option>2</option>
