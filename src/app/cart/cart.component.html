@@ -16,8 +16,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let bk of booking;let i = index">
-                            <th>{{bk.courtname}}</th>
+                        <tr *ngFor="let bk of booking | removezero :filterargs">
+                            <th>{{bk.courtname}}-{{bk.week}}</th>
                             <td>{{bk.amount}}</td>
                         </tr>
                         

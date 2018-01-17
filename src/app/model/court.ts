@@ -3,5 +3,6 @@ export class court {
   public courtname: string;
   public slot: any;
   public amount:number;
+  public week:String;
 
 }

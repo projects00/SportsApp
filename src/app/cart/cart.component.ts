@@ -13,6 +13,7 @@ import { AdminService } from '../service/admin.service';
 export class CartComponent implements OnInit {
 booking:any=[];
 total:number=0;
+filterargs = { amount: 0 };
   constructor(private adminService: AdminService) { }
 
   ngOnInit() {

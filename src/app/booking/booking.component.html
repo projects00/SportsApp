@@ -46,6 +46,7 @@
                             </div>
                         </div>
                         <div class="box">
+                       
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -57,13 +58,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let sb of booking;let i = index">
+                                    <tr *ngFor="let sb of booking | weekfilter:filterargs ">
                                         <th>{{i+1}}</th>
                                         <td>{{sb.courtname}}</td>
                                         <td>
                                             <div *ngFor="let slt of sb.slot;let i = index">
                                                 <div class="chkbox">
-                                                    <label>
+                                                    <label [ngClass]="slt.selected === true ?'active' : ''">
                                                         <input hidden (change)="slotSelection(sb)" [(ngModel)]="slt.selected" type="checkbox"> {{slt.timing}}
                                                     </label>
                                                 </div>
@@ -83,12 +84,13 @@
                                         </select>
                                         </td>
                                         <td class="text-right">Total Cost:</td>
-                                        <td><strong>{{total}}</strong></td>
+                                        <td><strong>{{subtotal}}</strong></td>
                                     </tr>
                                 </tfoot>
                             </table>
                         </div>
                         <div class="mar200 text-right">
+                            <span>{{total}}</span>
                             <a (click)="showcart()" class="btn btn-primary btn-lg">Proceed</a>
                         </div>
                     </div>

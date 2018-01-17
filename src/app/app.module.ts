@@ -20,6 +20,8 @@ import { SportsarenaComponent } from './sportsarena/sportsarena.component';
 import { UserComponent } from './user/user.component';
 import { BookingComponent } from './booking/booking.component';
 import { CartComponent } from './cart/cart.component';
+import { WeekfilterPipe } from './weekfilter.pipe';
+import { RemovezeroPipe } from './removezero.pipe';
  
 const routes: Routes = [{
   path: 'login',
@@ -67,7 +69,9 @@ const routes: Routes = [{
     SportsarenaComponent,
     UserComponent,
     BookingComponent,
-    CartComponent
+    CartComponent,
+    WeekfilterPipe,
+    RemovezeroPipe
   ],
   imports: [
     OwlModule,
