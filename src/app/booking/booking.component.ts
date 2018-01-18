@@ -34,7 +34,7 @@ export class BookingComponent implements OnInit {
   }
   booking: any;
   arenaname: String;
-  subtotal:Number=0;
+  subtotal: Number = 0;
   court: any;
   total: Number = 0;
   //items = [{title: 'hello world',tt:'1'}, {title: 'hello kitty',tt:'2'}, {title: 'foo bar',tt:'3'}];
@@ -66,10 +66,13 @@ export class BookingComponent implements OnInit {
             const _slot = new slot();
             _slot.id = element1.vwslotid;
             _slot.timing = element1.timing;
-            _slot.selected = (element1.slot==0?true:false);
+            _slot.selected = (element1.slot == 0 ? true : false);
             _slot.cost = 5000;
-            _slot.slot=element1.slot;
+            _slot.slot = element1.slot;
+            _slot.weekday = element1.currentday;
+            _slot.date = element1.currentdt;
             _court.slot.push(_slot);
+
 
           });
         }, error => {
@@ -95,34 +98,32 @@ export class BookingComponent implements OnInit {
       alert("Invalid Selection");
   }
 
-  getweekday(wk){
+  getweekday(wk) {
     var weekday;
-  switch (wk) {
-    case "0":
-     weekday="THU";
-      break;
-    case "blue":
-       weekday="FRI";
-      break;
-    case "indigo":
-      weekday="SAT";
-      break;
-    case "purple":
-       weekday="SUN";
-      break;
-    case "orange":
-      weekday="MON";
-      break;
-    
+    for (let bk of this.booking) {
+      if (bk.week == wk) {
+        weekday = bk.slot[0].weekday;
+        break;
+      }
+    }
+    return weekday;
   }
+    getdate(wk) {
+    var weekday;
+    for (let bk of this.booking) {
+      if (bk.week == wk) {
+        weekday = bk.slot[0].date;
+        break;
+      }
+    }
     return weekday;
   }
   getSlot(wk) {
-    this.subtotal=0;
+    this.subtotal = 0;
     this.filterargs = { week: wk };
     for (let bk of this.booking) {
-      if (bk.week==wk)
-      this.subtotal = this.subtotal + bk.amount;
+      if (bk.week == wk)
+        this.subtotal = this.subtotal + bk.amount;
 
     }
     //this.getBookingDetails(wk,"1",this.adminService.selectedArenaId.toString());
@@ -134,7 +135,7 @@ export class BookingComponent implements OnInit {
     for (let slt of e.slot) {
       if (slt.selected == true) {
         this.subtotal = this.subtotal + slt.cost;
-        amount=amount+ slt.cost;
+        amount = amount + slt.cost;
       }
     }
     e.amount = amount;

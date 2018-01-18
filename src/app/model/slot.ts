@@ -4,4 +4,6 @@ export class slot {
   public selected:boolean;
   public cost:number;
   public slot:number;
+  public weekday:string;
+  public date:string
 }
