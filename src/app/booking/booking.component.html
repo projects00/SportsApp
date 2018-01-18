@@ -58,14 +58,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let sb of booking | weekfilter:filterargs ">
+                                    <tr *ngFor="let sb of booking | weekfilter:filterargs; let i = index ">
                                         <th>{{i+1}}</th>
                                         <td>{{sb.courtname}}</td>
                                         <td>
                                             <div *ngFor="let slt of sb.slot;let i = index">
                                                 <div class="chkbox">
                                                     <label [ngClass]="slt.selected === true ?'active' : ''">
-                                                        <input hidden (change)="slotSelection(sb)" [(ngModel)]="slt.selected" type="checkbox"> {{slt.timing}}
+                                                        <input [disabled]="slt.slot==0" hidden (change)="slotSelection(sb)" [(ngModel)]="slt.selected" type="checkbox"> {{slt.timing}}
                                                     </label>
                                                 </div>
                                             </div>

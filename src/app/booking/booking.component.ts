@@ -66,9 +66,9 @@ export class BookingComponent implements OnInit {
             const _slot = new slot();
             _slot.id = element1.vwslotid;
             _slot.timing = element1.timing;
-            _slot.selected = false;
+            _slot.selected = (element1.slot==0?true:false);
             _slot.cost = 5000;
-
+            _slot.slot=element1.slot;
             _court.slot.push(_slot);
 
           });
@@ -95,6 +95,28 @@ export class BookingComponent implements OnInit {
       alert("Invalid Selection");
   }
 
+  getweekday(wk){
+    var weekday;
+  switch (wk) {
+    case "0":
+     weekday="THU";
+      break;
+    case "blue":
+       weekday="FRI";
+      break;
+    case "indigo":
+      weekday="SAT";
+      break;
+    case "purple":
+       weekday="SUN";
+      break;
+    case "orange":
+      weekday="MON";
+      break;
+    
+  }
+    return weekday;
+  }
   getSlot(wk) {
     this.subtotal=0;
     this.filterargs = { week: wk };
