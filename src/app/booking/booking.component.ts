@@ -99,24 +99,24 @@ export class BookingComponent implements OnInit {
   }
 
   getweekday(wk) {
-    var weekday;
-    for (let bk of this.booking) {
-      if (bk.week == wk) {
-        weekday = bk.slot[0].weekday;
-        break;
-      }
-    }
-    return weekday;
+    debugger;
+  var weekday;
+    var result:any=[];
+     let storeId = 1;
+    result = this.booking.filter(
+          book => book.week === wk);
+  
+    return result[0].slot[0].weekday;
   }
     getdate(wk) {
+
     var weekday;
-    for (let bk of this.booking) {
-      if (bk.week == wk) {
-        weekday = bk.slot[0].date;
-        break;
-      }
-    }
-    return weekday;
+    var result:any=[];
+     let storeId = 1;
+    result = this.booking.filter(
+          book => book.week === wk);
+  
+    return result[0].slot[0].date;
   }
   getSlot(wk) {
     this.subtotal = 0;
