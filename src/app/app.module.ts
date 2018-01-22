@@ -22,8 +22,8 @@ import { BookingComponent } from './booking/booking.component';
 import { CartComponent } from './cart/cart.component';
 import { WeekfilterPipe } from './weekfilter.pipe';
 import { RemovezeroPipe } from './removezero.pipe';
-import { UserLoginComponent } from './src/app/user-login/user-login.component';
-import { UserRegComponent } from './src/app/user-reg/user-reg.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { UserRegComponent } from './user-reg/user-reg.component';
  
 const routes: Routes = [{
   path: 'login',
