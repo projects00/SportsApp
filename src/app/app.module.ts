@@ -22,8 +22,6 @@ import { BookingComponent } from './booking/booking.component';
 import { CartComponent } from './cart/cart.component';
 import { WeekfilterPipe } from './weekfilter.pipe';
 import { RemovezeroPipe } from './removezero.pipe';
-import { UserLoginComponent } from './user-login/user-login.component';
-import { UserRegComponent } from './user-reg/user-reg.component';
  
 const routes: Routes = [{
   path: 'login',
@@ -73,9 +71,7 @@ const routes: Routes = [{
     BookingComponent,
     CartComponent,
     WeekfilterPipe,
-    RemovezeroPipe,
-    UserLoginComponent,
-    UserRegComponent
+    RemovezeroPipe
   ],
   imports: [
     OwlModule,

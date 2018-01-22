@@ -106,8 +106,6 @@ app-root, app-root app-login, app-root app-login>#top { height: 100%}
 .chkbox {float: left;margin: 0 5px 0;}
 .chkbox label {margin: 0;cursor: pointer;padding: 1px 5px;background: #2a86a5;color: #fff;border-radius: 3px;}
 .chkbox label:hover, .chkbox label.active { background: #999;}
-.loginouter{ padding: 40px; box-shadow: 0 10px 20px #eee; margin:80px 20px}
-.logintext { padding: 40px; margin:80px 20px; text-align: center; }
 @media (max-width: 992px) {
     h1 { font-size: 1.6em; }
     h2 { font-size: 1.4em; }
