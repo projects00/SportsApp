@@ -66,6 +66,21 @@ export class HomeComponent {
     });
   }
 
+  onLogout(){
+    this.logout();
+  }
+    logout(){
+    debugger;
+        this.adminService.logOut().subscribe(data => {
+      debugger;
+      this.adminService.isAuthenticated = false;
+      this.adminService.logbtn=false;
+       this.logbtn=this.adminService.logbtn;
+    }, error => {
+      return null
+
+    });
+  }
   cityClick(city): void {
     this.showCity = false;
     this.adminService.selectedCityId = city.id;

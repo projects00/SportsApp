@@ -102,6 +102,14 @@ export class AdminService {
     );
   }
 
+  logOut(){
+     return this.http.get(this.baseApi + "logout").map(response => {
+      console.log(response.json());
+      return response.json()
+    }
+
+    );
+  }
   getCourt(arena: String) {
     debugger;
     return this.http.get(this.baseApi + "get/court/" + arena).map(response => {
