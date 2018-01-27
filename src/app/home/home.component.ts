@@ -16,6 +16,7 @@ export class HomeComponent {
   slides: any;
   cities: any;
   sports: any;
+    logbtn:boolean=false;
   ODsports: any;
   INsports: any;
   qutoes: any;
@@ -33,7 +34,7 @@ export class HomeComponent {
     this.ODsports = [];
     this.INsports = [];
     this.showCity = true;
-
+    this.logbtn=adminService.logbtn;
 
     const ban = new Banner();
     //ban.title="sdf";
@@ -49,9 +50,21 @@ export class HomeComponent {
 
     this.getLatestQuotes();
 
+    this.isAuthenticated();
 
   }
 
+  isAuthenticated(){
+    debugger;
+        this.adminService.isAuthenticatred().subscribe(data => {
+      debugger;
+      this.adminService.isAuthenticated = data.isAuthenticated;
+       this.logbtn=this.adminService.logbtn;
+    }, error => {
+      return null
+
+    });
+  }
 
   cityClick(city): void {
     this.showCity = false;
@@ -73,7 +86,7 @@ export class HomeComponent {
 
   onClick(): void {
     this.router.navigateByUrl('/login');
-
+ 
   }
   ngOnInit() {
 

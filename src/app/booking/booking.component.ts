@@ -90,32 +90,39 @@ export class BookingComponent implements OnInit {
 
   }
   showcart() {
-    if (this.total > 0) {
-      this.adminService.booking = this.booking;
-      this.router.navigateByUrl('/user/cart');
+    if (this.adminService.isAuthenticated == true) {
+      if (this.total > 0) {
+        this.adminService.booking = this.booking;
+        this.router.navigateByUrl('/user/cart');
+      }
+      else
+        alert("Invalid Selection");
     }
     else
-      alert("Invalid Selection");
+      {
+         this.router.navigateByUrl('/login');
+      }
+
   }
 
   getweekday(wk) {
     debugger;
-  var weekday;
-    var result:any=[];
-     let storeId = 1;
+    var weekday;
+    var result: any = [];
+    let storeId = 1;
     result = this.booking.filter(
-          book => book.week === wk);
-  
+      book => book.week === wk);
+
     return result[0].slot[0].weekday;
   }
-    getdate(wk) {
+  getdate(wk) {
 
     var weekday;
-    var result:any=[];
-     let storeId = 1;
+    var result: any = [];
+    let storeId = 1;
     result = this.booking.filter(
-          book => book.week === wk);
-  
+      book => book.week === wk);
+
     return result[0].slot[0].date;
   }
   getSlot(wk) {

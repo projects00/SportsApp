@@ -6,18 +6,26 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class AdminService {
+  public logbtn: boolean = false;
   public SportsArena: any = [];
   public selectedCityId: Number;
   public selectedCityName: String;
   public selectedSportsName: String;
   public selectedSportsId: Number;
-  public selectedArenaId:Number;
-  public selectedArenaName:String;
-  public booking:any;
+  public selectedArenaId: Number;
+  public selectedArenaName: String;
+  public booking: any;
+  public isAuthenticated: boolean = false;
   constructor(private http: Http) {
+
+
+
 
   }
 
+  init() {
+
+  }
   public baseApi = 'http://ec2-52-91-21-206.compute-1.amazonaws.com:5000/';
 
 
@@ -26,7 +34,16 @@ export class AdminService {
     'Ford', 'Chevrolet', 'Buick'
   ];
 
+  isAuthenticatred() {
+   debugger;
+    return this.http.get("http://localhost:5000/isAuthenticated").map(response => {
+      console.log(response.json());
+      debugger;
+      return response.json()
+    }
 
+    );
+  }
   getTournament() {
     return this.http.get(this.baseApi).map(response => response.json());
   }
@@ -65,9 +82,9 @@ export class AdminService {
     );
   }
 
-   getBookingDetails(wk:String,court:String,arena:String) {
+  getBookingDetails(wk: String, court: String, arena: String) {
     debugger;
-    return this.http.get(this.baseApi + "get/"+wk+"/"+court+"/"+arena).map(response => {
+    return this.http.get(this.baseApi + "get/" + wk + "/" + court + "/" + arena).map(response => {
       console.log(response.json());
       return response.json()
     }
@@ -75,9 +92,19 @@ export class AdminService {
     );
   }
 
-    getCourt(arena:String) {
+  logIn(userName: String, password: String) {
+    var log = { "email": userName, "password": password };
+    return this.http.post("http://localhost:5000/login", log).map(response => {
+      console.log(response.json());
+      return response.json()
+    }
+
+    );
+  }
+
+  getCourt(arena: String) {
     debugger;
-    return this.http.get(this.baseApi + "get/court/"+arena).map(response => {
+    return this.http.get(this.baseApi + "get/court/" + arena).map(response => {
       console.log(response.json());
       return response.json()
     }

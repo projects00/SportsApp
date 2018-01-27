@@ -11,6 +11,7 @@ import { TournamentComponent } from './tournament/tournament.component';
 import { APP_BASE_HREF, Location } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import {AdminService } from './service/admin.service';
+import { ValidationService } from './service/validation.service';
 import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
 import { TournamentDetailComponent } from './tournament-detail/tournament-detail.component';
 import { QuotesComponent } from './quotes/quotes.component';
@@ -22,6 +23,7 @@ import { BookingComponent } from './booking/booking.component';
 import { CartComponent } from './cart/cart.component';
 import { WeekfilterPipe } from './weekfilter.pipe';
 import { RemovezeroPipe } from './removezero.pipe';
+import { ControlMessagesComponent } from './control-messages/control-messages.component';
  
 const routes: Routes = [{
   path: 'login',
@@ -71,7 +73,8 @@ const routes: Routes = [{
     BookingComponent,
     CartComponent,
     WeekfilterPipe,
-    RemovezeroPipe
+    RemovezeroPipe,
+    ControlMessagesComponent
   ],
   imports: [
     OwlModule,
@@ -91,7 +94,7 @@ const routes: Routes = [{
    
   ],
   providers: [
-    AdminService,
+    AdminService,ValidationService,
     { provide: APP_BASE_HREF, useValue: window['_app_base'] || '/' },
   ],
   bootstrap: [AppComponent]
