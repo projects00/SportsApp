@@ -36,7 +36,7 @@ export class AdminService {
 
   isAuthenticatred() {
    debugger;
-    return this.http.get("http://localhost:5000/isAuthenticated").map(response => {
+    return this.http.get(this.baseApi + "isAuthenticated").map(response => {
       console.log(response.json());
       debugger;
       return response.json()
@@ -94,7 +94,7 @@ export class AdminService {
 
   logIn(userName: String, password: String) {
     var log = { "email": userName, "password": password };
-    return this.http.post("http://localhost:5000/login", log).map(response => {
+    return this.http.post(this.baseApi + "login", log).map(response => {
       console.log(response.json());
       return response.json()
     }
