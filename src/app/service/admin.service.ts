@@ -39,7 +39,7 @@ export class AdminService {
     let headers = new Headers();
     let options = new RequestOptions({
       headers: headers, withCredentials: true });
-    return this.http.get("http://localhost:5000/isAuthenticated",{ withCredentials: true }).map(response => {
+    return this.http.get(this.baseApi +"isAuthenticated",{ withCredentials: true }).map(response => {
       console.log(response.json());
       alert(response.json());
       debugger;
@@ -102,7 +102,7 @@ export class AdminService {
     let options = new RequestOptions({
       headers: headers, withCredentials: true });
      
- return this.http.post("http://localhost:5000/login", log,options).map(response => {
+ return this.http.post(this.baseApi +"login", log,options).map(response => {
       console.log(response.json());
       return response.json()
     }
