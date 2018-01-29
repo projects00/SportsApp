@@ -7,8 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class WeekfilterPipe implements PipeTransform {
 
    transform(items: any[], filter: any): any {
-     debugger;
-        if (!items || !filter) {
+          if (!items || !filter) {
             return items;
         }
               return items.filter(item => item.week==filter.week);

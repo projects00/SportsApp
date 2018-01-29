@@ -39,7 +39,7 @@ export class BookingComponent implements OnInit {
   total: Number = 0;
   //items = [{title: 'hello world',tt:'1'}, {title: 'hello kitty',tt:'2'}, {title: 'foo bar',tt:'3'}];
   ngOnInit() {
-    debugger;
+  
     this.arenaname = this.adminService.selectedArenaName;
     this.court = [{ id: 1, courname: "court1", slot: [] }, { id: 2, courtname: "court2", slot: [] }];
     //  this.booking = [{ id: 1, courtname: "court1", slot: [{ id: 2, timing: "8am - 2pm", selected: false }, { id: 3, timing: "5pm - 9pm", selected: false }, { id: 3, timing: "9pm-12am", selected: false }], amount: 0 }, { id: 1, courtname: "court2", slot: [{ id: 4, timing: "10am - 11pm", selected: false }], amount: 0 }];
@@ -50,8 +50,7 @@ export class BookingComponent implements OnInit {
 
 
   getBookingDetails(wk: String, courtid: String, arenaid: String) {
-    debugger;
-    this.booking = [];
+     this.booking = [];
     this.adminService.getCourt(this.adminService.selectedArenaId.toString()).subscribe(data => {
       data.forEach(element => {
         const _court = new court();
@@ -90,7 +89,14 @@ export class BookingComponent implements OnInit {
 
   }
   showcart() {
-    if (this.adminService.isAuthenticated == true) {
+   
+    this.adminService.isAuthenticatred().subscribe(data => {
+   
+   //   this.adminService.isAuthenticated = data.isAuthenticated;
+
+      
+
+          if (this.adminService.isAuthenticated == true) {
       if (this.total > 0) {
         this.adminService.booking = this.booking;
         this.router.navigateByUrl('/user/cart');
@@ -103,11 +109,15 @@ export class BookingComponent implements OnInit {
          this.router.navigateByUrl('/login');
       }
 
+          }, error => {
+     return null
+
+    });
+
   }
 
   getweekday(wk) {
-    debugger;
-    var weekday;
+      var weekday;
     var result: any = [];
     let storeId = 1;
     result = this.booking.filter(

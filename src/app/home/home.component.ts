@@ -50,15 +50,15 @@ export class HomeComponent {
 
     this.getLatestQuotes();
 
-    this.isAuthenticated();
+   this.isAuthenticated();
 
   }
 
   isAuthenticated(){
     debugger;
-        this.adminService.isAuthenticatred().subscribe(data => {
+      this.adminService.isAuthenticatred().subscribe(data => {
       debugger;
-      this.adminService.isAuthenticated = data.isAuthenticated;
+      this.adminService.isAuthenticated = data;
        this.logbtn=this.adminService.logbtn;
     }, error => {
       return null

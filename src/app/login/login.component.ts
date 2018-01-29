@@ -64,21 +64,37 @@ fieldMatcher(value1: string, value2: string) {
     const dd=this.registerForm.value.rfirstName;
   }
 
+  
+  isAuthenticated(){
+    debugger;
+      this.adminService.isAuthenticatred().subscribe(data => {
+      debugger;
+      console.log(data);
+      
+    }, error => {
+      return null
+
+    });
+  }
+
 onClick(): void {
   //
  // logIn
     this.adminService.logIn(this.loginForm.value.logemail,this.loginForm.value.logpass).subscribe(data => {
      debugger;
+     alert(data);
       if (data.role==1){
       this.router.navigateByUrl('admin');
-      this.adminService.isAuthenticated=true;
+    //  this.adminService.isAuthenticated=true;
       }
      else
       {
-        this.adminService.logbtn=true;
+    //    this.adminService.logbtn=true;
         this.router.navigateByUrl('home');
-         this.adminService.isAuthenticated=true;
+         this.isAuthenticated();
+   //      this.adminService.isAuthenticated=true;
       }
+     this.isAuthenticated();
     }, error => {
       return null
 
