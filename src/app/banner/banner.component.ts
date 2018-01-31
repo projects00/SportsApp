@@ -58,7 +58,6 @@ export class BannerComponent implements OnInit {
   }
 
   editBanner(banner) {
-    debugger;
     this.dId=banner.id;
     this.EBForm.controls['ebannerTitle'].setValue(banner.title);
     this.EBForm.controls['ebannerDescription'].setValue(banner.description);
@@ -141,8 +140,7 @@ export class BannerComponent implements OnInit {
         slide.imageid = this.insertid;
         slide.id=this.dId;
        // this.getImage("16", slide);
-       debugger;
-        this.adminService.updateBanner(slide).subscribe(
+           this.adminService.updateBanner(slide).subscribe(
           (respose) => {
             console.log(respose);
             this.initilizeFrom();
@@ -154,14 +152,12 @@ export class BannerComponent implements OnInit {
       }
       else
       { 
-        debugger;
-        const slide = new Banner();
+         const slide = new Banner();
         slide.title = this.EBForm.value.ebannerTitle;
         slide.description = this.EBForm.value.ebannerDescription;
          slide.imageid = this.EBForm.value.ebannerImageid;
          slide.isactive = this.EBForm.value.ebannerIsActive;
           slide.id=this.dId;
-        debugger;
         this.adminService.updateBanner(slide).subscribe(
           (respose) => {
             console.log(respose);

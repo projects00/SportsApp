@@ -51,8 +51,7 @@ export class LoginComponent implements OnInit {
   
 fieldMatcher(value1: string, value2: string) {
   return (group: FormGroup) => {
-    debugger;
-    if (group.controls[value1].value !==  group.controls[value2].value) {
+      if (group.controls[value1].value !==  group.controls[value2].value) {
       return group.controls[value2].setErrors({notEquivalent: true})
     }
   }
@@ -60,16 +59,13 @@ fieldMatcher(value1: string, value2: string) {
 
   
   userSave(){
-    debugger;
     const dd=this.registerForm.value.rfirstName;
   }
 
   
   isAuthenticated(){
-    debugger;
       this.adminService.isAuthenticatred().subscribe(data => {
-      debugger;
-      console.log(data);
+       console.log(data);
       
     }, error => {
       return null
@@ -81,18 +77,17 @@ onClick(): void {
   //
  // logIn
     this.adminService.logIn(this.loginForm.value.logemail,this.loginForm.value.logpass).subscribe(data => {
-     debugger;
-     alert(data);
+   
       if (data.role==1){
       this.router.navigateByUrl('admin');
-    //  this.adminService.isAuthenticated=true;
+     this.adminService.isAuthenticated=true;
       }
      else
       {
-    //    this.adminService.logbtn=true;
+    this.adminService.logbtn=true;
         this.router.navigateByUrl('home');
          this.isAuthenticated();
-   //      this.adminService.isAuthenticated=true;
+       this.adminService.isAuthenticated=true;
       }
      this.isAuthenticated();
     }, error => {

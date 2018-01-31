@@ -91,12 +91,8 @@ export class BookingComponent implements OnInit {
   showcart() {
    
     this.adminService.isAuthenticatred().subscribe(data => {
-   
-   //   this.adminService.isAuthenticated = data.isAuthenticated;
-
-      
-
-          if (this.adminService.isAuthenticated == true) {
+   debugger;
+             if (data == true) {
       if (this.total > 0) {
         this.adminService.booking = this.booking;
         this.router.navigateByUrl('/user/cart');

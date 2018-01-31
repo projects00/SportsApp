@@ -55,11 +55,9 @@ export class HomeComponent {
   }
 
   isAuthenticated(){
-    debugger;
       this.adminService.isAuthenticatred().subscribe(data => {
-      debugger;
       this.adminService.isAuthenticated = data;
-       this.logbtn=this.adminService.logbtn;
+       this.logbtn=this.adminService.isAuthenticated;
     }, error => {
       return null
 
@@ -70,12 +68,10 @@ export class HomeComponent {
     this.logout();
   }
     logout(){
-    debugger;
-        this.adminService.logOut().subscribe(data => {
-      debugger;
-      this.adminService.isAuthenticated = false;
+         this.adminService.logOut().subscribe(data => {
+        this.adminService.isAuthenticated = false;
       this.adminService.logbtn=false;
-       this.logbtn=this.adminService.logbtn;
+       this.logbtn=this.adminService.isAuthenticated;
     }, error => {
       return null
 
@@ -135,8 +131,7 @@ export class HomeComponent {
     this.qutoes = [];
     this.adminService.getLatestQuotes().subscribe(
       (respose) => {
-        debugger;
-        respose.forEach(element => {
+         respose.forEach(element => {
           const slide = new quotes();
           slide.id = element.id;
           slide.author = element.author;
@@ -155,8 +150,7 @@ export class HomeComponent {
     this.slides = [];
     this.adminService.getActiveBanner().subscribe(
       (respose) => {
-        debugger;
-        respose.forEach(element => {
+         respose.forEach(element => {
           const slide = new Banner();
           slide.id = element.id;
           slide.title = element.title;

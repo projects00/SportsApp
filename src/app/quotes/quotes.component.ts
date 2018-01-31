@@ -55,8 +55,7 @@ export class QuotesComponent implements OnInit {
   }
 
    editQuoteForm(quote) {
-     debugger;
-    this.dId = quote.id;
+     this.dId = quote.id;
     this.equotesForm.controls['equoteName'].setValue(quote.QUOTE);
     this.equotesForm.controls['equoteAuthor'].setValue(quote.author);
 
@@ -65,8 +64,7 @@ export class QuotesComponent implements OnInit {
   }
 
   getQuotes() {
-    debugger
-      this._quotes = [];
+        this._quotes = [];
     this.adminService.getQuotes().subscribe(
       (respose) => {
         console.log(respose)
@@ -87,8 +85,7 @@ export class QuotesComponent implements OnInit {
   }
 
   quoteSave() {
-    debugger
-    const quote = new quotes();
+      const quote = new quotes();
       quote.author=this.qForm.value.quoteAuthor;
      quote.QUOTE=this.qForm.value.quoteName;
 

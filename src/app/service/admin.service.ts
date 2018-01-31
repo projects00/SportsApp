@@ -41,8 +41,6 @@ export class AdminService {
       headers: headers, withCredentials: true });
     return this.http.get(this.baseApi +"isAuthenticated",{ withCredentials: true }).map(response => {
       console.log(response.json());
-      alert(response.json());
-      debugger;
       return response.json()
     }
 
