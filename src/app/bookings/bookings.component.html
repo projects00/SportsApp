@@ -1,0 +1,304 @@
+<div class="col-md-12">
+  <div class="pannelDiv" id="pannel1">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Slot Master</h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li data-toggle="tooltip" title="Add Tournament">
+            <a href="#" data-toggle="modal" data-target="#SlotMaster" title="Add Slot">
+              <i class="lnr lnr-plus-circle"></i> Add Slot</a>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Active</th>
+              <th>timing</th>
+              <th>From Time</th>
+              <th>To Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>2</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="pannelDiv" id="pannel2">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Sports Master</h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li data-toggle="tooltip" title="Add Tournament">
+            <a href="#" data-toggle="modal" data-target="#AddSports" title="Add Sports">
+              <i class="lnr lnr-plus-circle"></i> Add Sports</a>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th># ID</th>
+              <th>Name</th>
+              <th>Category ID</th>
+              <th>Image ID</th>
+              <th>Active</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>2</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="pannelDiv" id="pannel3">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Arena Master</h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li data-toggle="tooltip" title="Add Arena">
+            <a href="#" data-toggle="modal" data-target="#AddArena" title="Add Arena">
+              <i class="lnr lnr-plus-circle"></i> Add Arena</a>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Address1</th>
+              <th>Address2</th>
+              <th>City ID</th>
+              <th>Sports ID</th>
+              <th>State</th>
+              <th>Const</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>2</td>
+              <td>4</td>
+              <td>5</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="pannelDiv" id="pannel4">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Slop Mapping</h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li data-toggle="tooltip" title="Add Tournament">
+            <a href="#" data-toggle="modal" data-target="#SlopMapping" title="Add Slop Mapping">
+              <i class="lnr lnr-plus-circle"></i> Add Slop Mapping</a>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th># ID</th>
+              <th>Slot ID</th>
+              <th>Court ID</th>
+              <th>Arena ID</th>
+              <th>Active</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>2</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="SlotMaster" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Slot Master</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="exampleInputEmail1"># id</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Active</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">timing</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">From Time</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">To Time</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="AddSports" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Add Sports</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="exampleInputEmail1"># id</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Active</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">timing</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">From Time</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">To Time</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="AddArena" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Slot Master</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="exampleInputEmail1"># id</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Active</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">timing</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">From Time</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">To Time</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="SlopMapping" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Slop Mapping</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="exampleInputEmail1"># id</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Active</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">timing</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">From Time</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">To Time</label>
+          <input type="text" formControlName="tornamentName" class="form-control" id="exampleInputEmail1">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

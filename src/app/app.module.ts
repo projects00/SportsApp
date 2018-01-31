@@ -24,6 +24,7 @@ import { CartComponent } from './cart/cart.component';
 import { WeekfilterPipe } from './weekfilter.pipe';
 import { RemovezeroPipe } from './removezero.pipe';
 import { ControlMessagesComponent } from './control-messages/control-messages.component';
+import { BookingsComponent } from './bookings/bookings.component';
  
 const routes: Routes = [{
   path: 'login',
@@ -37,7 +38,8 @@ const routes: Routes = [{
                 { path: 'tournament', component: TournamentComponent} ,
                   { path: 'tournamentdetail', component: TournamentDetailComponent },
                    { path: 'quotes', component: QuotesComponent },
-                     { path: 'banner', component: BannerComponent }
+                     { path: 'banner', component: BannerComponent },
+                     { path: 'bookings', component: BookingsComponent }
                    ]
 },
                   {
@@ -74,7 +76,8 @@ const routes: Routes = [{
     CartComponent,
     WeekfilterPipe,
     RemovezeroPipe,
-    ControlMessagesComponent
+    ControlMessagesComponent,
+    BookingsComponent
   ],
   imports: [
     OwlModule,
