@@ -26,7 +26,9 @@ export class AdminService {
   init() {
 
   }
-  public baseApi = 'http://ec2-52-91-21-206.compute-1.amazonaws.com:5000/';
+public baseApi = 'http://ec2-52-91-21-206.compute-1.amazonaws.com:5000/';
+//public baseApi = 'http://localhost:5000/';
+
 
 
 
@@ -36,9 +38,9 @@ export class AdminService {
 
   isAuthenticatred() {
    debugger;
-    let headers = new Headers();
-    let options = new RequestOptions({
-      headers: headers, withCredentials: true });
+  //  let headers = new Headers();
+  //  let options = new RequestOptions({
+   //   headers: headers, withCredentials: true });
     return this.http.get(this.baseApi +"isAuthenticated",{ withCredentials: true }).map(response => {
       console.log(response.json());
       return response.json()
@@ -109,7 +111,8 @@ export class AdminService {
   }
 
   logOut(){
-     return this.http.get(this.baseApi + "logout").map(response => {
+ 
+     return this.http.get(this.baseApi + "logout",{withCredentials: true}).map(response => {
       console.log(response.json());
       return response.json()
     }
