@@ -59,7 +59,7 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let sb of booking | weekfilter:filterargs; let i = index ">
-                                        <th>{{i+1}}</th>
+                                        <td>{{i+1}}</td>
                                         <td>{{sb.courtname}}</td>
                                         <td>
                                             <div *ngFor="let slt of sb.slot;let i = index">

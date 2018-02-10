@@ -1,51 +1,105 @@
 <!--CART PAGE-->
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="box">
                 <h1>Booking Details</h1>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="box">
                 <table class="table">
                     <thead>
-                        <tr >
-                            <th>Item</th>
+                        <tr>
+                            <th>#</th>
+                            <th>Court Name</th>
+                            <th>Sports Name</th>
+                            <th>Venue</th>
+
+                            <th>Timing</th>
                             <th>Cost</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let bk of booking | removezero :filterargs">
-                            <th>{{bk.courtname}}-{{bk.week}}</th>
-                            <td>{{bk.amount}}</td>
+                        <tr *ngFor="let bk1 of booking | removezero :filterargs; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{bk1.courtname}}</td>
+                            <table>
+                                <tr *ngFor="let slot of bk1.slot">
+                            <td>{{slot.sportsName}}</td>
+                            <td>{{slot.areanaName}}</td>
+                            <td>{{slot.timing}}</td>
+                            <td>{{slot.cost}}</td>
+                                    </tr>
+                                </table>
+                           
                         </tr>
-                        
+
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <td class="text-right">Total Cost:</td>
-                            <td>{{total}}</td>
-                        </tr>
-                        <tr>
-                            <td class="text-right">Rewardablr Rank:</td>
-                            <td><input class="form-control" type="text"></td>
-                        </tr>
-                        <tr>
-                            <td class="text-right">Compond Code:</td>
-                            <td><input class="form-control" type="text"></td>
-                        </tr>
-                        <tr>
-                            <td class="text-right">Net Payable:</td>
-                            <td><strong>{{total}}</strong></td>
-                        </tr>
-                    </tfoot>
+
                 </table>
             </div>
         </div>
-        <div class="col-md-12">
-            <div class="mar200 text-right">
-                <a class="btn btn-primary btn-lg">Make Payment</a>
+
+
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h1>Payment Summery</h1>
+            <div class="box">
+                <table class="table table-bordered table-hover">
+                    <tbody>
+                        <tr>
+                            <td width="70%">Fees</td>
+                            <td class="text-right">200.00</td>
+                        </tr>
+                        <tr>
+                            <td>Rewards points balance: 100.00</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">Use rewards points :</div>
+                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Rewards points">
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-right">- 30.00</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">Coupon Code:</div>
+                                        <input type="text" class="form-control" id="exampleInputAmount" value="FTS10" placeholder="Coupon code">
+                                        <div class="input-group-addon">X</div>
+                                    </div>
+                                    <small>FTS10 has been applied. You have got discount of 20 rupees</small>
+                                </div>
+                            </td>
+                            <td class="text-right">- 20.00</td>
+                        </tr>
+                        <tr>
+                            <td>Total Fees</td>
+                            <td class="text-right">200.00</td>
+                        </tr>
+                        <tr>
+                            <td>Total discount</td>
+                            <td class="text-right">50.00</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="info">
+                            <td>Total Net Payable</td>
+                            <td class="text-right">
+                                <strong> 150.00</strong>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="text-right">
+                    <a (click)="showcart()" class="btn btn-primary btn-lg">Proceed to Pay</a>
+                </div>
             </div>
         </div>
     </div>

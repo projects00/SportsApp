@@ -51,7 +51,7 @@ export class BookingComponent implements OnInit {
 
   getBookingDetails(wk: String, courtid: String, arenaid: String) {
      this.booking = [];
-    this.adminService.getCourt(this.adminService.selectedArenaId.toString()).subscribe(data => {
+     this.adminService.getCourt(this.adminService.selectedArenaId.toString()).subscribe(data => {
       data.forEach(element => {
         const _court = new court();
         _court.id = element.courtid;
@@ -70,6 +70,8 @@ export class BookingComponent implements OnInit {
             _slot.slot = element1.slot;
             _slot.weekday = element1.currentday;
             _slot.date = element1.currentdt;
+            _slot.areanaName=element1.areanaName;
+            _slot.sportsName=element1.sportsName;
             _court.slot.push(_slot);
 
 
@@ -89,26 +91,32 @@ export class BookingComponent implements OnInit {
 
   }
   showcart() {
-   
-    this.adminService.isAuthenticatred().subscribe(data => {
-   debugger;
-             if (data == true) {
-      if (this.total > 0) {
+    if (this.total > 0) {
         this.adminService.booking = this.booking;
         this.router.navigateByUrl('/user/cart');
       }
       else
         alert("Invalid Selection");
-    }
-    else
-      {
-         this.router.navigateByUrl('/login');
-      }
+    
+  //   this.adminService.isAuthenticatred().subscribe(data => {
+  //  debugger;
+  //            if (data == true) {
+  //     if (this.total > 0) {
+  //       this.adminService.booking = this.booking;
+  //       this.router.navigateByUrl('/user/cart');
+  //     }
+  //     else
+  //       alert("Invalid Selection");
+  //   }
+  //   else
+  //     {
+  //        this.router.navigateByUrl('/login');
+  //     }
 
-          }, error => {
-     return null
+  //         }, error => {
+  //    return null
 
-    });
+  //   });
 
   }
 

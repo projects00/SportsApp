@@ -87,8 +87,7 @@ public baseApi = 'http://ec2-52-91-21-206.compute-1.amazonaws.com:5000/';
   }
 
   getBookingDetails(wk: String, court: String, arena: String) {
-    debugger;
-    return this.http.get(this.baseApi + "get/" + wk + "/" + court + "/" + arena).map(response => {
+       return this.http.get(this.baseApi + "get/" + wk + "/" + court + "/" + arena).map(response => {
       console.log(response.json());
       return response.json()
     }

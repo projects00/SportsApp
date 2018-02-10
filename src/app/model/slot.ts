@@ -5,5 +5,8 @@ export class slot {
   public cost:number;
   public slot:number;
   public weekday:string;
-  public date:string
+  public date:string;
+   public areanaName:string;
+    public sportsName:string;
+     
 }

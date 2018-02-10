@@ -17,6 +17,7 @@ filterargs = { amount: 0 };
   constructor(private adminService: AdminService) { }
 
   ngOnInit() {
+    debugger;
     this.booking=this.adminService.booking;
      for(let bk of this.booking){
            this.total=this.total+bk.amount;
