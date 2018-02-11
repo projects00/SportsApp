@@ -174,8 +174,6 @@ export class BookingComponent implements OnInit {
         this.subtotal = this.subtotal + slt.cost;
         amount = amount + slt.cost;
       }
-      else
-        slt.cost = 0;
     }
     e.amount = amount;
 
