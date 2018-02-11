@@ -15,6 +15,7 @@ export class AdminService {
   public selectedArenaId: Number;
   public selectedArenaName: String;
   public booking: any;
+  public bookingSlots:any;
   public isAuthenticated: boolean = false;
   constructor(private http: Http) {
 

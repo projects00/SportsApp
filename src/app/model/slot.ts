@@ -8,5 +8,6 @@ export class slot {
   public date:string;
    public areanaName:string;
     public sportsName:string;
+    public courtName:string;
      
 }

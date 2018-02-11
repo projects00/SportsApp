@@ -33,13 +33,14 @@ export class BookingComponent implements OnInit {
 
   }
   booking: any;
+  bookingSlots: any = [];
   arenaname: String;
   subtotal: Number = 0;
   court: any;
   total: Number = 0;
   //items = [{title: 'hello world',tt:'1'}, {title: 'hello kitty',tt:'2'}, {title: 'foo bar',tt:'3'}];
   ngOnInit() {
-  
+
     this.arenaname = this.adminService.selectedArenaName;
     this.court = [{ id: 1, courname: "court1", slot: [] }, { id: 2, courtname: "court2", slot: [] }];
     //  this.booking = [{ id: 1, courtname: "court1", slot: [{ id: 2, timing: "8am - 2pm", selected: false }, { id: 3, timing: "5pm - 9pm", selected: false }, { id: 3, timing: "9pm-12am", selected: false }], amount: 0 }, { id: 1, courtname: "court2", slot: [{ id: 4, timing: "10am - 11pm", selected: false }], amount: 0 }];
@@ -50,8 +51,9 @@ export class BookingComponent implements OnInit {
 
 
   getBookingDetails(wk: String, courtid: String, arenaid: String) {
-     this.booking = [];
-     this.adminService.getCourt(this.adminService.selectedArenaId.toString()).subscribe(data => {
+    this.booking = [];
+
+    this.adminService.getCourt(this.adminService.selectedArenaId.toString()).subscribe(data => {
       data.forEach(element => {
         const _court = new court();
         _court.id = element.courtid;
@@ -70,10 +72,11 @@ export class BookingComponent implements OnInit {
             _slot.slot = element1.slot;
             _slot.weekday = element1.currentday;
             _slot.date = element1.currentdt;
-            _slot.areanaName=element1.areanaName;
-            _slot.sportsName=element1.sportsName;
+            _slot.areanaName = element1.areanaName;
+            _slot.sportsName = element1.sportsName;
+            _slot.courtName = element1.courtsName;
             _court.slot.push(_slot);
-
+            this.bookingSlots.push(_slot);
 
           });
         }, error => {
@@ -91,37 +94,50 @@ export class BookingComponent implements OnInit {
 
   }
   showcart() {
-    if (this.total > 0) {
-        this.adminService.booking = this.booking;
-        this.router.navigateByUrl('/user/cart');
+    debugger;
+    for (let bk of this.booking) {
+      for (let slt of bk.slot) {
+        if (slt.selected == true) {
+          slt.cost = slt.cost;
+        }
+        else
+          slt.cost = 0;
       }
-      else
-        alert("Invalid Selection");
-    
-  //   this.adminService.isAuthenticatred().subscribe(data => {
-  //  debugger;
-  //            if (data == true) {
-  //     if (this.total > 0) {
-  //       this.adminService.booking = this.booking;
-  //       this.router.navigateByUrl('/user/cart');
-  //     }
-  //     else
-  //       alert("Invalid Selection");
-  //   }
-  //   else
-  //     {
-  //        this.router.navigateByUrl('/login');
-  //     }
 
-  //         }, error => {
-  //    return null
+    }
 
-  //   });
+    if (this.total > 0) {
+      this.adminService.booking = this.booking;
+      this.adminService.bookingSlots = this.bookingSlots;
+      this.router.navigateByUrl('/user/cart');
+    }
+    else
+      alert("Invalid Selection");
+
+    //   this.adminService.isAuthenticatred().subscribe(data => {
+    //  debugger;
+    //            if (data == true) {
+    //     if (this.total > 0) {
+    //       this.adminService.booking = this.booking;
+    //       this.router.navigateByUrl('/user/cart');
+    //     }
+    //     else
+    //       alert("Invalid Selection");
+    //   }
+    //   else
+    //     {
+    //        this.router.navigateByUrl('/login');
+    //     }
+
+    //         }, error => {
+    //    return null
+
+    //   });
 
   }
 
   getweekday(wk) {
-      var weekday;
+    var weekday;
     var result: any = [];
     let storeId = 1;
     result = this.booking.filter(
@@ -158,6 +174,8 @@ export class BookingComponent implements OnInit {
         this.subtotal = this.subtotal + slt.cost;
         amount = amount + slt.cost;
       }
+      else
+        slt.cost = 0;
     }
     e.amount = amount;
 

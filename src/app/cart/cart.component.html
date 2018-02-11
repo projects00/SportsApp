@@ -8,30 +8,26 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Court Name</th>
                             <th>Sports Name</th>
                             <th>Venue</th>
+                            <th>Court Name</th>
 
                             <th>Timing</th>
                             <th>Cost</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let bk1 of booking | removezero :filterargs; let i = index">
+                        <tr *ngFor="let bk1 of bookingSlots | removezero:filterargs; let i = index">
                             <td>{{i+1}}</td>
-                            <td>{{bk1.courtname}}</td>
-                            <table>
-                                <tr *ngFor="let slot of bk1.slot">
-                            <td>{{slot.sportsName}}</td>
-                            <td>{{slot.areanaName}}</td>
-                            <td>{{slot.timing}}</td>
-                            <td>{{slot.cost}}</td>
-                                    </tr>
-                                </table>
-                           
-                        </tr>
+                            <td>{{bk1.sportsName}}</td>
+                            <td>{{bk1.areanaName}}</td>
+                            <td>{{bk1.courtName}}</td>
+                            <td>{{bk1.timing}}</td>
+                            <td>{{bk1.cost}}</td>
 
-                    </tbody>
+                </tr>
+
+                </tbody>
 
                 </table>
             </div>

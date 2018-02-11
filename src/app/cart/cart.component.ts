@@ -12,13 +12,16 @@ import { AdminService } from '../service/admin.service';
 })
 export class CartComponent implements OnInit {
 booking:any=[];
+bookingSlots:any=[];
 total:number=0;
-filterargs = { amount: 0 };
+filterargs = { cost: 0 };
   constructor(private adminService: AdminService) { }
 
   ngOnInit() {
     debugger;
     this.booking=this.adminService.booking;
+            this.bookingSlots=this.adminService.bookingSlots;
+
      for(let bk of this.booking){
            this.total=this.total+bk.amount;
          

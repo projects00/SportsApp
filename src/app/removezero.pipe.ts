@@ -9,7 +9,7 @@ export class RemovezeroPipe implements PipeTransform {
            if (!items || !filter) {
             return items;
         }
-              return items.filter(item => item.amount>0);
+              return items.filter(item => item.cost>0);
     }
 
 }
