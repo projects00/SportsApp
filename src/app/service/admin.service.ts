@@ -15,7 +15,7 @@ export class AdminService {
   public selectedArenaId: Number;
   public selectedArenaName: String;
   public booking: any;
-  public bookingSlots:any;
+  public bookingSlots: any;
   public isAuthenticated: boolean = false;
   constructor(private http: Http) {
 
@@ -27,8 +27,8 @@ export class AdminService {
   init() {
 
   }
-public baseApi = 'http://ec2-52-91-21-206.compute-1.amazonaws.com:5000/';
-//public baseApi = 'http://localhost:5000/';
+  public baseApi = 'http://ec2-52-91-21-206.compute-1.amazonaws.com:5000/';
+  //public baseApi = 'http://localhost:5000/';
 
 
 
@@ -38,11 +38,11 @@ public baseApi = 'http://ec2-52-91-21-206.compute-1.amazonaws.com:5000/';
   ];
 
   isAuthenticatred() {
-   debugger;
-  //  let headers = new Headers();
-  //  let options = new RequestOptions({
-   //   headers: headers, withCredentials: true });
-    return this.http.get(this.baseApi +"isAuthenticated",{ withCredentials: true }).map(response => {
+    debugger;
+    //  let headers = new Headers();
+    //  let options = new RequestOptions({
+    //   headers: headers, withCredentials: true });
+    return this.http.get(this.baseApi + "isAuthenticated", { withCredentials: true }).map(response => {
       console.log(response.json());
       return response.json()
     }
@@ -88,7 +88,7 @@ public baseApi = 'http://ec2-52-91-21-206.compute-1.amazonaws.com:5000/';
   }
 
   getBookingDetails(wk: String, court: String, arena: String) {
-       return this.http.get(this.baseApi + "get/" + wk + "/" + court + "/" + arena).map(response => {
+    return this.http.get(this.baseApi + "get/" + wk + "/" + court + "/" + arena).map(response => {
       console.log(response.json());
       return response.json()
     }
@@ -98,11 +98,12 @@ public baseApi = 'http://ec2-52-91-21-206.compute-1.amazonaws.com:5000/';
 
   logIn(userName: String, password: String) {
     var log = { "email": userName, "password": password };
-        let headers = new Headers();
+    let headers = new Headers();
     let options = new RequestOptions({
-      headers: headers, withCredentials: true });
-     
- return this.http.post(this.baseApi +"login", log,options).map(response => {
+      headers: headers, withCredentials: true
+    });
+
+    return this.http.post(this.baseApi + "login", log, options).map(response => {
       console.log(response.json());
       return response.json()
     }
@@ -110,9 +111,9 @@ public baseApi = 'http://ec2-52-91-21-206.compute-1.amazonaws.com:5000/';
     );
   }
 
-  logOut(){
- 
-     return this.http.get(this.baseApi + "logout",{withCredentials: true}).map(response => {
+  logOut() {
+
+    return this.http.get(this.baseApi + "logout", { withCredentials: true }).map(response => {
       console.log(response.json());
       return response.json()
     }
@@ -195,7 +196,7 @@ public baseApi = 'http://ec2-52-91-21-206.compute-1.amazonaws.com:5000/';
         debugger;
         console.log(error.json());
       });
-  }in
+  } in
   deleteCity(id: string) {
     return this.http.put(this.baseApi + "delete/city/" + id, null).map(response => {
       console.log(response.json());
@@ -220,6 +221,38 @@ public baseApi = 'http://ec2-52-91-21-206.compute-1.amazonaws.com:5000/';
     );
   }
 
+  getReward(userid) {
+    debugger;
+    return this.http.get(this.baseApi + "get/reward/" + userid).map(response => {
+      console.log(response.json());
+      return response.json()
+    }
+
+    );
+  }
+
+
+
+  getCoupon(coupon) {
+    debugger;
+    return this.http.get(this.baseApi + "get/coupon/" + coupon).map(response => {
+      console.log(response.json());
+      return response.json()
+    }
+
+    );
+  }
+
+  updateReward(userid: string, utilized: Number) {
+    return this.http.put(this.baseApi + "update/reward/" + userid, { used: utilized }).map(response => {
+      console.log(response.json());
+      return response.json()
+    },
+      (error) => {
+        debugger;
+        console.log(error.json());
+      });
+  }
   deleteType(id: string) {
     return this.http.put(this.baseApi + "delete/type/" + id, null).map(response => {
       console.log(response.json());
