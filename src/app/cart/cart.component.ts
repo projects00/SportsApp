@@ -14,6 +14,9 @@ export class CartComponent implements OnInit {
 booking:any=[];
 bookingSlots:any=[];
 total:number=0;
+RewardPoint:number=0;
+Rewardused:number=0;
+Coupon:number=0;
 filterargs = { cost: 0 };
   constructor(private adminService: AdminService) { }
 
@@ -26,6 +29,36 @@ filterargs = { cost: 0 };
            this.total=this.total+bk.amount;
          
       }
+
+      this.getReward();
+      this.getCoupon();
   }
 
+  getReward(){
+     this.adminService.getReward("1").subscribe(
+      (respose) => {
+        debugger;
+       this.RewardPoint=respose.balance;
+       this.Rewardused=respose.used;
+      },
+      (error) => {
+        console.log(error.json());
+      }
+
+    );
+  }
+
+    getCoupon(){
+     this.adminService.getReward("FTS10").subscribe(
+      (respose) => {
+        debugger;
+       this.Coupon=respose.amt;
+     
+      },
+      (error) => {
+        console.log(error.json());
+      }
+
+    );
+  }
 }
