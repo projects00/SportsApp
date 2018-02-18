@@ -99,6 +99,18 @@ export class HomeComponent {
     this.router.navigateByUrl('/login');
  
   }
+
+  orderHistory(){
+    debugger;
+    this.router.navigateByUrl('/user/order');
+  }
+  
+ couponDetail(){
+    this.router.navigateByUrl('/user/coupon');
+  }
+   rewardDetail(){
+    this.router.navigateByUrl('/user/reward');
+  }
   ngOnInit() {
 
   }

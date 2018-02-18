@@ -45,7 +45,7 @@
                     <tbody>
                         <tr>
                             <td width="70%">Fees</td>
-                            <td class="text-right">200.00</td>
+                            <td class="text-right">{{total}}</td>
                         </tr>
                         <tr>
                             <td>Rewards points balance: {{RewardPoint}}</td>
@@ -56,45 +56,45 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-addon">Use rewards points :</div>
-                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Rewards points">
+                                        <input type="text"  [(ngModel)]="RewardDiscount" class="form-control" (input)="rewardchange($event)" id="exampleInputAmount" placeholder="Rewards points">
                                     </div>
                                 </div>
                             </td>
-                            <td class="text-right">- 30.00</td>
+                            <td class="text-right">- {{RewardDiscount}}</td>
                         </tr>
                         <tr>
                             <td>
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-addon">Coupon Code:</div>
-                                        <input type="text" class="form-control" id="exampleInputAmount" value="FTS10" placeholder="Coupon code">
+                                        <input type="text" class="form-control" [(ngModel)]="CouponCode" (input)="couponchange($event)"  id="exampleInputAmount" value="FTS10" placeholder="Coupon code">
                                         <div class="input-group-addon">X</div>
                                     </div>
                                     <small>FTS10 has been applied. You have got discount of 20 rupees</small>
                                 </div>
                             </td>
-                            <td class="text-right">- 20.00</td>
+                            <td class="text-right">- {{Coupon}}</td>
                         </tr>
                         <tr>
                             <td>Total Fees</td>
-                            <td class="text-right">200.00</td>
+                            <td class="text-right">{{total}}</td>
                         </tr>
                         <tr>
                             <td>Total discount</td>
-                            <td class="text-right">50.00</td>
+                            <td class="text-right">{{totalDiscount}}</td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr class="info">
                             <td>Total Net Payable</td>
                             <td class="text-right">
-                                <strong> 150.00</strong>
+                                <strong> {{balance}}</strong>
                             </td>
                         </tr>
                     </tfoot>
                 </table>
                 <div class="text-right">
-                    <a (click)="showcart()" class="btn btn-primary btn-lg">Proceed to Pay</a>
+                    <a (click)="payment()" class="btn btn-primary btn-lg">Proceed to Pay</a>
                 </div>
             </div>
         </div>

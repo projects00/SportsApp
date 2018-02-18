@@ -22,9 +22,22 @@
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="index.html">Contact Us</a></li>
-                              <li><a (click)="onClick()" *ngIf="logbtn===false" class="btn btn-primary">Login / Register</a></li>
+                            <li>
+                                <div class="dropdown">
+                                    <a href="#" class="hasicon" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="user-placeholder"><span class="badge onmenu">5</span></span> John Doe</a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li><a href="#"><span class="lnr lnr-user"></span> Hi, John Doe</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a (click)="orderHistory()"><span class="lnr lnr-apartment" ></span><span class="txtmenu">Order History</span></a></li>
+                                        <li><a (click)="rewardDetail()"><span class="lnr lnr-warning"></span><span class="txtmenu">Reward Summary</span></a></li>
+                                        <li><a (click)="couponDetail()"><span class="lnr lnr-magic-wand"></span><span class="txtmenu">Coupon update</span></a></li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a (click)="onClick()" *ngIf="logbtn===false" class="btn btn-primary">Login / Register</a></li>
                             <li><a (click)="onLogout()" *ngIf="logbtn===true" class="btn btn-primary">Log Out</a></li>
-                             </ul>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -83,11 +96,11 @@
                         <div class="form-group col-md-12">
                             <div class="box">
                                 <p class="mar0"><label for="exampleInputEmail1">Outdoor</label></p>
-                                <button  (click)="sportsClick()" class="btn btn-default" type="submit">Foodball</button>
-                                <button  (click)="sportsClick()" class="btn btn-default" type="submit">Cricket</button><br><br>
+                                <button (click)="sportsClick()" class="btn btn-default" type="submit">Foodball</button>
+                                <button (click)="sportsClick()" class="btn btn-default" type="submit">Cricket</button><br><br>
                                 <p class="mar0"><label for="exampleInputEmail1">Indoor</label></p>
-                                <button   (click)="sportsClick()"class="btn btn-default" type="submit">Table Tennis</button>
-                                <button  (click)="sportsClick()" class="btn btn-default" type="submit">Badmittan</button>
+                                <button (click)="sportsClick()" class="btn btn-default" type="submit">Table Tennis</button>
+                                <button (click)="sportsClick()" class="btn btn-default" type="submit">Badmittan</button>
                             </div>
                         </div>
                         <!--<div class="form-group col-md-12">

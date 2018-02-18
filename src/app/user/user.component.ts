@@ -28,8 +28,22 @@ export class UserComponent implements OnInit {
 
     });
   }
+
+    orderHistory(){
+    debugger;
+    this.router.navigateByUrl('/user/order');
+  }
+  
+ couponDetail(){
+   debugger;
+    this.router.navigateByUrl('/user/coupon');
+  }
+   rewardDetail(){
+     debugger;
+    this.router.navigateByUrl('/user/reward');
+  }
   ngOnInit() {
-    this.router.navigateByUrl("user/sportsarena");
+ //   this.router.navigateByUrl("user/sportsarena");
   }
 
 }

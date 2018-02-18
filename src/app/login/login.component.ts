@@ -76,24 +76,24 @@ export class LoginComponent implements OnInit {
   onClick(): void {
     //
     // logIn
-   ///  this.router.navigateByUrl('admin');
-   this.adminService.logIn(this.loginForm.value.logemail, this.loginForm.value.logpass).subscribe(data => {
+    this.router.navigateByUrl('admin');
+  //  this.adminService.logIn(this.loginForm.value.logemail, this.loginForm.value.logpass).subscribe(data => {
 
-       if (data.role==1){
-     this.router.navigateByUrl('admin');
-      this.adminService.isAuthenticated=true;
-       }
-      else
-       {
-      this.adminService.logbtn=true;
-         this.router.navigateByUrl('home');
-        this.isAuthenticated();
-       this.adminService.isAuthenticated=true;
-       }
-     this.isAuthenticated();
-   }, error => {
-     return null
+  //      if (data.role==1){
+  //    this.router.navigateByUrl('admin');
+  //     this.adminService.isAuthenticated=true;
+  //      }
+  //     else
+  //      {
+  //     this.adminService.logbtn=true;
+  //        this.router.navigateByUrl('home');
+  //       this.isAuthenticated();
+  //      this.adminService.isAuthenticated=true;
+  //      }
+  //    this.isAuthenticated();
+  //  }, error => {
+  //    return null
 
-   });
+  //  });
   }
 }

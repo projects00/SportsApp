@@ -25,6 +25,9 @@ import { WeekfilterPipe } from './weekfilter.pipe';
 import { RemovezeroPipe } from './removezero.pipe';
 import { ControlMessagesComponent } from './control-messages/control-messages.component';
 import { BookingsComponent } from './bookings/bookings.component';
+import { OrderhistoryComponent } from './orderhistory/orderhistory.component';
+import { RewardComponent } from './reward/reward.component';
+import { CouponComponent } from './coupon/coupon.component';
  
 const routes: Routes = [{
   path: 'login',
@@ -48,7 +51,10 @@ const routes: Routes = [{
   children : [
                 { path: 'sportsarena', component: SportsarenaComponent },
                  { path: 'booking', component: BookingComponent },
-                  { path: 'cart', component: CartComponent }
+                  { path: 'cart', component: CartComponent },
+                    { path: 'order', component: OrderhistoryComponent },
+                      { path: 'reward', component: RewardComponent },
+                        { path: 'coupon', component: CouponComponent }
                    ]
 },
 {
@@ -77,7 +83,10 @@ const routes: Routes = [{
     WeekfilterPipe,
     RemovezeroPipe,
     ControlMessagesComponent,
-    BookingsComponent
+    BookingsComponent,
+    OrderhistoryComponent,
+    RewardComponent,
+    CouponComponent
   ],
   imports: [
     OwlModule,
