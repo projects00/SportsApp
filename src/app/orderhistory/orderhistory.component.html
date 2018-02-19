@@ -14,76 +14,21 @@
                             <th>Reward points used</th>
                             <th>Coupon Code Discount</th>
                             <th>Net Fees Paid</th>
-                            <th>Re-Book</th>
-                            <th>Support</th>
-                        </tr>
+                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>23</td>
-                            <td>2342342323</td>
-                            <td>12/03/2018</td>
+                        <tr *ngFor="let sb of slides;let i =index">
+                            <td>{{sb.id}}</td>
+                            <td>{{sb.transactionid}}</td>
+                            <td>{{sb.bookingdate| date:'short'}}</td>
                             <td>Some text</td>
-                            <td>500</td>
-                            <td>50</td>
-                            <td>20%</td>
-                            <td>200</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm">Re-Book</button>
-                            </td>
-                            <td>
-                                <button class="btn btn-default btn-sm">Support</button>
-                            </td>
+                            <td>{{sb.fees}}</td>
+                            <td>{{sb.reward}}</td>
+                            <td>{{sb.couponamt}}</td>
+                            <td>{{sb.totalamount}}</td>
+ 
                         </tr>
-                        <tr>
-                            <td>23</td>
-                            <td>2342342323</td>
-                            <td>12/03/2018</td>
-                            <td>Some text</td>
-                            <td>500</td>
-                            <td>50</td>
-                            <td>20%</td>
-                            <td>200</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm">Re-Book</button>
-                            </td>
-                            <td>
-                                <button class="btn btn-default btn-sm">Support</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>23</td>
-                            <td>2342342323</td>
-                            <td>12/03/2018</td>
-                            <td>Some text</td>
-                            <td>500</td>
-                            <td>50</td>
-                            <td>20%</td>
-                            <td>200</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm">Re-Book</button>
-                            </td>
-                            <td>
-                                <button class="btn btn-default btn-sm">Support</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>23</td>
-                            <td>2342342323</td>
-                            <td>12/03/2018</td>
-                            <td>Some text</td>
-                            <td>500</td>
-                            <td>50</td>
-                            <td>20%</td>
-                            <td>200</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm">Re-Book</button>
-                            </td>
-                            <td>
-                                <button class="btn btn-default btn-sm">Support</button>
-                            </td>
-                        </tr>
-
+     
                     </tbody>
                 </table>
             </div>

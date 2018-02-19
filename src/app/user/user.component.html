@@ -24,9 +24,9 @@
                             <li class="dropdown"><a href="index.html">Contact Us</a></li>
                             <li>
                                 <div class="dropdown">
-                                    <a href="#" class="hasicon" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="user-placeholder"><span class="badge onmenu">5</span></span> John Doe</a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                        <li><a href="#"><span class="lnr lnr-user"></span> Hi, John Doe</a></li>
+                                    <a href="#" class="hasicon" *ngIf="logbtn===true" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="user-placeholder"><span class="badge onmenu">5</span></span> John Doe</a>
+                                    <ul class="dropdown-menu" *ngIf="logbtn===true"  aria-labelledby="dropdownMenu1">
+                                        <li><a href="#"><span class="lnr lnr-user"></span> Hi, Bhu</a></li>
                                         <li role="separator" class="divider"></li>
                                         <li><a (click)="orderHistory()"><span class="lnr lnr-apartment" ></span><span class="txtmenu">Order History</span></a></li>
                                         <li><a (click)="rewardDetail()"><span class="lnr lnr-warning"></span><span class="txtmenu">Reward Summary</span></a></li>

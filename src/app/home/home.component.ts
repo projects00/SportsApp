@@ -16,7 +16,7 @@ export class HomeComponent {
   slides: any;
   cities: any;
   sports: any;
-    logbtn:boolean=false;
+  logbtn: boolean = false;
   ODsports: any;
   INsports: any;
   qutoes: any;
@@ -34,7 +34,7 @@ export class HomeComponent {
     this.ODsports = [];
     this.INsports = [];
     this.showCity = true;
-    this.logbtn=adminService.logbtn;
+    this.logbtn = adminService.logbtn;
 
     const ban = new Banner();
     //ban.title="sdf";
@@ -50,28 +50,28 @@ export class HomeComponent {
 
     this.getLatestQuotes();
 
-   this.isAuthenticated();
+    this.isAuthenticated();
 
   }
 
-  isAuthenticated(){
-      this.adminService.isAuthenticatred().subscribe(data => {
+  isAuthenticated() {
+    this.adminService.isAuthenticatred().subscribe(data => {
       this.adminService.isAuthenticated = data;
-       this.logbtn=this.adminService.isAuthenticated;
+      this.logbtn = this.adminService.isAuthenticated;
     }, error => {
       return null
 
     });
   }
 
-  onLogout(){
+  onLogout() {
     this.logout();
   }
-    logout(){
-         this.adminService.logOut().subscribe(data => {
-        this.adminService.isAuthenticated = false;
-      this.adminService.logbtn=false;
-       this.logbtn=this.adminService.isAuthenticated;
+  logout() {
+    this.adminService.logOut().subscribe(data => {
+      this.adminService.isAuthenticated = false;
+      this.adminService.logbtn = false;
+      this.logbtn = this.adminService.isAuthenticated;
     }, error => {
       return null
 
@@ -89,26 +89,27 @@ export class HomeComponent {
   }
   sportsClick(sport): void {
     $("#PlaySports").modal("toggle");
-    this.router.navigateByUrl('/user');
+    // this.router.navigateByUrl('/user');
+    this.router.navigateByUrl('/user/sportsarena');
     this.adminService.selectedSportsId = sport.id;
-     this.adminService.selectedSportsName = sport.name;
+    this.adminService.selectedSportsName = sport.name;
 
   }
 
   onClick(): void {
     this.router.navigateByUrl('/login');
- 
+
   }
 
-  orderHistory(){
+  orderHistory() {
     debugger;
     this.router.navigateByUrl('/user/order');
   }
-  
- couponDetail(){
+
+  couponDetail() {
     this.router.navigateByUrl('/user/coupon');
   }
-   rewardDetail(){
+  rewardDetail() {
     this.router.navigateByUrl('/user/reward');
   }
   ngOnInit() {
@@ -143,7 +144,7 @@ export class HomeComponent {
     this.qutoes = [];
     this.adminService.getLatestQuotes().subscribe(
       (respose) => {
-         respose.forEach(element => {
+        respose.forEach(element => {
           const slide = new quotes();
           slide.id = element.id;
           slide.author = element.author;
@@ -162,7 +163,7 @@ export class HomeComponent {
     this.slides = [];
     this.adminService.getActiveBanner().subscribe(
       (respose) => {
-         respose.forEach(element => {
+        respose.forEach(element => {
           const slide = new Banner();
           slide.id = element.id;
           slide.title = element.title;

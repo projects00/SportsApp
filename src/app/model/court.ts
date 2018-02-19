@@ -4,5 +4,6 @@ export class court {
   public slot: any;
   public amount:number;
   public week:String;
+  public custid:number;
 
 }

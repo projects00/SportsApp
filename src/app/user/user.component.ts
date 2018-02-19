@@ -23,6 +23,7 @@ export class UserComponent implements OnInit {
         this.adminService.isAuthenticated = false;
       this.adminService.logbtn=false;
        this.logbtn=this.adminService.isAuthenticated;
+        this.router.navigateByUrl('/home');
     }, error => {
       return null
 
@@ -43,7 +44,22 @@ export class UserComponent implements OnInit {
     this.router.navigateByUrl('/user/reward');
   }
   ngOnInit() {
+    this.isAuthenticated();
  //   this.router.navigateByUrl("user/sportsarena");
   }
 
+    onLogout() {
+    this.logout();
+  }
+
+  
+  isAuthenticated() {
+    this.adminService.isAuthenticatred().subscribe(data => {
+      this.adminService.isAuthenticated = data;
+      this.logbtn = this.adminService.isAuthenticated;
+    }, error => {
+      return null
+
+    });
+  }
 }

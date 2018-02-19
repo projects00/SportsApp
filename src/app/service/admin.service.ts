@@ -28,7 +28,7 @@ export class AdminService {
 
   }
   public baseApi = 'http://ec2-52-91-21-206.compute-1.amazonaws.com:5000/';
-  //public baseApi = 'http://localhost:5000/';
+ // public baseApi = 'http://localhost:5000/';
 
 
 
@@ -146,8 +146,32 @@ export class AdminService {
     );
   }
 
+  getOrderHistory() {
+    return this.http.get(this.baseApi + "get/orderhistory/1").map(response => {
+      console.log(response.json());
+      return response.json()
+    }
 
+    );
+  }
 
+  getRewardSummary() {
+    return this.http.get(this.baseApi + "get/rewardsummary/1").map(response => {
+      console.log(response.json());
+      return response.json()
+    }
+
+    );
+  }
+
+  getCouponMaster() {
+    return this.http.get(this.baseApi + "get/couponmaster").map(response => {
+      console.log(response.json());
+      return response.json()
+    }
+
+    );
+  }
   getImage(id) {
     return this.http.get(this.baseApi + "get/img/" + id, { responseType: ResponseContentType.Blob })
       .map((res: Response) => res.blob());
@@ -155,6 +179,16 @@ export class AdminService {
   }
   saveTournament(tournament: any) {
     return this.http.post(this.baseApi + "insert", tournament).map(response => response.json());
+
+  }
+
+  saveCart(cart: any) {
+    return this.http.post(this.baseApi + "do/cart", cart).map(response => response.json());
+
+  }
+
+  saveBooking(booking: any) {
+    return this.http.post(this.baseApi + "do/booking", booking).map(response => response.json());
 
   }
   saveCity(city) {
@@ -187,7 +221,6 @@ export class AdminService {
 
 
   deleteBanner(id) {
-    debugger;
     return this.http.put(this.baseApi + "delete/banner/" + id, null).map(response => {
       console.log(response.json());
       return response.json()

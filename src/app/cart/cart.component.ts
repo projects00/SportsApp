@@ -1,10 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter, Pipe } from '@angular/core';
-import { Router } from '@angular/router';
 import { Banner } from '../model/Banner';
 import { city } from '../model/city';
 import { quotes } from '../model/quotes';
 import { AdminService } from '../service/admin.service';
-
+import { cart } from '../model/cart';
+import { booking } from '../model/booking';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -22,7 +23,11 @@ CouponCode:String;
 filterargs = { cost: 0 };
 totalDiscount:number=0;
 balance:number=0;
-  constructor(private adminService: AdminService) { }
+randomNumber:number=0;
+  constructor(private adminService: AdminService,private router: Router ) {
+    this.randomNumber=Math.floor(Math.random() * (100 - 10 + 1)) + 10;
+
+   }
 
   ngOnInit() {
     debugger;
@@ -53,6 +58,32 @@ balance:number=0;
     );
   }
 
+
+    saveBooking() {
+
+    for (let bk of this.booking) {
+      for (let slt of bk.slot) {
+        if (slt.selected == true) {
+          const _cart = new booking();
+          _cart.slotid = slt.slotid;
+          _cart.courtid = bk.courtid;
+          _cart.custid = 1;//bk.custid;
+          _cart.reward = this.RewardDiscount;
+          _cart.couponcode=this.CouponCode;
+          _cart.couponamt=this.Coupon;
+          _cart.totalamount=this.total;
+          _cart.transactionid=slt.transactionid;
+          this.adminService.saveBooking(_cart).subscribe(
+            (respose) => {
+              console.log(respose);
+            });
+        }
+      }
+
+    }
+alert("saved");
+
+  }
    rewardchange(newValue){
       this.totalDiscount=this.Coupon+ this.RewardDiscount;
        this.balance=this.total-this.totalDiscount;
@@ -64,8 +95,13 @@ balance:number=0;
   payment(){
      var dd=this.RewardDiscount;
     var dfsd=this.CouponCode;
+    this.saveBooking();
   }
 
+
+
+  
+  
     getCoupon(coupon){
      this.adminService.getCoupon(coupon).subscribe(
       (respose) => {
