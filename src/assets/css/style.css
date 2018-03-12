@@ -9,7 +9,7 @@ body { font-family: 'Quicksand', sans-serif; color: #111; background: #f2f2f2; }
 .bgblue { background: #a1e0f5; }
 .bgorange { background: #f17348}
 .relative { position: relative; }
-.user-placeholder2 { background: url(../images/user.jpg) no-repeat center center; top: 0; left: 15px; position: absolute; background-size: 100% auto; border-radius: 50%; width: 40px; height: 40px; }
+.user-placeholder2 { background: url(assets/images/user.jpg) no-repeat center center; top: 0; left: 15px; position: absolute; background-size: 100% auto; border-radius: 50%; width: 40px; height: 40px; }
 
 .bgfooter { background: #2a86a5; padding: 120px 0 40px 0; }
 .bgdark p, .bgdark h1, .bgdark h2, .bgdark h3, .bgdark h4,.bgblue p, .bgblue h1, .bgblue h2, .bgblue h3, .bgblue ul li { color: #2a86a5; }
@@ -18,7 +18,7 @@ body { font-family: 'Quicksand', sans-serif; color: #111; background: #f2f2f2; }
 .bgfooter p, .bgfooter h1, .bgfooter h2, .bgfooter h3, .bgfooter h4,.bgfooter a { color: #eee !important; }
 ::selection { background: #2a86a5; color: #FFFFFF; }
 ::-moz-selection { background: #2a86a5; color: #FFFFFF; }
-.sectiontitle { margin: 15px 0 35px 0; background: url(../images/title.png); padding: 10px; color: #2a86a5; }
+.sectiontitle { margin: 15px 0 35px 0; background: url(assets/images/title.png); padding: 10px; color: #2a86a5; }
 .text-primary { color: #2a86a5; }
 .dropdown-menu > li > a { padding: 10px 15px; }
 .sectionpad { padding: 40px 0; }
@@ -79,15 +79,16 @@ h3 { font-size: 1.6em; }
 .btn-default:hover, .btn-default:focus { background: #2a86a5; color: #fff !important; }
 .nav.nav-tabs > li { margin-right: 10px; }
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus { color: #FFF; cursor: default; background-color: #2a86a5; border: 1px solid #2a86a5; border-bottom-color: transparent; }
-.nav-tabs > li > a:hover, .nav-tabs > li > a:focus, .nav-tabs li.active a { background: #2a86a5; color: #fff;  }
+.nav-tabs > li > a:focus, .nav-tabs li.active a { background: #2a86a5; color: #fff; transition: .4s ease all  }
+.nav-tabs > li > a:hover {background: #eee;color: #222;transition: .4s ease all}
 .carousel-caption { z-index: 10; bottom: 100px; text-shadow: none; color: #fff; text-align: center; padding: 0;left: 20px; right: 50%; }
 .location { background: #345e2a; padding: 20px;}
 .LiveScore { background: #d8f1f9; padding: 20px;}
 .location h3{ margin: 0; color: #fff;}
 .LiveScore h3{ margin: 0 0 10px; color: #2a86a5;}
 .ba{background: #d8f1f9}
-.quotes{ padding: 0 10px 0 70px; background: url(../images/quotes.png) no-repeat left top; margin: 10px 120px;}
-.carousel-main { height: 100%; width: 100%; background: url(../images/loading.gif) center center no-repeat; }
+.quotes{ padding: 0 10px 0 70px; background: url(assets/images/quotes.png) no-repeat left top; margin: 10px 120px;}
+.carousel-main { height: 100%; width: 100%; background: url(assets/images/loading.gif) center center no-repeat; }
 .owl-carousel .item { width: 100%; height: 100%; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; -o-background-size: cover; }
     .owl-carousel .item h1, .owl-carousel .item h2 { margin: 0; color: #2a86a5; line-height: 1.4; text-align: left }
     .owl-carousel .item h1 { font-size: 2.6em; font-weight: bolder; text-transform: uppercase; }
