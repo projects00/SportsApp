@@ -10,6 +10,7 @@ body { font-family: 'Quicksand', sans-serif; color: #111; background: #f2f2f2; }
 .bgorange { background: #f17348}
 .relative { position: relative; }
 .user-placeholder2 { background: url(assets/images/user.jpg) no-repeat center center; top: 0; left: 15px; position: absolute; background-size: 100% auto; border-radius: 50%; width: 40px; height: 40px; }
+.noselect {-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
 
 .bgfooter { background: #2a86a5; padding: 120px 0 40px 0; }
 .bgdark p, .bgdark h1, .bgdark h2, .bgdark h3, .bgdark h4,.bgblue p, .bgblue h1, .bgblue h2, .bgblue h3, .bgblue ul li { color: #2a86a5; }
@@ -109,6 +110,8 @@ app-root, app-root app-login, app-root app-login>#top { height: 100%}
 .chkbox {float: left;margin: 0 5px 0;}
 .chkbox label {margin: 0;cursor: pointer;padding: 1px 5px;background: #2a86a5;color: #fff;border-radius: 3px;}
 .chkbox label:hover, .chkbox label.active { background: #999;}
+.chkboxnew  {margin: 0;cursor: pointer;padding: 1px 5px; background: palegoldenrod;color: #fff;border-radius: 3px;}
+  
 @media (max-width: 992px) {
     h1 { font-size: 1.6em; }
     h2 { font-size: 1.4em; }

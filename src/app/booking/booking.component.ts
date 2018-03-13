@@ -20,8 +20,10 @@ declare var $: any;
 })
 export class BookingComponent implements OnInit {
   items: any;
+  bookFilteredList:any;
   filterargs = { week: '0' };
   randomNumber:String;
+  
   test:String="";
   public id: Guid;
   
@@ -83,6 +85,7 @@ this.randomNumber = Guid.create().toString();
             _slot.areanaName = element1.areanaName;
             _slot.sportsName = element1.sportsName;
             _slot.courtName = element1.courtsName;
+            _slot.timediff=element1.timediff;
             _court.slot.push(_slot);
             this.bookingSlots.push(_slot);
 
@@ -202,20 +205,22 @@ this.router.navigateByUrl('/user/cart');
 
   }
 
-  slotSelection(e) {
+  slotSelection(e,i) {
+    
     var amount = 0;
     this.total = 0;
-    for (let slt of e.slot) {
+       for (let slt of e.slot) {
       if (slt.selected == true) {
-        this.subtotal = this.subtotal + slt.cost;
+        this.subtotal = e.amount;
         amount = amount + slt.cost;
       }
     }
     e.amount = amount;
 
+
     for (let bk of this.booking) {
       this.total = this.total + bk.amount;
-
+      
     }
   }
 }

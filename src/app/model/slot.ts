@@ -9,5 +9,6 @@ export class slot {
    public areanaName:string;
     public sportsName:string;
     public courtName:string;
+    public timediff:string;
      
 }
